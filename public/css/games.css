@@ -1,0 +1,7 @@
+.game-single { margin-bottom:2rem; }
+.game-single .box { border:2px solid darkgreen; border-bottom-right-radius:0.4rem; border-bottom-left-radius:0.4rem; }
+.game-single .box header { background-color:lightgreen; padding:0.5rem; margin-bottom:0.25rem; }
+
+.game-text { padding:0.5rem; }
+
+.game-single p { margin:0; }

@@ -1,0 +1,29 @@
+#rating-radiolist .radiolist label { background-position:left center; background-repeat:no-repeat; background-size:auto 100%; background-image:url('/img/svg/star.svg'); transition:background-image .4s, color .4s; width:1rem; height:1rem; }
+#rating-radiolist .radiolist input[type="radio"]:checked ~ label { transition:background-image .4s, color .4s; }
+#rating-radiolist .radiolist input[type="radio"] ~ label:focus { border:1px solid red; }
+
+#rating-radiolist .radiolist input[type="radio"]:nth-of-type(1):checked ~ .labels label:nth-child(1) { background-image:url('/img/svg/star-fill.svg'); }
+
+#rating-radiolist .radiolist input[type="radio"]:nth-of-type(2):checked ~ .labels label:nth-child(1),
+#rating-radiolist .radiolist input[type="radio"]:nth-of-type(2):checked ~ .labels label:nth-child(2) {
+    background-image:url('/img/svg/star-fill.svg');
+}
+
+#rating-radiolist .radiolist input[type="radio"]:nth-of-type(3):checked ~ .labels label:nth-child(1),
+#rating-radiolist .radiolist input[type="radio"]:nth-of-type(3):checked ~ .labels label:nth-child(2),
+#rating-radiolist .radiolist input[type="radio"]:nth-of-type(3):checked ~ .labels label:nth-child(3) {
+    background-image:url('/img/svg/star-fill.svg');
+}
+
+#rating-radiolist .radiolist input[type="radio"]:nth-of-type(4):checked ~ .labels label:nth-child(1),
+#rating-radiolist .radiolist input[type="radio"]:nth-of-type(4):checked ~ .labels label:nth-child(2),
+#rating-radiolist .radiolist input[type="radio"]:nth-of-type(4):checked ~ .labels label:nth-child(3),
+#rating-radiolist .radiolist input[type="radio"]:nth-of-type(4):checked ~ .labels label:nth-child(4) {
+    background-image:url('/img/svg/star-fill.svg');
+}
+
+#rating-radiolist .radiolist input[type="radio"]:nth-of-type(5):checked ~ .labels label {
+    background-image:url('/img/svg/star-fill.svg');
+}
+
+#rating-radiolist .radiolist .labels label:focus { border:1px dotted #444; }
