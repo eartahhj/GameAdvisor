@@ -29,7 +29,6 @@ class PublishersSeeder extends Seeder
         ]);
 
         foreach ($publishers as $publisher) {
-            dd ($publisher->link);
             Publisher::create([
                 'name_en' => $publisher->name,
                 'name_it' => $publisher->name,
