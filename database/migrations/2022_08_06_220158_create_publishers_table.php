@@ -22,6 +22,7 @@ return new class extends Migration
             $table->boolean('approved')->default(false);
             $table->boolean('hidden')->default(false);
             $table->string('logo')->nullable();
+            $table->string('link')->nullable();
             $table->timestamps();
         });
     }
