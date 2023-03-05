@@ -57,8 +57,8 @@ class Game extends BaseModel
         return [
             '' => _('Newest first'),
             'date_asc' => _('Oldest first'),
-            'name_asc' => _('A to Z'),
-            'name_desc' => _('Z to A')
+            'title_asc' => _('A to Z'),
+            'title_desc' => _('Z to A')
         ];
     }
 }
