@@ -63,9 +63,9 @@ class GamesSeeder extends Seeder
                 "title_en" => trim($game->Game),
                 "title_it" => trim($game->Game),
                 "platform_id" => 1,
-                "developer_id" => $developer->id,
-                "publisher_id" => $publisher->id,
-                "year" => intval($game->Year),
+                "developer_id" => $developer->id ?? 0,
+                "publisher_id" => $publisher->id ?? 0,
+                "year" => intval($game->Year ?? 0),
                 'link' => trim($game->GameLink ?? ''),
                 'approved' => true
             ]);
