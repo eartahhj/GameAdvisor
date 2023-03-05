@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('html_en');
             $table->string('url_it');
             $table->string('url_en');
-            $table->boolean('published')->default('false');
+            $table->boolean('published')->default(false);
             $table->timestamps();
             $table->foreignId('user_creator_id')->constrained('users')->cascadeOnUpdate()
             ->restrictOnDelete();

@@ -24,19 +24,27 @@ class PlatformsSeeder extends Seeder
             6 => ['name' => 'PlayStation 3'],
             7 => ['name' => 'PlayStation 4'],
             8 => ['name' => 'PlayStation 5'],
-            9 => ['name' => 'PSP'],
-            10 => ['name' => 'Xbox'],
-            11 => ['name' => 'Xbox 360'],
-            12 => ['name' => 'Xbox One'],
-            13 => ['name' => 'GameBoy'],
-            14 => ['name' => 'GameBoy Advanced'],
-            15 => ['name' => 'Nintendo Switch']
+            9 => ['name' => 'PlayStation Portable'],
+            10 => ['name' => 'PlayStation Vita'],
+            11 => ['name' => 'Xbox'],
+            12 => ['name' => 'Xbox 360'],
+            13 => ['name' => 'Xbox One'],
+            14 => ['name' => 'Xbox One S'],
+            15 => ['name' => 'Xbox One X'],
+            16 => ['name' => 'Xbox Series S'],
+            17 => ['name' => 'Xbox Series X'],
+            18 => ['name' => 'Game Boy'],
+            19 => ['name' => 'Game Boy Color'],
+            20 => ['name' => 'Game Boy Advance'],
+            21 => ['name' => 'Game Boy Advance SP'],
+            22 => ['name' => 'Nintendo Switch']
         ];
 
         foreach ($platforms as $platform) {
             Platform::create([
                 'name_en' => $platform['name'],
-                'name_it' => $platform['name']
+                'name_it' => $platform['name'],
+                'approved' => true
             ]);
         }
     }

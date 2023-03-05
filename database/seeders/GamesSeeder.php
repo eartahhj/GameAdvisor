@@ -66,7 +66,8 @@ class GamesSeeder extends Seeder
                 "developer_id" => $developer->id,
                 "publisher_id" => $publisher->id,
                 "year" => intval($game->Year),
-                'link' => trim($game->GameLink ?? '')
+                'link' => trim($game->GameLink ?? ''),
+                'approved' => true
             ]);
         }
     }

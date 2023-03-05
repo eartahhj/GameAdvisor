@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->text('year');
             $table->timestamps();
-            $table->boolean('approved')->default('false');
-            $table->boolean('hidden')->default('false');
+            $table->boolean('approved')->default(false);
+            $table->boolean('hidden')->default(false);
             $table->foreignId('platform_id')->constrained('platforms')->cascadeOnUpdate()->restrictOnDelete();
             $table->foreignId('publisher_id')->constrained('publishers')->cascadeOnUpdate()->restrictOnDelete();
             $table->foreignId('developer_id')->constrained('developers')->cascadeOnUpdate()->restrictOnDelete();

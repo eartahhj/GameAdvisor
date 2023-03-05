@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('language')->default('en');
             $table->text('text');
             $table->string('image')->nullable();
-            $table->boolean('approved')->default('false');
+            $table->boolean('approved')->default(false);
             $table->integer('rating');
             $table->foreignId('game_id')->constrained()->cascadeOnUpdate()->restrictOnDelete();
             $table->timestamps();

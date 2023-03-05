@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('name_it')->nullable();
             $table->text('description_en')->nullable();
             $table->text('description_it')->nullable();
-            $table->boolean('approved')->default('false');
-            $table->boolean('hidden')->default('false');
+            $table->boolean('approved')->default(false);
+            $table->boolean('hidden')->default(false);
             $table->string('image')->nullable();
             $table->timestamps();
         });
