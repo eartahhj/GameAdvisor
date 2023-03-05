@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::table('games', function (Blueprint $table) {
             $table->foreignId('publisher_id')->constrained('publishers')->cascadeOnUpdate()->restrictOnDelete();
             $table->foreignId('developer_id')->constrained('developers')->cascadeOnUpdate()->restrictOnDelete();
+            $table->foreignId('platform_id')->constrained('platforms')->cascadeOnUpdate()->restrictOnDelete();
         });
     }
 
