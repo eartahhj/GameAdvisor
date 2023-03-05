@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         PlatformsSeeder::run();
         PublishersSeeder::run();
         DevelopersSeeder::run();
-        // GamesSeeder::run();
+        GamesSeeder::run();
         // UsersSeeder::run();
         // ReviewsSeeder::run();
     }

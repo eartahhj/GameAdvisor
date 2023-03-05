@@ -43,7 +43,7 @@ class GamesSeeder extends Seeder
                 }
             }
 
-            $developer = DB::table('developers')->where('name', $developer)->first();
+            $developer = DB::table('developers')->where('name_en', $developer)->first();
 
             if (empty($game->Publisher)) {
                 $gamePublisher = '[Unknown]';
@@ -57,7 +57,7 @@ class GamesSeeder extends Seeder
                 }
             }
 
-            $publisher = DB::table('publishers')->where('name', $gamePublisher)->first();
+            $publisher = DB::table('publishers')->where('name_en', $gamePublisher)->first();
 
             Game::create([
                 "title_en" => trim($game->Game),
