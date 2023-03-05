@@ -32,7 +32,7 @@ try {
 
         @font-face {
             font-family:'LexendSemibold';
-            src:url('/css/fonts/lexend/Lexend-Semibold.ttf') format('truetype'),
+            src:url('/css/fonts/lexend/Lexend-SemiBold.ttf') format('truetype'),
             font-weight:normal;
             font-style:normal;
             font-display:swap;
