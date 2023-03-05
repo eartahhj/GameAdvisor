@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('games', function (Blueprint $table) {
-            $table->foreignId('publisher_id')->constrained('publishers')->cascadeOnUpdate()->restrictOnDelete();
-            $table->foreignId('developer_id')->constrained('developers')->cascadeOnUpdate()->restrictOnDelete();
-            $table->foreignId('platform_id')->constrained('platforms')->cascadeOnUpdate()->restrictOnDelete();
+            $table->foreignId('publisher_id')->nullable()->constrained('publishers')->cascadeOnUpdate()->restrictOnDelete();
+            $table->foreignId('developer_id')->nullable()->constrained('developers')->cascadeOnUpdate()->restrictOnDelete();
+            $table->foreignId('platform_id')->nullable()->constrained('platforms')->cascadeOnUpdate()->restrictOnDelete();
         });
     }
 
