@@ -20,10 +20,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // PlatformsSeeder::run();
+        PlatformsSeeder::run();
         PublishersSeeder::run();
         DevelopersSeeder::run();
-        GamesSeeder::run();
+        // GamesSeeder::run();
         // UsersSeeder::run();
         // ReviewsSeeder::run();
     }
