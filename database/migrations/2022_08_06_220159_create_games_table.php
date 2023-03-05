@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('description_en')->nullable()->default('');
             $table->text('description_it')->nullable()->default('');
             $table->string('image')->nullable();
-            $table->text('year');
+            $table->text('year')->nullable();
             $table->timestamps();
             $table->boolean('approved')->default(false);
             $table->boolean('hidden')->default(false);
