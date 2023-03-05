@@ -34,6 +34,21 @@
     </div>
 @endif
 
+@if (session()->has('errors'))
+<div class="message is-danger">
+    <div class="message-header">
+        {{ _('Error') }}
+    </div>
+    <div class="message-body">
+        <ul>
+        @foreach (session('errors')->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+        </ul>
+    </div>
+</div>
+@endif
+
 @if (session()->has('error'))
     <div class="message is-danger">
         <div class="message-header">
@@ -48,6 +63,6 @@
         <div class="message-header">
             {{ _('Info') }}
         </div>
-        <p class="message-body">{{ session('infso') }}</p>
+        <p class="message-body">{{ session('info') }}</p>
     </div>
 @endif

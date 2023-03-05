@@ -5,7 +5,10 @@
 form fieldset { margin-bottom:1rem; }
 
 fieldset.improved { border:1px solid #444;  margin-bottom:2rem; padding:1rem; }
-fieldset.improved:last-of-type  { margin-bottom:0; }
+fieldset.improved:last-child  { margin-bottom:0; }
 fieldset.improved > legend { background-color:#222; color:#eee;  padding:0.3rem 1rem; border-radius:0.2rem; margin-left:-0.5rem; }
+
+.form-inline { display:flex; gap:1rem; }
+.form-inline .buttons { padding-top:0; border-top:0; }
 
 

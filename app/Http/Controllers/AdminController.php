@@ -13,7 +13,13 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return response()->view('admin/index', []);
+        self::$templateStylesheets[] = '/css/panel.css';
+
+        return response()->view('admin/index', [
+            'pageTitle' => _('Administration panel'),
+            'templateStylesheets' => static::$templateStylesheets,
+            'templateJavascripts' => static::$templateJavascripts
+        ]);
     }
 
     /**

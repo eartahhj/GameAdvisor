@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('publishers', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description')->nullable()->default('');
+            $table->string('name_en');
+            $table->string('name_it')->nullable();
+            $table->text('description_en')->nullable();
+            $table->text('description_it')->nullable();
             $table->boolean('approved')->default('false');
             $table->boolean('hidden')->default('false');
             $table->string('logo')->nullable();

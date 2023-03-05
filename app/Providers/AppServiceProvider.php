@@ -93,12 +93,12 @@ class AppServiceProvider extends ServiceProvider
 
         $matomoTracker = new MatomoTracker($matomoSiteId, $matomoUrl);
         $matomoTracker->setTokenAuth($matomoToken);
-        // TODO set matomo page title
 
         View::share('locale', App::currentLocale());
         View::share('animationsEnabled', $animationsEnabled);
         View::share('languages', $languages);
         View::share('showCookiePolicyBanner', $showCookiePolicyBanner);
+        View::share('matomoTracker', $matomoTracker);
         // View::share('hasUserAcceptedTracking', $hasUserAcceptedTracking);
     }
 }

@@ -1,15 +1,12 @@
 @extends('layouts.base')
 
-@section('title') {{ _('New page') }} @endsection
-
 @section('content')
-
 <section class="template-default template-admin">
     <div class="container">
         <x-flash-message />
         
         <div class="box">
-            <h1 class="title is-2"><?= _('Create a new page') ?></h1>
+            <x-page-title :text="$pageTitle"></x-page-title>
 
             @if ($errors->any())
                 @include('forms.errors', ['class' => 'is-danger', 'text' => _('Errors found')])

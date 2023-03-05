@@ -1,24 +1,44 @@
 @extends('layouts.base')
 
-@section('title') {{ sprintf(_('Developer: %s'), $developer->name) }} @endsection
-
 @section('content')
 <section class="template-default template-developers">
     <div class="container">
-        <h2>{{ $developer->name }}</h2>
+        <div class="grid grid-7-3">
+            <article>
+                <h1 class="title is-2">{{ $pageTitle }}</h1>
+
+                @if ($developer->description)
+                <p>{{ $developer->description }}</p>
+                @endif
+            </article>
+
+            <aside>
+                @if ($developer->logo and $logo)
+                <figure class="image">
+                    <img src="/storage/{{ $developer->logo }}" alt="" width="{{ $logo->width() }}" height="{{ $logo->height() }}">
+                </figure>
+                @endif
+
+                <dl>
+                    @if ($numberOfGames)
+                    <dt>{{ _('Games') }}</dt>
+                    <dd>{{ $numberOfGames }}</dd>
+                    @endif
+                    @if ($developer->link)
+                    <dt>{{ _('Wikipedia') }}</dt>
+                    <dd>
+                        <a href="{{ $developer->link }}" rel="external noopener noreferrer nofollow" target="_blank">{{ _('View on Wikipedia') }}</a>
+                    </dd>
+                    @endif
+                </dl>
+            </aside>
+        </div>
     
-        @if (!empty(auth()->user()->id))
-            <p>
-                <a href="{{ route('developers.edit', $developer) }}">{{ _('Edit') }}</a>
-                <a href="{{ route('developers.create') }}">{{ _('Create new') }}</a>
-            </p>
-    
-            <form action="{{ route('developers.delete', $developer)}}" method="post">
-                @csrf
-                @method('DELETE')
-    
-                <button type="submit" name="delete" onclick="return confirm('{{ _('Are you sure you want to delete this record?') }}')">{{ _('Delete') }}</button>
-            </form>
+        @if (auth()->user() and auth()->user()->is_superadmin)
+        <p class="mb-6">
+            <x-button-bulma link="{{ route('developers.edit', $developer) }}" text="{{ _('Edit') }}" class="is-warning"></x-button-bulma>
+            <x-button-bulma link="{{ route('developers.create') }}" text="{{ _('Create new') }}" class="is-info"></x-button-bulma>
+        </p>
         @endif
     
         <p>

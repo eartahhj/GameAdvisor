@@ -1,5 +1,3 @@
-<button {{ $attributes->merge(['type' => 'button', 'class' => 'button']) }}>
-    <a href="{{ $link }}">
-        {{ $text }}
-    </a>
-</button>
+<a href="{{ $link }}"{{ $attributes->merge(['type' => 'button', 'class' => 'button']) }}>
+    {{ $text }}
+</a>

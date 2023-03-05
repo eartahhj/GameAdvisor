@@ -8,10 +8,26 @@ function loadDevelopers($json)
 {
     foreach ($json as $row) {
         if (!empty($row->Dev)) {
-            $dev = $row->Dev;
-            if (empty($developers[$dev])) {
-                $developers[$dev]['name'] = $dev;
-            }
+            $dev = trim($row->Dev);
+
+            if (strpos($dev, ',') !== false) {
+                $multipleDevelopers = explode(',', $dev);
+
+                foreach ($multipleDevelopers as $singleDeveloper) {
+                    $singleDeveloper = trim($singleDeveloper);
+                    if (empty($developers[$singleDeveloper])) {
+                        $developers[$singleDeveloper]['name'] = $singleDeveloper;
+                    }
+                }
+            } else {
+                $devLink = trim($row->DevLink ?? '');
+                if (empty($developers[$dev])) {
+                    $developers[$dev]['name'] = $dev;
+                    if ($devLink) {
+                        $developers[$dev]['link'] = $devLink;
+                    }
+                }
+            }            
         }
     }
 
@@ -23,16 +39,34 @@ function loadPublishers($json)
 {
     foreach ($json as $row) {
         if (!empty($row->Publisher)) {
-            $publisher = $row->Publisher;
-            if (empty($publishers[$publisher])) {
-                $publishers[$publisher]['name'] = $publisher;
+            $publisher = trim($row->Publisher);
+
+            if (strpos($publisher, ',') !== false) {
+                $multiplePublishers = explode(',', $publisher);
+
+                foreach ($multiplePublishers as $singlePublisher) {
+                    $singlePublisher = trim($singlePublisher);
+                    if (empty($publishers[$singlePublisher])) {
+                        $publishers[$singlePublisher]['name'] = $singlePublisher;
+                    }
+                }
+            } else {
+                $publisherLink = trim($row->PublisherLink ?? '');
+                if (empty($publishers[$publisher])) {
+                    $publishers[$publisher]['name'] = $publisher;
+                    if ($publisherLink) {
+                        $publishers[$publisher]['link'] = $publisherLink;
+                    }
+                }
             }
+
+            
         }
     }
     $newJson = fopen('publishers.json', 'w+');
     fwrite($newJson, json_encode($publishers));
 }
 
-// loadDevelopers($json);
-// loadPublishers($json);
+loadDevelopers($json);
+loadPublishers($json);
 ?>

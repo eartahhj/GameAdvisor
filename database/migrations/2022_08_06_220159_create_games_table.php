@@ -16,14 +16,16 @@ return new class extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
-            $table->string('title');
-            $table->text('description')->nullable()->default('');
+            $table->string('title_en');
+            $table->string('title_it');
+            $table->text('description_en')->nullable()->default('');
+            $table->text('description_it')->nullable()->default('');
             $table->string('image')->nullable();
             $table->text('year');
             $table->timestamps();
             $table->boolean('approved')->default('false');
             $table->boolean('hidden')->default('false');
-            $table->foreignId('platform_id')->constrained('games_platforms')->cascadeOnUpdate()->restrictOnDelete();
+            $table->foreignId('platform_id')->constrained('platforms')->cascadeOnUpdate()->restrictOnDelete();
             $table->foreignId('publisher_id')->constrained('publishers')->cascadeOnUpdate()->restrictOnDelete();
             $table->foreignId('developer_id')->constrained('developers')->cascadeOnUpdate()->restrictOnDelete();
         });

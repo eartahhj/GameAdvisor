@@ -1,6 +1,7 @@
 <?php
 return [
     'reviews' => 'recensioni',
+    'reviews.{review}' => 'recensioni/{review}',
     'reviews.{review}.edit' => 'recensioni/{review}/modifica',
     'reviews.store.{game}' => 'recensioni/salva/{game}',
     'reviews.create.{game}' => 'recensioni/crea/{game}',
@@ -8,6 +9,7 @@ return [
     'reviews.delete' => 'recensioni/elimina',
     'reviews.game.{game}' => 'recensioni/gioco/{game}',
     'reviews.choose.game' => 'recensioni/scegli-gioco/{platform?}',
+    'reviews.{review}.approve' => 'recensioni/{review}/approva',
 
     'games' => 'giochi',
     'games.{game}.edit' => 'giochi/{game}/modifica',
@@ -19,8 +21,8 @@ return [
     'games.platform.{id}' => 'giochi/piattaforma/{id}',
 
     'users' => 'utenti',
-    'users.register.register' => 'registrati',
-    'users.register.form' => 'registrati',
+    'users.show.{user}' => 'utenti/{user}',
+    'users.register' => 'registrati',
     'users.login.auth' => 'login',
     'users.login.form' => 'login',
     'users.logout' => 'esci',
@@ -33,8 +35,12 @@ return [
     'users.email.verification.verify.{id}.{hash}' => 'verifica-email/{id}/{hash}',
     'users.email.verification.resend' => 'verifica-email/reinvia',
 
-    'user.profile' => 'profilo',    
+    'user.profile' => 'profilo',
+    'user.update' => 'profilo/aggiorna',
     'user.myReviews' => 'le-mie-recensioni',
+    'user.changePassword' => 'cambia-password',
+    'user.review.{review}' => 'utente/recensione/{review}',
+    'user.review.{review}.edit' => 'utente/recensione/{review}/modifica',
 
     'platforms' => 'piattaforme',
     'platforms.{platform}.edit' => 'piattaforme/{platform}/modifica',
@@ -68,7 +74,24 @@ return [
     'pages.create' => 'pagine/crea',
     'pages.{page}.publish' => 'pagine/{page}/pubblica',
 
+    'datarequests.create' => 'richiedi',
+    'datarequests.store' => 'richiedi',
+
     'admin.index' => 'amministrazione/cruscotto',
+
+    'admin.platforms.index' => 'amministrazione/piattaforme',
+
+    'admin.publishers.index' => 'amministrazione/editori',
+
+    'admin.games.index' => 'amministrazione/giochi',
+
+    'admin.developers.index' => 'amministrazione/sviluppatori',
+
+    'admin.pages.{page}' => 'amministrazione/pagine/{page}',
     'admin.pages.index' => 'amministrazione/pagine',
+
     'admin.users.index' => 'amministrazione/utenti',
+    'admin.users.{user}' => 'amministrazione/utenti/{user}',
+    'admin.users.create' => 'amministrazione/utenti/crea',
+    'admin.users.{user}.edit' => 'amministrazione/utenti/{user}/modifica',
 ];

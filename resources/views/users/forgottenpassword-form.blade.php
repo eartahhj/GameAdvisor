@@ -1,17 +1,15 @@
 @extends('layouts.base')
 
-@section('title') {{ _('Reset password') }} @endsection
-
 @section('content')
 <section class="template-default template-user">
     <div class="container">
-        <p class="title is-3">{{ _('Reset password') }}</p>
+        <x-flash-message />
+
+        <h1 class="title is-2">{{ $pageTitle }}</h1>
         @if ($errors->any())
             @include('forms.errors', ['class' => 'is-danger', 'text' => _('Errors found')])
         @endif
-    
-        <x-flash-message />
-    
+        
         <form action="{{ route('users.forgottenpassword') }}" method="post">
             @csrf
     
@@ -28,10 +26,15 @@
             </div>
     
             <div class="buttons">
-                <button type="submit" name="send" class="button is-primary">{{ _('Reset password') }}</button>
+                <button type="submit" name="send" class="button is-primary">
+                    <span class="icon">
+                        <i class="fa-solid fa-arrow-rotate-left"></i>
+                    </span>
+                    <span>{{ _('Reset password') }}</span>
+                </button>
             </div>
         </form>
-        <p>{{ _('Not registered?') }} <a href="{{ route('users.register.form')}}"> {{ _('Create an account') }}</a></p>
+        <p class="mt-2">{{ _('Not registered?') }} <a href="{{ route('users.register.form')}}"> {{ _('Create an account') }}</a></p>
     </div>
 </section>
 

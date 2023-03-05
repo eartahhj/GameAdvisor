@@ -1,36 +1,59 @@
-<li class="review-single">
-    <article class="box p-0">
-        <header>
-            <div class="grid grid-align-center">
-                <div class="grid-col">
-                    <p class="author-name">{{ _('Author') }}: {{ $review->author_name }}</p>
-                </div>
-                @if (!empty($game) and !$game->isEmpty())
-                    <div class="grid-col">
-                        <p class="review-game">
-                            {{ _('Game') }}: <a href="{{ route('games.show', $review->game_id) }}">{{ $game->title }}</a>
-                        </p>
-                    </div>
+<li class="card review-single">
+    <article>
+        <div class="card-image">
+            <figure class="image">
+                @if ($review->image)
+                <img src="/storage/{{ $review->image }}" alt="" width="{{ $image->width() }}" height="{{ $image->height() }}" loading="lazy">
+                @else
+                <img src="/storage/images/placeholders/review{{ rand(1, 3) }}.png" alt="" width="800" height="600" loading="lazy">
                 @endif
-                <div class="grid-col">
-                    <p class="review-rating">
-                        {{ _('Rating') }}:
-                        <span class="sr-only">{{ sprintf(_('%d out of %d'), intval($review->rating), 5) }}</span>
-                        @for ($stars = 1; $stars <= 5; $stars++)
-                            <span class="star star-<?=($stars <= $review->rating ? 'on' : 'off')?>" aria-hidden="true"></span>
-                        @endfor
-                    </p>
+            </figure>
+        </div>
+        <div class="card-content">
+            <div class="media">
+                <div class="media-left">
+                    @if ($review->author_email)
+                    <figure class="image is-48x48">
+                        <img src="{{ getLibravatar($review->author_email) }}" alt="" width="48" height="48">
+                    </figure>
+                    @endif
                 </div>
-                <div class="grid-col">
-                    <p class="review-date">
-                        {{ $review->updated_at }}
-                    </p>
+                <div class="media-content">
+                    <p class="title is-5">{{ $review->author_name }}</p>
                 </div>
             </div>
-        </header>
-        <div class="review-text">
-            <p class="subtitle is-4"><strong>{{ $review->title }}</strong></p>
-            <p class="text">{{ $review->text }}</p>
+
+            <div class="content">
+                @if (!empty($review->game_title))
+                <p class="title is-5">
+                    {{ _('Game') }}: <a href="{{ route('games.show', $review->game_id) }}">{{ $review->game_title }}</a>
+                </p>
+                @endif
+                <p class="review-rating">
+                    {{ _('Rating') }}:
+                    <span class="sr-only">{{ sprintf(_('%d out of %d'), intval($review->rating), 5) }}</span>
+                    @for ($stars = 1; $stars <= 5; $stars++)
+                        <span class="star star-<?=($stars <= $review->rating ? 'on' : 'off')?>" aria-hidden="true"></span>
+                    @endfor
+                </p>
+                <p>
+                    <strong>{{ $review->title }}</strong>
+                </p>
+                <p>
+                    {{ $review->getPreviewText() }}
+                </p>
+                <time datetime="{{ $review->updated_at }}">{{ formatDate($review->updated_at) }}</time>
+                <p class="buttons">
+                    <a href="{{ route('reviews.show', $review->id) }}" rel="nofollow" class="button is-primary">{{ _('Read the full review') }}</a>
+                    @if (auth()->user() and (auth()->user()->id == $review->user_id))
+                    <a href="{{ route('user.review.edit', $review) }}" class="button is-warning">{{ _('Edit your review') }}</a>
+                    @endif
+                    @if (auth()->user() and auth()->user()->is_superadmin)
+                    <a href="{{ route('reviews.edit', $review) }}" class="button is-dark">{{ _('Edit') }}</a>
+                    @endif
+                </p>
+            </div>
         </div>
+        
     </article>
 </li>

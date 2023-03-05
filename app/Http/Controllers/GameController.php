@@ -4,28 +4,31 @@ namespace App\Http\Controllers;
 
 use App\Models\Game;
 use App\Models\Review;
+use App\Models\Platform;
+use App\Models\Developer;
 use App\Models\Publisher;
-use App\Models\GamePlatform;
 use Illuminate\Http\Request;
-use App\Models\GameDeveloper;
 use Illuminate\Validation\Rule;
 
 class GameController extends Controller
 {
     public function index(Request $request)
     {
-        $searchTitle = $request->input('title');
+        $searchName = 'title_' . getLanguage();
+        $searchValue = $request->input($searchName);
         $platformId = $request->input('platform');
         $developerId = $request->input('developer');
         $publisherId = $request->input('publisher');
         $responseCode = 200;
-        $platforms = null;
+        $platforms = Platform::all();
         $platform = null;
+        $orderBy = Game::getOrderBy();
+        $orderByOptions = Game::getOrderByOptions();
 
-        $games = Game::join('games_platforms', 'games.platform_id', '=', 'games_platforms.id')
-            ->select('games.*', 'games_platforms.name AS platform_name')
-            ->when($searchTitle, function($query, $searchTitle) {
-                $query->where('title', 'LIKE', "%$searchTitle%");
+        $games = Game::join('platforms', 'games.platform_id', '=', 'platforms.id')
+            ->select('games.*', 'platforms.name_' . getLanguage() . ' AS platform_name')
+            ->when($searchValue, function ($query, $searchValue) use ($searchName) {
+                $query->where($searchName, 'LIKE', "%$searchValue%");
             })
             ->when($platformId, function($query, $platformId) {
                 $query->where('games.platform_id', '=', $platformId);
@@ -36,19 +39,31 @@ class GameController extends Controller
             ->when($publisherId, function($query, $publisherId) {
                 $query->where('games.publisher_id', '=', $publisherId);
             })
-        ->paginate(8);
-
-        if (!$games->isEmpty()) {
-            $platforms = GamePlatform::all();
+            ->where('games.approved', 1)
+        ->orderBy($orderBy['column'], $orderBy['order'])
+        ->paginate(12);
         
-            if ($platformId !== false) {
-                $platform = $platforms->where('id', $platformId)->first();
-            }
-        } else {
-            $responseCode = 404;
+        if ($platformId !== false) {
+            $platform = $platforms->where('id', $platformId)->first();
         }
 
+        self::$templateStylesheets[] = '/css/forms.css';
         self::$templateStylesheets[] = '/css/games.css';
+
+        if ($games->isEmpty()) {
+            $pageTitle = _('No games to show at the moment.');
+            $responseCode = 404;
+        } else {
+            if (!empty($searchValue) and !empty($platform)) {
+                $pageTitle = sprintf(_('All games for: %s, %s'), $searchValue, $platform->name);
+            } elseif (!empty($searchValue)) {
+                $pageTitle = sprintf(_('All games for: %s'), $searchValue);
+            } elseif (!empty($platform))  {
+                $pageTitle = sprintf(_('All games for: %s'), $platform->name);
+            } else {
+                $pageTitle = _('All games');
+            }
+        }
 
         return response()->view(
             'games.index',
@@ -56,10 +71,13 @@ class GameController extends Controller
                 'games' => $games,
                 'platforms' => $platforms,
                 'platform' => $platform,
-                'searchTitle' => $searchTitle,
+                'searchName' => $searchName,
+                'searchValue' => $searchValue,
                 'platformId' => $platformId,
                 'templateStylesheets' => static::$templateStylesheets,
-                'templateJavascripts' => static::$templateJavascripts
+                'templateJavascripts' => static::$templateJavascripts,
+                'pageTitle' => $pageTitle,
+                'orderByOptions' => $orderByOptions
             ],
             $responseCode
         );
@@ -68,8 +86,19 @@ class GameController extends Controller
     public function create()
     {
         self::$templateStylesheets[] = '/css/forms.css';
+        self::$templateJavascripts[] = '/js/simpjs/simp.js';
+        self::$templateJavascripts[] = '/js/simpjs/simp-init.js';
+        self::$templateStylesheets[] = '/js/simpjs/simp.css';
 
-        return view('games.create', ['templateStylesheets' => static::$templateStylesheets, 'templateJavascripts' => static::$templateJavascripts]);
+        $platforms = Platform::all();
+
+        return view('games.create', [
+            'templateStylesheets' => static::$templateStylesheets,
+            'templateJavascripts' => static::$templateJavascripts,
+            'pageTitle' => _('Insert a new game'),
+            'platforms' => $platforms,
+            'supportedImageFormats' => Game::returnImageSupportedFormatsString()
+        ]);
     }
 
     public function store(Request $request, Game $game)
@@ -79,49 +108,69 @@ class GameController extends Controller
             'title' => 'required',
             'description' => '',
             'platform_id' => 'required',
-            'image' => '',
+            'image' => Game::returnImageValidationString()
         ]);
 
+        if ($request->hasFile('image')) {
+            $image = $game->uploadImage();
+            $formFields['image'] = $image;
+        }
+
         if ($newGame = Game::create($formFields)) {
-            if ($request->hasFile('image')) {
-                $fileFolder = 'images/games';
-                $fileName = 'game-' . $newGame->id . '-image.png';
-                $filePath = $request->file('image')->storeAs($fileFolder, $fileName, 'public');
-
-                if (!$newGame->update(['image' => $fileFolder . '/' . $fileName])) {
-                    return redirect(route('games.create'))->with('error', _('Error uploading image'));
-                }
-            }
-
             return redirect(route('games.edit', $newGame))->with('confirm', _('Game created'));
         } else {
             return redirect(route('games.create'))->with('error', _('Error creating game'));
         }
-
     }
 
     public function show(Game $game)
     {
-        $image = '';
+        if (!$game->approved) {
+            abort(401);
+        }
+
         $orderBy = Review::getOrderBy();
 
         self::$templateStylesheets[] = '/css/games.css';
+        self::$templateStylesheets[] = '/css/reviews.css';
 
         if ($game->developer_id) {
-            $developer = GameDeveloper::find($game->developer_id);
+            $developer = Developer::find($game->developer_id);
         }
 
         if ($game->publisher_id) {
             $publisher = Publisher::find($game->publisher_id);
         }
 
+        $image = null;
+
         if (!empty($game->image)) {
             $image = \Image::make(\Storage::disk('public')->get($game->image));
         }
 
-        $reviews = Review::where('game_id', $game->id)->orderBy($orderBy['column'], $orderBy['order'])->get();
+        $reviews = Review::where([
+            'game_id' => $game->id,
+            'approved' => 1
+        ])->orderBy($orderBy['column'], $orderBy['order'])->get();
 
-        return view('games.show', compact('game', 'image', 'reviews', 'developer', 'publisher') + ['templateStylesheets' => static::$templateStylesheets, 'templateJavascripts' => static::$templateJavascripts]);
+        $rating = Review::where([
+            'game_id' => $game->id,
+            'approved' => 1
+        ])->avg('rating') or 0;
+
+        $pageTitle = $game->title;
+
+        return view('games.show', [
+            'game' => $game,
+            'image' => $image,
+            'reviews' => $reviews,
+            'developer' => $developer,
+            'publisher' => $publisher,
+            'rating' => $rating,
+            'templateStylesheets' => static::$templateStylesheets,
+            'templateJavascripts' => static::$templateJavascripts,
+            'pageTitle' => $pageTitle
+        ]);
     }
 
     /**
@@ -135,12 +184,27 @@ class GameController extends Controller
         $image = '';
 
         self::$templateStylesheets[] = '/css/forms.css';
+        self::$templateJavascripts[] = '/js/simpjs/simp.js';
+        self::$templateJavascripts[] = '/js/simpjs/simp-init.js';
+        self::$templateStylesheets[] = '/js/simpjs/simp.css';
+
+        $platforms = Platform::all();
+
+        $image = null;
 
         if (!empty($game->image)) {
             $image = \Image::make(\Storage::disk('public')->get($game->image));
         }
 
-        return view('games.edit', compact('game', 'image') + ['templateStylesheets' => static::$templateStylesheets, 'templateJavascripts' => static::$templateJavascripts]);
+        return view('games.edit', [
+            'templateStylesheets' => static::$templateStylesheets,
+            'templateJavascripts' => static::$templateJavascripts,
+            'pageTitle' => _('Edit game'),
+            'platforms' => $platforms,
+            'game' => $game,
+            'image' => $image,
+            'supportedImageFormats' => Game::returnImageSupportedFormatsString()
+        ]);
     }
 
     public function update(Request $request, Game $game)
@@ -149,34 +213,42 @@ class GameController extends Controller
             'title' => 'required',
             'description' => '',
             'platform_id' => 'required',
-            'image' => ''
+            'image' => Game::returnImageValidationString()
         ]);
 
+        if ($request->hasFile('image')) {
+            if ($game->image) {
+                Storage::delete($game->image);
+            }
+
+            $image = $game->uploadImage();
+
+            $formFields['image'] = $image;
+        }
+
         if ($game->update($formFields)) {
-            return redirect(route('games.edit', $game))->with('confirm', _('Game updated'));
+            return back()->with('confirm', _('Game updated'));
         } else {
-            return redirect(route('games.edit', $game))->with('error', _('Error updating the game'));
+            return back()->with('error', _('Error updating the game'));
         }
 
     }
 
     public function destroy(Game $game)
     {
+        $imageToDelete = null;
+        
+        if ($game->image) {
+            $imageToDelete = $review->game;
+        }
+        
         if ($game->delete()) {
+            if ($imageToDelete) {
+                Storage::delete($imageToDelete);
+            }
             return redirect(route('games.index'))->with('confirm', _('Game deleted'));
         } else {
             return redirect(route('games.edit', $game))->with('error', _('Error deleting game'));
         }
     }
-
-    // public function showGamesByPlatform($platformId)
-    // {
-    //     return view('games.index', [
-    //         'games' => \App\Models\Game::join('games_platforms', 'games.platform_id', '=', 'games_platforms.id')
-    //             ->select('games.*', 'games_platforms.name AS platform_name')
-    //             ->where('games_platforms.id', $platformId)
-    //             ->paginate(8),
-    //         'platform' => \App\Models\GamePlatform::findOrFail($platformId)
-    //     ]);
-    // }
 }

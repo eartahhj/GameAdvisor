@@ -1,24 +1,44 @@
 @extends('layouts.base')
 
-@section('title') {{ sprintf(_('Platform: %s'), $platform->name) }} @endsection
-
 @section('content')
 <section class="template-default template-platforms">
     <div class="container">
-        <h2>{{ $platform->name }}</h2>
+        <div class="grid grid-7-3">
+            <article>
+                <x-page-title :text="$pageTitle"></x-page-title>
+
+                @if ($platform->description)
+                <p>{{ $platform->description }}</p>
+                @endif
+            </article>
+
+            <aside>
+                @if ($platform->image and $image)
+                <figure class="image">
+                    <img src="/storage/{{ $platform->logo }}" alt="" width="{{ $logo->width() }}" height="{{ $logo->height() }}">
+                </figure>
+                @endif
+
+                <dl>
+                    @if ($numberOfGames)
+                    <dt>{{ _('Games') }}</dt>
+                    <dd>{{ $numberOfGames }}</dd>
+                    @endif
+                    @if ($platform->link)
+                    <dt>{{ _('Wikipedia') }}</dt>
+                    <dd>
+                        <a href="{{ $platform->link }}" rel="external noopener noreferrer nofollow" target="_blank">{{ _('View on Wikipedia') }}</a>
+                    </dd>
+                    @endif
+                </dl>
+            </aside>
+        </div>
     
-        @if (!empty(auth()->user()->id))
-            <p>
-                <a href="{{ route('platforms.edit', $platform) }}">{{ _('Edit') }}</a>
-                <a href="{{ route('platforms.create') }}">{{ _('Create new') }}</a>
-            </p>
-    
-            <form action="{{ route('platforms.delete', $platform)}}" method="post">
-                @csrf
-                @method('DELETE')
-    
-                <button type="submit" name="delete" onclick="return confirm('{{ _('Are you sure you want to delete this record?') }}')">{{ _('Delete') }}</button>
-            </form>
+        @if (auth()->user() and auth()->user()->is_superadmin)
+        <p class="mt-6 mb-6">
+            <x-button-bulma link="{{ route('platforms.edit', $platform) }}" text="{{ _('Edit') }}" class="is-warning"></x-button-bulma>
+            <x-button-bulma link="{{ route('platforms.create') }}" text="{{ _('Create new') }}" class="is-info"></x-button-bulma>
+        </p>
         @endif
     
         <p>

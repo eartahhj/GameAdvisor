@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('game_developers', function (Blueprint $table) {
+        Schema::create('developers', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description')->nullable();
+            $table->string('name_en');
+            $table->string('name_it')->nullable();
+            $table->text('description_en')->nullable();
+            $table->text('description_it')->nullable();
             $table->boolean('approved')->default('false');
             $table->boolean('hidden')->default('false');
             $table->string('logo')->nullable();
@@ -31,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('game_developers');
+        Schema::dropIfExists('developers');
     }
 };

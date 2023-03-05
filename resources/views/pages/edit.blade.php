@@ -1,16 +1,13 @@
 @extends('layouts.base')
 
-@section('title') {{ _('Edit page') }} @endsection
-
 @section('content')
-
 <section class="template-default template-admin">
     <div class="container">
 
         <x-flash-message />
 
         <div class="box">
-            <h1 class="title is-2"><?=_('Edit page')?></h1>
+            <x-page-title :text="$pageTitle"></x-page-title>
 
             <?= view('pages/form-edit', compact('page')) ?>
 

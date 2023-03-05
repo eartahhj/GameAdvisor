@@ -6,6 +6,7 @@
 
 <section class="template-default template-user">
     <div class="container">
+        <x-flash-message />
 
     </div>
 </section>

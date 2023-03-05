@@ -14,6 +14,21 @@ if (!function_exists('getPageIdByUrl')) {
     }
 }
 
+if (!function_exists('getPageByUri')) {
+    function getPageByUri(string $uri): ?Page
+    {
+        if (!isPageUrlFormatValid(url: $uri)) {
+            return null;
+        }        
+        
+        if (!$id = getPageIdByUrl(url: $uri)) {
+            return null;
+        }
+
+        return Page::findOrFail($id);
+    }
+}
+
 if (!function_exists('getPageUrlById')) {
     function getPageUrlById(int $pageId): string
     {
@@ -123,5 +138,51 @@ if (!function_exists('formatUrl')) {
     function formatUrl(string $title, string $separator = '-')
     {
         return $slug = Str::of($title)->slug($separator)->value;
+    }
+}
+
+if (!function_exists('uploadImage')) {
+    function uploadImage(
+        string $newFileName, string $fileFolder = 'images', string $inputName = 'image'
+    ): string
+    {
+        
+        if (request()->hasFile($inputName)) {
+            $file = request()->file($inputName);
+            $newFileName .= '.' . $file->extension();
+
+            return Storage::putFileAs($fileFolder, $file, $newFileName);
+        }
+
+        return '';
+    }
+}
+
+if (!function_exists('getLibravatar')) {
+    function getLibravatar(string $email, int $size = 80): string
+    {
+        if ($size < 80) {
+            $size = 80;
+        }
+        
+        if ($size > 2048) {
+            $size = 2048;
+        }
+        
+        return 'https://seccdn.libravatar.org/avatar/' . md5(strtolower(trim($email))) . "?s={$size}&d=mp";
+    }
+}
+
+if (!function_exists('getLanguages')) {
+    function getLanguages(): array
+    {
+        return config('app')['languages'];
+    }
+}
+
+if (!function_exists('getLanguage')) {
+    function getLanguage(): string
+    {
+        return App::currentLocale();
     }
 }

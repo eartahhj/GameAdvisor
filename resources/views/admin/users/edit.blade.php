@@ -1,14 +1,11 @@
 @extends('layouts.base')
 
-@section('title') {{ sprintf(_('User profile of %s'), $user->name) }} @endsection
-
 @section('content')
-
 <section class="template-default template-admin">
     <div class="container">
         <x-flash-message />
 
-        <h1 class="title is-3">{{ sprintf(_('Modifying user: %s'), $user->name) }}</h1>
+        <h1 class="title is-2">{{ $pageTitle }}</h1>
         
         <form action="{{ route('admin.users.store')}}" method="post">
             @csrf
@@ -33,7 +30,7 @@
                 </x-form-error>
                 @enderror
                 <label for="user-create-password" class="label">{{ _('Password') }}</label>
-                <input id="user-create-password" type="text" name="password" value="{{ old('password', '') }}" class="input" required="required" autocomplete="new-password" placeholder="{{ _('Password') }}">
+                <input id="user-create-password" type="text" name="password" value="{{ old('password', '') }}" class="input" autocomplete="new-password" placeholder="{{ _('Password') }}">
             </div>
 
             <div class="field">

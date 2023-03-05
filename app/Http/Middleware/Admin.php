@@ -21,7 +21,6 @@ class Admin
             return $next($request);
         }
 
-        // return redirect(route('users.dashboard'))->with('warning', _('Action not allowed'));
         abort(401);
     }
 }

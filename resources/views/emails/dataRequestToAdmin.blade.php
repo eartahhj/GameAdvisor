@@ -1,0 +1,1 @@
+{{ sprintf(_('A new request has been sent on %s:'), env('APP_NAME')) . "\n\n$emailBody" }}

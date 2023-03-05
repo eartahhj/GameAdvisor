@@ -1,14 +1,11 @@
 @extends('layouts.base')
 
-@section('title') {{ _('New user') }} @endsection
-
 @section('content')
-
 <section class="template-default template-admin">
     <div class="container">
         <x-flash-message />
 
-        <h1>{{ _('Insert a new user') }}</h1>
+        <h1 class="title is-2">{{ $pageTitle }}</h1>
         
         @if ($errors->any())
             @include('forms.errors', ['class' => 'is-danger', 'text' => _('Errors found')])

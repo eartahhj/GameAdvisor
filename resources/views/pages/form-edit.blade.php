@@ -1,6 +1,7 @@
 <form action="{{ route('pages.update', $page->id)}}" method="post" enctype="multipart/form-data">
     @csrf
-    <input type="hidden" name="_method" value="PUT">
+    @method('PUT')
+    
     <?php foreach (config('app')['languages'] as $langCode => $lang):?>
     <fieldset>
         <legend><?= $lang ?></legend>

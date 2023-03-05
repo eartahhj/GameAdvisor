@@ -1,7 +1,5 @@
 @extends('layouts.base')
 
-@section('title') {{ _('Choose a game to review') }} @endsection
-
 @section('content')
 <section class="template-default template-reviews">
     <div class="container">

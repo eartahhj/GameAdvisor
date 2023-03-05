@@ -1,0 +1,38 @@
+.home-section .grid-col:nth-child(1) { padding:2rem; font-size:1.25rem; }
+.home-section ol { margin-left:2rem; }
+.home-section ol li { margin-bottom:1rem; }
+.home-section .grid { grid-template-columns:auto; }
+.home-section .buttons > span { display:block; margin-bottom:1rem; }
+
+#home-intro { padding-left:3rem; padding-right:3rem; margin-bottom:5rem; }
+
+#home-section-1 .button.is-warning { background-color:var(--orange); }
+#home-section-1 .button.is-warning:hover { background-color:var(--gold); }
+
+#home-latest-reviews .button.is-info { background-color:var(--green); }
+#home-latest-reviews .button.is-info:hover { background-color:var(--green-dark); }
+
+#home-latest-games .button.is-info { background-color:var(--green); }
+#home-latest-games .button.is-info:hover { background-color:var(--green-dark); }
+
+@media only screen and (max-width:767px) {
+    #home-intro .button { margin-bottom:1rem; margin-left:auto; margin-right:auto; display:inline-block; }
+}
+
+@media only screen and (min-width:1024px) {
+    .home-section .grid { grid-template-columns: repeat(2, 1fr); align-items:center; column-gap:0; }
+    
+    #home-section-2 .grid-col:nth-child(1) { order:2; } 
+    #home-section-2 .grid-col:nth-child(2) { order:1; }
+
+    #home-section-4 .grid-col:nth-child(1) { order:2; } 
+    #home-section-4 .grid-col:nth-child(2) { order:1; }
+}
+
+@media only screen and (min-width:1440px) {
+    .home-section .buttons > span { display:inline-block; }
+}
+
+@media only screen and (min-width:1600px) {
+    .home-section .grid-col:nth-child(1) { padding:5rem; }
+}

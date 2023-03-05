@@ -41,3 +41,14 @@ function closeCookieBanner()
 
     return document.getElementById('cookie-policy-banner').remove();
 }
+
+function closeMainNavigation()
+{
+    const navHandler = document.getElementById('navbar-main-handler');
+
+    if (typeof navHandler == 'undefined') {
+        return;
+    }
+
+    navHandler.checked = false;
+}

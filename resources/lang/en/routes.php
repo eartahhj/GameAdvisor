@@ -1,10 +1,13 @@
 <?php
 return [
     'reviews' => 'reviews',
+    'reviews.{review}' => 'reviews/{review}',
     'reviews.{review}.edit' => 'reviews/{review}/edit',
     'reviews.create.{game}' => 'reviews/create/{game}',
     'reviews.game.{game}' => 'reviews/game/{game}',
     'reviews.choose.game' => 'reviews/choose-game/{platform?}',
+    'reviews.{review}.approve' => 'reviews/{review}/approve',
+    'reviews.store.{game}' => 'reviews/store/{game}',
 
     'games' => 'games',
     'games.{game}.edit' => 'games/{game}/edit',
@@ -13,8 +16,8 @@ return [
     'games.platform.{id}' => 'games/platform/{id}',
 
     'users' => 'users',
-    'users.register.register' => 'register',
-    'users.register.form' => 'register',
+    'users.show.{user}' => 'users/{user}',
+    'users.register' => 'register',
     'users.login.auth' => 'login',
     'users.login.form' => 'login',
     'users.logout' => 'logout',
@@ -27,8 +30,12 @@ return [
     'users.email.verification.verify.{id}.{hash}' => 'verify-email/{id}/{hash}',
     'users.email.verification.resend' => 'verify-email/resend',
 
-    'user.profile' => 'profile',    
+    'user.profile' => 'profile',
+    'user.update' => 'profile/update',
     'user.myReviews' => 'my-reviews',
+    'user.changePassword' => 'change-password',
+    'user.review.{review}' => 'user/review/{review}',
+    'user.review.{review}.edit' => 'user/review/{review}/edit',
 
     'platforms' => 'platforms',
     'platforms.{platform}.edit' => 'platforms/{platform}/edit',
@@ -50,7 +57,18 @@ return [
     'pages.create' => 'pages/create',
     'pages.{page}.publish' => 'pages/{page}/publish',
 
+    'datarequests.create' => 'request-data',
+    'datarequests.store' => 'request-data',
+
     'admin.index' => 'admin/dashboard',
+
+    'admin.platforms.index' => 'admin/platforms',
+
+    'admin.publishers.index' => 'admin/publishers',
+
+    'admin.games.index' => 'admin/games',
+
+    'admin.developers.index' => 'admin/developers',
 
     'admin.pages.{page}' => 'admin/pages/{page}',
     'admin.pages.index' => 'admin/pages',

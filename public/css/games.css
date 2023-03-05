@@ -1,7 +1,25 @@
 .game-single { margin-bottom:2rem; }
-.game-single .box { border:2px solid darkgreen; border-bottom-right-radius:0.4rem; border-bottom-left-radius:0.4rem; }
-.game-single .box header { background-color:lightgreen; padding:0.5rem; margin-bottom:0.25rem; }
+.game-single .game-title { line-height:120%; }
+.game-single .game-title a { display:block; }
+.game-single .game-platform { line-height:normal; }
+
+.tile.game-single .button.is-primary { background-color:#ece360; color:#444; }
+.tile.game-single .button.is-primary:hover { background-color:var(--color-yellow); }
 
 .game-text { padding:0.5rem; }
 
 .game-single p { margin:0; }
+
+.games-list.grid { align-items:stretch; column-gap:2rem; row-gap:2rem; }
+
+@media only screen and (min-width:768px) {
+    .games-list.grid { grid-template-columns:repeat(2, 1fr); }
+}
+
+@media only screen and (min-width:1024px) {
+    .games-list.grid { grid-template-columns:repeat(3, 1fr); }
+}
+
+@media only screen and (min-width:1440px) {
+    
+}

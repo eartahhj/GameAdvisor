@@ -1,17 +1,15 @@
 @extends('layouts.base')
 
-@section('title') {{ _('Change your password') }} @endsection
-
 @section('content')
 <section class="template-default template-user">
     <div class="container">
-        <p class="title is-3">{{ _('Change your password') }}</p>
+        <x-flash-message />
+
+        <h1 class="title is-2">{{ $pageTitle }}</h1>
         @if ($errors->any())
             @include('forms.errors', ['class' => 'is-danger', 'text' => _('Errors found')])
         @endif
-    
-        <x-flash-message />
-    
+        
         <form action="{{ route('users.resetpassword')}}" method="post">
             @csrf
     
@@ -51,12 +49,31 @@
                 <input id="user-resetpassword-password-confirmation" type="password" name="password_confirmation" value="" class="input" required="required" autocomplete="new-password">
             </div>
     
+            @if ($token)
             <input type="hidden" name="token" value="{{ $token }}">
+            @endif
     
-            <button type="submit" name="send" class="button is-primary">{{ _('Reset password') }}</button>
+            <p class="buttons">
+                <button type="submit" name="send" class="button is-primary">
+                    <span class="icon">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                    <span>{{ _('Reset password') }}</span>
+                </button>
+                <a href="{{ route('users.login.form') }}" class="button is-link">
+                    <span class="icon">
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                    </span>
+                    <span>{{ _('Login') }}</span>
+                </a>
+                <a href="{{ route('users.register.form') }}" class="button is-link">
+                    <span class="icon">
+                        <i class="fas fa-user"></i>
+                    </span>
+                    <span>{{ _('Register') }}</span>
+                </a>
+            </p>
         </form>
-        <p><a href="{{ route('users.login.form') }}">{{ _('Login') }}</a></p>
-        <p><a href="{{ route('users.register.form') }}">{{ _('Register') }}</a></p>
     </div>
 </section>
 

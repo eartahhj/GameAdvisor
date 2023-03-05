@@ -1,32 +1,29 @@
-<li class="game-single">
-    <article class="box p-0">
-        <header>
-            <div class="grid grid-align-center">
-                <div class="grid-col">
-                    @if ($game->image and $image)
-                        <figure>
-                            <img src="/storage/{{ $game->image }}" alt="" width="{{ $image->width() }}" height="{{ $image->height() }}" loading="lazy">
-                        </figure>
-                    @endif
-                    <p class="game-title">
-                        <a href="{{ route('games.show', $game->id) }}">{{ $game->title }}</a>
-                    </p>
-                </div>
-                <div class="grid-col">
-                    <p class="game-platform">
-                        {{ $game->platform_name }}
-                    </p>
-                </div>
-                <div class="grid-col">
-                    <a href="{{ route('reviews.create', $game->id) }}" rel="nofollow">{{ _('Review this game') }}</a>
-                </div>
-            </div>
-        </header>
-        <div class="game-text">
-            <p class="text">{{ $game->description }}</p>
-            @if (!empty($href) and !empty($rel) and !empty($text))
-                <a href="{{ $href }}" rel="{{ $rel }}">{{ $text }}</a>
+<li class="tile is-parent notification item-single game-single background-4">
+    <article class="tile is-child">
+        <figure class="image">
+            @if ($game->image and $image)
+            <img src="/storage/{{ $game->image }}" alt="" width="{{ $image->width() }}" height="{{ $image->height() }}" loading="lazy">
+            @else
+            <img src="/storage/images/placeholders/game{{ rand(1, 5) }}.png" alt="" width="800" height="600" loading="lazy">
             @endif
+        </figure>
+        <div class="tile-content">
+            <p class="title game-title">
+                <a href="{{ route('games.show', $game->id) }}">{{ $game->title }}</a>
+            </p>
+            <p class="subtitle game-platform">
+                {{ $game->platform_name }}
+            </p>
+            <p class="text game-text">{{ $game->description }}</p>
+            <p class="buttons">
+                <a href="{{ route('reviews.create', $game->id) }}" rel="nofollow" class="button is-primary">{{ _('Review this game') }}</a>
+                @if (!empty($href) and !empty($rel) and !empty($text))
+                <a href="{{ $href }}" rel="{{ $rel }}" class="button is-secondary">{{ $text }}</a>
+                @endif
+                @if (!empty(auth()->user()) and auth()->user()->is_superadmin)
+                <a href="{{ route('games.edit', $game->id) }}" class="button is-dark">{{ _('Edit') }}</a>
+                @endif
+            </p>
         </div>
     </article>
 </li>

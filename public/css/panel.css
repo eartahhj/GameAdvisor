@@ -1,0 +1,15 @@
+#panel-index h2 { margin-bottom:0; }
+#panel-index ul { margin-bottom:2rem; }
+
+#users-list li { margin-bottom:1rem; }
+
+#pages-list li { margin-bottom:1rem; }
+
+@media only screen and (min-width:768px) {
+}
+
+@media only screen and (min-width:1024px) {
+}
+
+@media only screen and (min-width:1440px) {
+}

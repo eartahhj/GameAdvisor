@@ -33,27 +33,40 @@ class GamesSeeder extends Seeder
             $developer = $publisher = null;
 
             if (empty($game->Dev)) {
-                $gameDeveloper = '[Unknown]';
+                $developer = '[Unknown]';
             } else {
-                $gameDeveloper = $game->Dev;
+                $developer = trim($game->Dev);
+                $commaPosition = null;
+
+                if (($commaPosition = strpos($developer, ',')) !== false) {
+                    $developer = substr($developer, 0, $commaPosition - 1);
+                }
             }
 
-            $developer = DB::table('developers')->where('name', $gameDeveloper)->first();
+            $developer = DB::table('developers')->where('name', $developer)->first();
 
             if (empty($game->Publisher)) {
                 $gamePublisher = '[Unknown]';
             } else {
-                $gamePublisher = $game->Publisher;
+                $gamePublisher = trim($game->Publisher);
+
+                $commaPosition = null;
+
+                if (($commaPosition = strpos($publisher, ',')) !== false) {
+                    $publisher = substr($publisher, 0, $commaPosition - 1);
+                }
             }
 
             $publisher = DB::table('publishers')->where('name', $gamePublisher)->first();
 
             Game::create([
-                "title" => $game->Game,
+                "title_en" => trim($game->Game),
+                "title_it" => trim($game->Game),
                 "platform_id" => 1,
                 "developer_id" => $developer->id,
                 "publisher_id" => $publisher->id,
-                "year" => $game->Year
+                "year" => intval($game->Year),
+                'link' => trim($game->GameLink ?? '')
             ]);
         }
     }

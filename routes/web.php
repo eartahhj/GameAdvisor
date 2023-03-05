@@ -7,11 +7,12 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\PlatformController;
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\DeveloperController;
 use App\Http\Controllers\PublisherController;
-use App\Http\Controllers\GamesPlatformController;
-use App\Http\Controllers\GamesDeveloperController;
+use App\Http\Controllers\DataRequestController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -51,16 +52,16 @@ Route::group([
         Route::get(
             LaravelLocalization::transRoute('/'),
             [IndexController::class, 'index']
-        )->middleware('auth')->name('index');
+        )->name('index');
 
         ### --- REGISTRATION --- ###
         Route::get(
-            LaravelLocalization::transRoute('routes.users.register.register'),
+            LaravelLocalization::transRoute('routes.users.register'),
             [UserController::class, 'registrationForm']
         )->name('users.register.form');
 
         Route::post(
-            LaravelLocalization::transRoute('routes.users.register.form'),
+            LaravelLocalization::transRoute('routes.users.register'),
             [UserController::class, 'register']
         )->name('users.register.register');
 
@@ -108,9 +109,7 @@ Route::group([
 
         Route::get(
             LaravelLocalization::transRoute('routes.users.resetpassword'),
-            function() {
-                return redirect(route('users.forgottenpassword.form'));
-            }
+            [UserController::class, 'resetPasswordForm']
         )->middleware('guest')->name('users.resetpassword.form');
 
         Route::get(
@@ -129,7 +128,12 @@ Route::group([
             [UserController::class, 'logout']
         )->name('users.logout');
 
-        ### --- USER --- #
+        ### --- USER --- ###
+        Route::get(
+            LaravelLocalization::transRoute('routes.users.show.{user}'),
+            [UserController::class, 'show']
+        )->name('users.show');
+
         Route::get(
             LaravelLocalization::transRoute('routes.users.dashboard'),
             [UserController::class, 'dashboard']
@@ -142,235 +146,310 @@ Route::group([
 
         Route::get(
             LaravelLocalization::transRoute('routes.user.myReviews'),
-            [UserController::class, 'reviews']
+            [UserController::class, 'myReviews']
         )->middleware(['auth', 'verified'])->name('user.myReviews');
+
+        Route::put(
+            LaravelLocalization::transRoute('routes.user.update'),
+            [UserController::class, 'update']
+        )->middleware(['auth', 'verified'])->name('user.update');
+
+        Route::get(
+            LaravelLocalization::transRoute('routes.user.changePassword'),
+            [UserController::class, 'changePasswordView']
+        )->middleware(['auth', 'verified'])->name('user.changePasswordView');
+
+        Route::put(
+            LaravelLocalization::transRoute('routes.user.changePassword'),
+            [UserController::class, 'changePasswordAction']
+        )->middleware(['auth', 'verified'])->name('user.changePasswordAction');
+
+        Route::delete(
+            LaravelLocalization::transRoute('routes.user.deleteMyAccount'),
+            [UserController::class, 'deleteMyAccount']
+        )->middleware(['auth', 'verified'])->name('user.deleteMyAccount');
+
+        Route::delete(
+            LaravelLocalization::transRoute('routes.user.delete'),
+            [UserController::class, 'destroy']
+        )->middleware(['auth', 'admin'])->name('user.delete');
+
+        Route::get(
+            LaravelLocalization::transRoute('routes.user.review.{review}.edit'),
+            [UserController::class, 'editReview']
+        )->middleware(['auth', 'verified'])->name('user.review.edit');
+
+        Route::put(
+            LaravelLocalization::transRoute('routes.user.review.{review}'),
+            [UserController::class, 'updateReview']
+        )->middleware(['auth', 'verified'])->name('user.review.update');
+
+        Route::delete(
+            LaravelLocalization::transRoute('routes.user.review.{review}'),
+            [UserController::class, 'deleteReview']
+        )->middleware(['auth', 'verified'])->name('user.review.delete');
+
+        Route::get(
+            LaravelLocalization::transRoute('routes.user.review.{review}'),
+            [ReviewController::class, 'show']
+        )->middleware(['auth', 'verified'])->name('user.review');
 
         ### --- REVIEWS --- ###
         Route::get(
             LaravelLocalization::transRoute('routes.reviews'),
             [ReviewController::class, 'index']
-        )->middleware('auth')->name('reviews.index');
+        )->name('reviews.index');
 
         Route::get(
             LaravelLocalization::transRoute('routes.reviews.create.{game}'),
             [ReviewController::class, 'create']
-        )->middleware('auth')->name('reviews.create');
+        )->name('reviews.create');
 
         Route::post(
             LaravelLocalization::transRoute('routes.reviews.store.{game}'),
             [ReviewController::class, 'store']
-        )->middleware('auth')->name('reviews.store');
+        )->name('reviews.store');
 
         Route::get(
             LaravelLocalization::transRoute('routes.reviews.{review}.edit'),
             [ReviewController::class, 'edit']
-        )->middleware('auth')->name('reviews.edit');
+        )->middleware(['auth', 'admin'])->name('reviews.edit');
 
         Route::put(
             LaravelLocalization::transRoute('routes.reviews.{review}'),
             [ReviewController::class, 'update']
-        )->middleware('auth')->name('reviews.update');
+        )->middleware(['auth', 'admin'])->name('reviews.update');
 
         Route::delete(
             LaravelLocalization::transRoute('routes.reviews.{review}'),
             [ReviewController::class, 'destroy']
-        )->middleware('auth')->name('reviews.delete');
+        )->middleware(['auth', 'admin'])->name('reviews.delete');
+
+        Route::get(
+            LaravelLocalization::transRoute('routes.reviews.{review}'),
+            [ReviewController::class, 'show']
+        )->name('reviews.show');
+
+        Route::put(
+            LaravelLocalization::transRoute('routes.reviews.{review}.approve'),
+            [ReviewController::class, 'approve']
+        )->middleware(['auth', 'admin'])->name('reviews.approve');
 
         Route::get(
             LaravelLocalization::transRoute('routes.reviews.game.{game}'),
             [ReviewController::class, 'showReviewsByGame']
-        )->middleware('auth')->name('reviews.game');
+        )->name('reviews.game');
 
         Route::get(
             LaravelLocalization::transRoute('routes.reviews.choose.game'),
             [ReviewController::class, 'chooseGame']
-        )->middleware('auth')->name('reviews.choose.game');
+        )->name('reviews.choose.game');
 
         ### --- GAMES --- ###
         Route::get(
             LaravelLocalization::transRoute('routes.games'),
             [GameController::class, 'index']
-        )->middleware('auth')->name('games.index');
+        )->name('games.index');
 
         Route::get(
             LaravelLocalization::transRoute('routes.games.create'),
             [GameController::class, 'create']
-        )->middleware('auth')->name('games.create');
+        )->middleware(['auth', 'admin'])->name('games.create');
 
         Route::post(
             LaravelLocalization::transRoute('routes.games.store'),
             [GameController::class, 'store']
-        )->middleware('auth')->name('games.store');
+        )->middleware(['auth', 'admin'])->name('games.store');
 
         Route::put(
             LaravelLocalization::transRoute('routes.games.{game}'),
             [GameController::class, 'update']
-        )->middleware('auth')->name('games.update');
+        )->middleware(['auth', 'admin'])->name('games.update');
 
         Route::delete(
             LaravelLocalization::transRoute('routes.games.{game}'),
             [GameController::class, 'destroy']
-        )->middleware('auth')->name('games.delete');
+        )->middleware(['auth', 'admin'])->name('games.delete');
 
         Route::get(
             LaravelLocalization::transRoute('routes.games.{game}.edit'),
             [GameController::class, 'edit']
-        )->middleware('auth')->name('games.edit');
+        )->middleware(['auth', 'admin'])->name('games.edit');
 
         Route::get(
             LaravelLocalization::transRoute('routes.games.{game}'),
             [GameController::class, 'show']
-        )->middleware('auth')->name('games.show');
+        )->name('games.show');
         
-        ### --- GAME PLATFORMS --- ###
+        ### --- PLATFORMS --- ###
         Route::get(
             LaravelLocalization::transRoute('routes.platforms'),
-            [GamesPlatformController::class, 'index']
-        )->middleware('auth')->name('platforms.index');
+            [PlatformController::class, 'index']
+        )->name('platforms.index');
 
         Route::get(
             LaravelLocalization::transRoute('routes.platforms.create'),
-            [GamesPlatformController::class, 'create']
-        )->middleware('auth')->name('platforms.create');
+            [PlatformController::class, 'create']
+        )->middleware(['auth', 'admin'])->name('platforms.create');
 
         Route::post(
             LaravelLocalization::transRoute('routes.platforms.store'),
-            [GamesPlatformController::class, 'store']
-        )->middleware('auth')->name('platforms.store');
+            [PlatformController::class, 'store']
+        )->middleware(['auth', 'admin'])->name('platforms.store');
 
         Route::put(
             LaravelLocalization::transRoute('routes.platforms.{platform}'),
-            [GamesPlatformController::class, 'update']
-        )->middleware('auth')->name('platforms.update');
+            [PlatformController::class, 'update']
+        )->middleware(['auth', 'admin'])->name('platforms.update');
 
         Route::delete(
             LaravelLocalization::transRoute('routes.platforms.{platform}'),
-            [GamesPlatformController::class, 'destroy']
-        )->middleware('auth')->name('platforms.delete');
+            [PlatformController::class, 'destroy']
+        )->middleware(['auth', 'admin'])->name('platforms.delete');
 
         Route::get(
             LaravelLocalization::transRoute('routes.platforms.{platform}.edit'),
-            [GamesPlatformController::class, 'edit']
-        )->middleware('auth')->name('platforms.edit');
+            [PlatformController::class, 'edit']
+        )->middleware(['auth', 'admin'])->name('platforms.edit');
 
         Route::get(
             LaravelLocalization::transRoute('routes.platforms.{platform}'),
-            [GamesPlatformController::class, 'show']
-        )->middleware('auth')->name('platforms.show');
+            [PlatformController::class, 'show']
+        )->name('platforms.show');
 
-        ### --- GAME DEVELOPERS --- ###
+        ### --- DEVELOPERS --- ###
         Route::get(
             LaravelLocalization::transRoute('routes.developers'),
-            [GamesDeveloperController::class, 'index']
-        )->middleware('auth')->name('developers.index');
+            [DeveloperController::class, 'index']
+        )->name('developers.index');
 
         Route::get(
             LaravelLocalization::transRoute('routes.developers.create'),
-            [GamesDeveloperController::class, 'create']
-        )->middleware('auth')->name('developers.create');
+            [DeveloperController::class, 'create']
+        )->middleware(['auth', 'admin'])->name('developers.create');
 
         Route::post(
             LaravelLocalization::transRoute('routes.developers.store'),
-            [GamesDeveloperController::class, 'store']
-        )->middleware('auth')->name('developers.store');
+            [DeveloperController::class, 'store']
+        )->middleware(['auth', 'admin'])->name('developers.store');
 
         Route::put(
             LaravelLocalization::transRoute('routes.developers.{developer}'),
-            [GamesDeveloperController::class, 'update']
-        )->middleware('auth')->name('developers.update');
+            [DeveloperController::class, 'update']
+        )->middleware(['auth', 'admin'])->name('developers.update');
 
         Route::delete(
             LaravelLocalization::transRoute('routes.developers.{developer}'),
-            [GamesDeveloperController::class, 'destroy']
-        )->middleware('auth')->name('developers.delete');
+            [DeveloperController::class, 'destroy']
+        )->middleware(['auth', 'admin'])->name('developers.delete');
 
         Route::get(
             LaravelLocalization::transRoute('routes.developers.{developer}.edit'),
-            [GamesDeveloperController::class, 'edit']
-        )->middleware('auth')->name('developers.edit');
+            [DeveloperController::class, 'edit']
+        )->middleware(['auth', 'admin'])->name('developers.edit');
 
         Route::get(
             LaravelLocalization::transRoute('routes.developers.{developer}'),
-            [GamesDeveloperController::class, 'show']
-        )->middleware('auth')->name('developers.show');
+            [DeveloperController::class, 'show']
+        )->name('developers.show');
 
         ### --- GAME PUBLISHERS --- ###
         Route::get(
             LaravelLocalization::transRoute('routes.publishers'),
             [PublisherController::class, 'index']
-        )->middleware('auth')->name('publishers.index');
+        )->name('publishers.index');
 
         Route::get(
             LaravelLocalization::transRoute('routes.publishers.create'),
             [PublisherController::class, 'create']
-        )->middleware('auth')->name('publishers.create');
+        )->middleware(['auth', 'admin'])->name('publishers.create');
 
         Route::post(
             LaravelLocalization::transRoute('routes.publishers.store'),
             [PublisherController::class, 'store']
-        )->middleware('auth')->name('publishers.store');
+        )->middleware(['auth', 'admin'])->name('publishers.store');
 
         Route::put(
             LaravelLocalization::transRoute('routes.publishers.{publisher}'),
             [PublisherController::class, 'update']
-        )->middleware('auth')->name('publishers.update');
+        )->middleware(['auth', 'admin'])->name('publishers.update');
 
         Route::delete(
             LaravelLocalization::transRoute('routes.publishers.{publisher}'),
             [PublisherController::class, 'destroy']
-        )->middleware('auth')->name('publishers.delete');
+        )->middleware(['auth', 'admin'])->name('publishers.delete');
 
         Route::get(
             LaravelLocalization::transRoute('routes.publishers.{publisher}.edit'),
             [PublisherController::class, 'edit']
-        )->middleware('auth')->name('publishers.edit');
+        )->middleware(['auth', 'admin'])->name('publishers.edit');
 
         Route::get(
             LaravelLocalization::transRoute('routes.publishers.{publisher}'),
             [PublisherController::class, 'show']
-        )->middleware('auth')->name('publishers.show');
+        )->name('publishers.show');
 
         ### --- PAGES --- ###
         Route::get(
             LaravelLocalization::transRoute('routes.pages.create'),
             [PageController::class, 'create']
-        )->middleware('auth')->name('pages.create');
+        )->middleware(['auth', 'admin'])->name('pages.create');
 
         Route::post(
             LaravelLocalization::transRoute('routes.pages.store'),
             [PageController::class, 'store']
-        )->middleware('auth')->name('pages.store');
+        )->middleware(['auth', 'admin'])->name('pages.store');
 
         Route::put(
             LaravelLocalization::transRoute('routes.pages.{page}.publish'),
             [PageController::class, 'publish']
-        )->middleware('auth')->name('pages.publish');
+        )->middleware(['auth', 'admin'])->name('pages.publish');
         
         Route::put(
             LaravelLocalization::transRoute('routes.pages.{page}'),
             [PageController::class, 'update']
-        )->middleware('auth')->name('pages.update');
+        )->middleware(['auth', 'admin'])->name('pages.update');
 
         Route::delete(
             LaravelLocalization::transRoute('routes.pages.{page}'),
             [PageController::class, 'destroy']
-        )->middleware('auth')->name('pages.delete');
+        )->middleware(['auth', 'admin'])->name('pages.delete');
 
         Route::get(
             LaravelLocalization::transRoute('routes.pages.{page}.edit'),
             [PageController::class, 'edit']
-        )->middleware('auth')->name('pages.edit');
+        )->middleware(['auth', 'admin'])->name('pages.edit');
 
         Route::get(
             LaravelLocalization::transRoute('routes.pages.{page}'),
             [PageController::class, 'show']
-        )->middleware('auth')->name('pages.show');
+        )->name('pages.show');
 
         ### --- ADMIN --- ###
         Route::get(
             LaravelLocalization::transRoute('routes.admin.index'),
             [AdminController::class, 'index']
         )->middleware(['auth', 'admin'])->name('admin.index');
+
+        Route::get(
+            LaravelLocalization::transRoute('routes.admin.games.index'),
+            [GameController::class, 'index']
+        )->middleware(['auth', 'admin'])->name('admin.games.index');
+        
+        Route::get(
+            LaravelLocalization::transRoute('routes.admin.platforms.index'),
+            [PlatformController::class, 'index']
+        )->middleware(['auth', 'admin'])->name('admin.platforms.index');
+
+        Route::get(
+            LaravelLocalization::transRoute('routes.admin.publishers.index'),
+            [PublisherController::class, 'index']
+        )->middleware(['auth', 'admin'])->name('admin.publishers.index');
+
+        Route::get(
+            LaravelLocalization::transRoute('routes.admin.developers.index'),
+            [DeveloperController::class, 'index']
+        )->middleware(['auth', 'admin'])->name('admin.developers.index');
 
         Route::get(
             LaravelLocalization::transRoute('routes.admin.pages.index'),
@@ -395,21 +474,32 @@ Route::group([
         Route::put(
             LaravelLocalization::transRoute('routes.admin.users.{user}'),
             [AdminUserController::class, 'update']
-        )->middleware('auth')->name('admin.users.update');
+        )->middleware(['auth', 'admin'])->name('admin.users.update');
 
         Route::get(
             LaravelLocalization::transRoute('routes.admin.users.{user}.edit'),
             [AdminUserController::class, 'edit']
-        )->middleware('auth')->name('admin.users.edit');
+        )->middleware(['auth', 'admin'])->name('admin.users.edit');
 
         Route::post(
             LaravelLocalization::transRoute('routes.admin.users.store'),
             [AdminUserController::class, 'store']
-        )->middleware('auth')->name('admin.users.store');
+        )->middleware(['auth', 'admin'])->name('admin.users.store');
 
         Route::get(
             LaravelLocalization::transRoute('routes.admin.users.{user}'),
             [AdminUserController::class, 'destroy']
         )->middleware(['auth', 'admin'])->name('admin.users.show');
+
+        ### --- REQUEST DATA --- ###
+        Route::get(
+            LaravelLocalization::transRoute('routes.datarequests.create'),
+            [DataRequestController::class, 'create']
+        )->name('datarequests.create');
+
+        Route::post(
+            LaravelLocalization::transRoute('routes.datarequests.store'),
+            [DataRequestController::class, 'store']
+        )->name('datarequests.store');
     }
 );

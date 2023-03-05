@@ -1,0 +1,13 @@
+.template-user .grid-7-3 { gap:2rem; }
+
+@media only screen and (min-width:768px) {
+    .template-user .reviews-list.grid { grid-template-columns:repeat(2, 1fr); }
+}
+
+@media only screen and (min-width:1024px) {
+    .template-user .reviews-list.grid { grid-template-columns:repeat(2, 1fr); }
+}
+
+@media only screen and (min-width:1440px) {
+    .template-user .reviews-list.grid { grid-template-columns:repeat(2, 1fr); }
+}

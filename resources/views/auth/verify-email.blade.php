@@ -1,24 +1,23 @@
 @extends('layouts.base')
 
-@section('title') {{ _('Verify your account') }} @endsection
-
 @section('content')
-
-<div class="container">
-    <x-flash-message />
-
-    @if (!auth()->user()->email_verified_at)
-        <p class="subtitle is-3">{{ _('Verify your account') }}</p>
-        <p>{{ _('You will receive an email to verify your account') }}</p>
-        <form class="" action="{{ route('verification.send') }}" method="post">
-            @csrf
-            <p>{{ _('Your email') }}: {{ auth()->user()->email }}</p>
-            <button type="submit" name="send">{{ _('Send email')}}</button>
-        </form>
-    @else
-        <p>{{ _('Your email has already been verified') }}</p>
-    @endif
-
-</div>
-
+<section class="template-default template-standard">
+    <div class="container">
+        <x-flash-message />
+    
+        <h1 class="title is-2">{{ $pageTitle }}</h1>
+        @if (!auth()->user()->email_verified_at)
+            <p>{{ _('You will receive an email to verify your account') }}</p>
+            <form class="mt-3" action="{{ route('verification.send') }}" method="post">
+                @csrf
+                <p>{{ _('Your email') }}: {{ auth()->user()->email }}</p>
+                <p class="buttons mt-2">
+                    <button class="button is-primary" type="submit" name="send">{{ _('Send email')}}</button>
+                </p>
+            </form>
+        @else
+            <p>{{ _('Your email has already been verified') }}</p>
+        @endif
+    </div>
+</section>
 @endsection

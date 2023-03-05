@@ -1,24 +1,44 @@
 @extends('layouts.base')
 
-@section('title') {{ sprintf(_('Publisher: %s'), $publisher->name) }} @endsection
-
 @section('content')
 <section class="template-default template-publishers">
     <div class="container">
-        <h2>{{ $publisher->name }}</h2>
+        <div class="grid grid-7-3">
+            <article>
+                <x-page-title :text="$pageTitle"></x-page-title>
+
+                @if ($publisher->description)
+                <p>{{ $publisher->description }}</p>
+                @endif
+            </article>
+
+            <aside>
+                @if ($publisher->logo and $logo)
+                <figure class="image">
+                    <img src="/storage/{{ $publisher->logo }}" alt="" width="{{ $logo->width() }}" height="{{ $logo->height() }}">
+                </figure>
+                @endif
+
+                <dl>
+                    @if ($numberOfGames)
+                    <dt>{{ _('Games') }}</dt>
+                    <dd>{{ $numberOfGames }}</dd>
+                    @endif
+                    @if ($publisher->link)
+                    <dt>{{ _('Wikipedia') }}</dt>
+                    <dd>
+                        <a href="{{ $publisher->link }}" rel="external noopener noreferrer nofollow" target="_blank">{{ _('View on Wikipedia') }}</a>
+                    </dd>
+                    @endif
+                </dl>
+            </aside>
+        </div>
     
-        @if (!empty(auth()->user()->id))
-            <p>
-                <a href="{{ route('publishers.edit', $publisher) }}">{{ _('Edit') }}</a>
-                <a href="{{ route('publishers.create') }}">{{ _('Create new') }}</a>
-            </p>
-    
-            <form action="{{ route('publishers.delete', $publisher)}}" method="post">
-                @csrf
-                @method('DELETE')
-    
-                <button type="submit" name="delete" onclick="return confirm('{{ _('Are you sure you want to delete this record?') }}')">{{ _('Delete') }}</button>
-            </form>
+        @if (auth()->user() and auth()->user()->is_superadmin)
+        <p class="mt-6 mb-6">
+            <x-button-bulma link="{{ route('publishers.edit', $publisher) }}" text="{{ _('Edit') }}" class="is-warning"></x-button-bulma>
+            <x-button-bulma link="{{ route('publishers.create') }}" text="{{ _('Create new') }}" class="is-info"></x-button-bulma>
+        </p>
         @endif
     
         <p>

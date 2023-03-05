@@ -13,13 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('games_platforms', function (Blueprint $table) {
+        Schema::create('platforms', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
-            $table->string('name');
+            $table->string('name_en');
+            $table->string('name_it')->nullable();
+            $table->text('description_en')->nullable();
+            $table->text('description_it')->nullable();
             $table->boolean('approved')->default('false');
             $table->boolean('hidden')->default('false');
-            $table->text('year');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('games_platforms');
+        Schema::dropIfExists('platforms');
     }
 };

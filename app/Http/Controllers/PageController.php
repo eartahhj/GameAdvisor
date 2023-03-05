@@ -20,7 +20,7 @@ class PageController extends Controller
         self::$templateJavascripts[] = '/js/tinymce-init.js';
 
         return view('pages/create', ['templateJavascripts' => static::$templateJavascripts,
-        'templateStylesheets' => static::$templateStylesheets]);
+        'templateStylesheets' => static::$templateStylesheets, 'pageTitle' => _('Create a new page')]);
     }
 
     /**
@@ -68,20 +68,16 @@ class PageController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $uri
      * @return \Illuminate\Http\Response
      */
     public function show(string $uri)
     {
-        if (!\isPageUrlFormatValid(url: $uri)) {
-            abort(404);
-        }        
+        $page = getPageByUri($uri);
 
-        if (!$id = getPageIdByUrl(url: $uri)) {
+        if (!$page) {
             abort(404);
         }
-
-        $page = Page::findOrFail($id);
 
         $stringUrl = getPageUrlByUri($uri);
         if ($page->{'url_' . App::currentLocale()} != $stringUrl) {
@@ -91,13 +87,19 @@ class PageController extends Controller
 
         if (!$page->published) {
             if (!auth()->user() or (auth()->user() and !auth()->user()->is_superadmin and $page->user_creator_id != auth()->user()->id)) {
-                return $this->response->setStatusCode(404)->setBody(view('errors/html/error_404', ['message' => _('This page was not found')]));
+                abort(404);
             }
         }
 
         $author = User::where('id', $page->user_creator_id)->first();
 
-        return response()->view('pages.show', compact('page', 'author'));
+        $pageTitle = $page->title;
+
+        return response()->view('pages.show', [
+            'page' => $page,
+            'pageTitle' => $pageTitle,
+            'author' => $author
+        ]);
     }
 
     /**
@@ -120,7 +122,7 @@ class PageController extends Controller
         self::$templateJavascripts[] = '/js/tinymce-init.js';
 
         return view('pages/edit', ['page' => $page, 'templateJavascripts' => static::$templateJavascripts,
-        'templateStylesheets' => static::$templateStylesheets]);
+        'templateStylesheets' => static::$templateStylesheets, 'pageTitle' => _('Edit page')]);
     }
 
     /**
@@ -151,11 +153,11 @@ class PageController extends Controller
         }
 
         if (!$page->update($formFields)) {
-            return redirect()->back()->with('errors', $page->errors())->withInput();
+            return back()->with('errors', $page->errors())->withInput();
         }
 
         if (!$page->wasChanged()) {
-            return redirect()->back()->with('info', _('No data has changed'))->withInput();
+            return back()->with('info', _('No data has changed'))->withInput();
         }
 
         return redirect()->to(route('pages.edit', $page))->with('success', _('Page updated succesfully!'));
@@ -179,7 +181,7 @@ class PageController extends Controller
     public function publish(int $id)
     {
         if (!auth()->user()->is_superadmin) {
-            return $this->response->setStatusCode(401)->setBody(view('errors/html/error_401', ['message' => _('Unauthorized access')]));
+            abort(401);
         }
 
         if (request()->input('publish') == 1) {
@@ -187,7 +189,7 @@ class PageController extends Controller
         } elseif (request()->input('unpublish') == 1) {
             $published = false;
         } else {
-            return redirect()->back()->with('error', _('An error occured during the approve/revoke operation'));
+            return back()->with('error', _('An error occured during the approve/revoke operation'));
         }
 
         $pageId = request()->input('id');
@@ -195,7 +197,7 @@ class PageController extends Controller
         $page->published = $published;
 
         if ($page->save() === false) {
-            return redirect()->back()->with('errors', $page->errors());
+            return back()->with('errors', $page->errors());
         }
 
         if ($published) {
@@ -204,6 +206,6 @@ class PageController extends Controller
             $message = sprintf(_('Page #%s has been unpublished'), $page->id);
         }
 
-        return redirect()->back()->with('success', $message);
+        return back()->with('success', $message);
     }
 }

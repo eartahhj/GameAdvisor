@@ -1,7 +1,8 @@
 @php
 $linkAttributes = $listItemAttributes = [];
+
 if (!empty($route)) {
-    if ($route == url()->current()) {
+    if ($route == url()->current() or strpos(request()->route()->getName(), $routeName) !== false) {
         $listItemAttributes['class'] = 'selected';
     }
 

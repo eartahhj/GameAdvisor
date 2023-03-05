@@ -1,7 +1,7 @@
 <article>
     <h2>
         <a href="<?= route('admin.users.edit', $user) ?>">
-        {{ $user->{'title_' . $locale} }}
+        {{ $user->name }}
         </a>
     </h2>
     <p><?= sprintf(_('Verified: %s'), !empty($user->email_verified_at) ? _('Yes') : _('No')) ?></p>

@@ -9,7 +9,7 @@
         <x-flash-message />
         
         <div class="box">
-            <h1 class="title is-2"><?=_('Manage pages')?></h1>
+            <h1 class="title is-2">{{ $pageTitle }}</h1>
 
             <p class="buttons">
                 <a href="<?= route('pages.create') ?>" class="button is-link"><?= _('New page') ?></a>

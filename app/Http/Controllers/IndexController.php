@@ -17,15 +17,17 @@ class IndexController extends Controller
         
         return view('index', [
             'latestReviews' => Review::join('games', 'reviews.game_id', '=', 'games.id')
-            ->select('reviews.*', 'games.title AS game_title')
-            ->latest()->get()->take(5),
+            ->select('reviews.*', 'games.title_' . getLanguage() . ' AS game_title')
+            ->where('reviews.approved', true)
+            ->latest()->get()->take(8),
 
-            'games' => Game::join('games_platforms', 'games.platform_id', '=', 'games_platforms.id')
-            ->select('games.*', 'games_platforms.name AS platform_name')
-            ->paginate(10),
+            'games' => Game::join('platforms', 'games.platform_id', '=', 'platforms.id')
+            ->select('games.*', 'platforms.name_' . getLanguage() . ' AS platform_name')
+            ->latest()->get()->take(12),
 
             'templateStylesheets' => static::$templateStylesheets,
-            'templateJavascripts' => static::$templateJavascripts
+            'templateJavascripts' => static::$templateJavascripts,
+            'pageTitle' => _('Reviewing games, made easy!')
         ]);
     }
 

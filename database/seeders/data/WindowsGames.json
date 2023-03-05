@@ -132,10 +132,10 @@
   {
     "Game": "3DiTeams",
     "Year": 2007,
-    "Dev": "Duke University Medical Center/Virtual Heroes, Inc.",
-    "DevLink": null,
-    "Publisher": "Duke University Medical Center/Virtual Heroes, Inc.",
-    "PublisherLink": null,
+    "Dev": "Duke University Medical Center",
+    "DevLink": "https://en.wikipedia.org/wiki/Sierra_Entertainment",
+    "Publisher": "Duke University Medical Center",
+    "PublisherLink": "https://en.wikipedia.org/wiki/Sierra_Entertainment",
     "GameLink": "https://en.wikipedia.org/wiki/3DiTeams",
     "Platform": "Windows"
   },
@@ -2112,7 +2112,7 @@
   {
     "Game": "Astrorock",
     "Year": 1996,
-    "Dev": "Intrepid Software Solutions, Inc.",
+    "Dev": "Intrepid Software Solutions Inc",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=Intrepid_Software_Solutions,_Inc.&action=edit&redlink=1",
     "Publisher": "Atlantean Interactive Games",
     "PublisherLink": "https://en.wikipedia.org/w/index.php?title=Atlantean_Interactive_Games&action=edit&redlink=1",
@@ -2294,7 +2294,7 @@
     "Year": 2008,
     "Dev": "Dylan Fitterer",
     "DevLink": "https://en.wikipedia.org/wiki/Dylan_Fitterer",
-    "Publisher": "Audiosurf, LLC",
+    "Publisher": "Audiosurf LLC",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/wiki/Audiosurf",
     "Platform": "Windows"
@@ -2554,8 +2554,8 @@
     "Year": 2000,
     "Dev": "Wayward Design",
     "DevLink": null,
-    "Publisher": "MicroProse/Hasbro Interactive",
-    "PublisherLink": null,
+    "Publisher": "Hasbro Interactive",
+    "PublisherLink": "https://en.wikipedia.org/wiki/Hasbro_Interactive",
     "GameLink": "https://en.wikipedia.org/wiki/B-17_Flying_Fortress:_The_Mighty_8th",
     "Platform": "Windows"
   },
@@ -2664,7 +2664,7 @@
     "Year": 1996,
     "Dev": "Pulse Entertainment",
     "DevLink": null,
-    "Publisher": "Acclaim Entertainment, Inc.",
+    "Publisher": "Acclaim Entertainment Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Acclaim_Entertainment,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Bad_Mojo",
     "Platform": "Windows"
@@ -2704,7 +2704,7 @@
     "Year": 1998,
     "Dev": "BioWare",
     "DevLink": "https://en.wikipedia.org/wiki/BioWare",
-    "Publisher": "Black Isle Studios/Interplay Entertainment",
+    "Publisher": "Interplay Entertainment",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/wiki/Baldur%27s_Gate_(video_game)",
     "Platform": "Windows"
@@ -2832,7 +2832,7 @@
   {
     "Game": "Banzai Bug",
     "Year": 1997,
-    "Dev": "Gravity, Inc.",
+    "Dev": "Gravity Inc",
     "DevLink": null,
     "Publisher": "Grolier Interactive[1]",
     "PublisherLink": null,
@@ -3052,8 +3052,8 @@
   {
     "Game": "Battle Realms: Winter of the Wolf",
     "Year": 2002,
-    "Dev": "Liquid Entertainment/Crave",
-    "DevLink": null,
+    "Dev": "Liquid Entertainment",
+    "DevLink": "https://en.wikipedia.org/wiki/Liquid_Entertainment",
     "Publisher": "Ubisoft",
     "PublisherLink": "https://en.wikipedia.org/wiki/Ubisoft",
     "GameLink": "https://en.wikipedia.org/wiki/Battle_Realms:_Winter_of_the_Wolf",
@@ -3742,8 +3742,8 @@
   {
     "Game": "BioShock",
     "Year": 2007,
-    "Dev": "2K Boston/2K Australia",
-    "DevLink": "https://en.wikipedia.org/wiki/2K_Boston/2K_Australia",
+    "Dev": "2K Games",
+    "DevLink": "https://en.wikipedia.org/wiki/2K Games",
     "Publisher": "2K Games",
     "PublisherLink": "https://en.wikipedia.org/wiki/2K_Games",
     "GameLink": "https://en.wikipedia.org/wiki/BioShock",
@@ -4202,7 +4202,7 @@
   {
     "Game": "Bomberman Online Japan",
     "Year": 2008,
-    "Dev": "Shockwave Entertainment, Inc.",
+    "Dev": "Shockwave Entertainment Inc",
     "DevLink": null,
     "Publisher": "Hudson Soft",
     "PublisherLink": "https://en.wikipedia.org/wiki/Hudson_Soft",
@@ -4804,7 +4804,7 @@
     "Year": 2001,
     "Dev": "FUN Labs",
     "DevLink": "https://en.wikipedia.org/wiki/FUN_Labs",
-    "Publisher": "Activision Publishing, Inc.",
+    "Publisher": "Activision Publishing Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Activision_Publishing,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Cabela%27s_4x4_Off-Road_Adventure",
     "Platform": "Windows"
@@ -4854,7 +4854,7 @@
     "Year": 1998,
     "Dev": "Elsinore Multimedia",
     "DevLink": "https://en.wikipedia.org/wiki/Elsinore_Multimedia",
-    "Publisher": "HeadGames Publishing, Inc.",
+    "Publisher": "HeadGames Publishing Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/HeadGames_Publishing,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Cabela%27s_Big_Game_Hunter_(PC)",
     "Platform": "Windows"
@@ -4862,9 +4862,9 @@
   {
     "Game": "Cabela's Big Game Hunter II",
     "Year": 1998,
-    "Dev": "HeadGames Publishing, Inc.",
+    "Dev": "HeadGames Publishing Inc",
     "DevLink": "https://en.wikipedia.org/wiki/HeadGames_Publishing,_Inc.",
-    "Publisher": "HeadGames Publishing, Inc.",
+    "Publisher": "HeadGames Publishing Inc",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/wiki/Cabela%27s_Big_Game_Hunter_II",
     "Platform": "Windows"
@@ -4872,9 +4872,9 @@
   {
     "Game": "Cabela's Big Game Hunter II: Open Season",
     "Year": 1998,
-    "Dev": "HeadGames Publishing, Inc.",
+    "Dev": "HeadGames Publishing Inc",
     "DevLink": "https://en.wikipedia.org/wiki/HeadGames_Publishing,_Inc.",
-    "Publisher": "HeadGames Publishing, Inc.",
+    "Publisher": "HeadGames Publishing Inc",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/wiki/Cabela%27s_Big_Game_Hunter_II:_Open_Season",
     "Platform": "Windows"
@@ -4894,7 +4894,7 @@
     "Year": 1999,
     "Dev": "Elsinore Multimedia",
     "DevLink": "https://en.wikipedia.org/wiki/Elsinore_Multimedia",
-    "Publisher": "Activision Publishing, Inc.",
+    "Publisher": "Activision Publishing Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Activision_Publishing,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Cabela%27s_Big_Game_Hunter_III:_The_Next_Harvest",
     "Platform": "Windows"
@@ -4924,7 +4924,7 @@
     "Year": 2002,
     "Dev": "nFusion Interactive LLC",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=NFusion_Interactive_LLC&action=edit&redlink=1",
-    "Publisher": "Activision Value Publishing, Inc.",
+    "Publisher": "Activision Value Publishing Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Activision_Value_Publishing,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Cabela%27s_Big_Game_Hunter_6",
     "Platform": "Windows"
@@ -4934,7 +4934,7 @@
     "Year": 2003,
     "Dev": "Sand Grain Studios",
     "DevLink": "https://en.wikipedia.org/wiki/Sand_Grain_Studios",
-    "Publisher": "Activision Publishing, Inc.",
+    "Publisher": "Activision Publishing Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Activision_Publishing,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Cabela%27s_Big_Game_Hunter:_2004_Season",
     "Platform": "Windows"
@@ -4994,7 +4994,7 @@
     "Year": 2003,
     "Dev": "nFusion Interactive",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=NFusion_Interactive&action=edit&redlink=1",
-    "Publisher": "Activision Publishing, Inc.",
+    "Publisher": "Activision Publishing Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Activision_Publishing,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Cabela%27s_GrandSlam_Hunting:_2004_Trophies",
     "Platform": "Windows"
@@ -5002,9 +5002,9 @@
   {
     "Game": "Cabela's GrandSlam Hunting: North American 29",
     "Year": 2000,
-    "Dev": "Activision Publishing, Inc.",
+    "Dev": "Activision Publishing Inc",
     "DevLink": "https://en.wikipedia.org/wiki/Activision_Publishing,_Inc.",
-    "Publisher": "Activision Publishing, Inc.",
+    "Publisher": "Activision Publishing Inc",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/wiki/Cabela%27s_GrandSlam_Hunting:_North_American_29",
     "Platform": "Windows"
@@ -5024,7 +5024,7 @@
     "Year": 1999,
     "Dev": "Elsinore Multimedia Inc.",
     "DevLink": "https://en.wikipedia.org/wiki/Elsinore_Multimedia_Inc.",
-    "Publisher": "HeadGames Publishing, Inc.",
+    "Publisher": "HeadGames Publishing Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/HeadGames_Publishing,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Cabela%27s_Outdoor_Trivia_Challenge",
     "Platform": "Windows"
@@ -5034,7 +5034,7 @@
     "Year": 1997,
     "Dev": "Diversions Software, Inc",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=Diversions_Software,_Inc&action=edit&redlink=1",
-    "Publisher": "HeadGames Publishing, Inc.",
+    "Publisher": "HeadGames Publishing Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/HeadGames_Publishing,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Cabela%27s_Sportsman%27s_Challenge",
     "Platform": "Windows"
@@ -5044,7 +5044,7 @@
     "Year": 2001,
     "Dev": "nFusion Interactive",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=NFusion_Interactive&action=edit&redlink=1",
-    "Publisher": "Activision Publishing, Inc.",
+    "Publisher": "Activision Publishing Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Activision_Publishing,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Cabela%27s_Ultimate_Deer_Hunt",
     "Platform": "Windows"
@@ -5054,7 +5054,7 @@
     "Year": 2002,
     "Dev": "Sylum Entertainment, Ltd.",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=Sylum_Entertainment,_Ltd.&action=edit&redlink=1",
-    "Publisher": "Activision Publishing, Inc.",
+    "Publisher": "Activision Publishing Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Activision_Publishing,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Cabela%27s_Ultimate_Deer_Hunt_2",
     "Platform": "Windows"
@@ -5182,7 +5182,7 @@
   {
     "Game": "Call of Duty: World at War",
     "Year": 2008,
-    "Dev": "Treyarch Invention, LLC",
+    "Dev": "Treyarch Invention LLC",
     "DevLink": "https://en.wikipedia.org/wiki/Treyarch_Invention,_LLC",
     "Publisher": "Activision",
     "PublisherLink": "https://en.wikipedia.org/wiki/Activision",
@@ -5414,7 +5414,7 @@
     "Year": 2000,
     "Dev": "Torus Games",
     "DevLink": "https://en.wikipedia.org/wiki/Torus_Games",
-    "Publisher": "SCi, Xicat Interactive, Inc.",
+    "Publisher": "SCi, Xicat Interactive Inc",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/wiki/Carmageddon_TDR_2000",
     "Platform": "Windows"
@@ -5444,7 +5444,7 @@
     "Year": 2004,
     "Dev": "Artex Software",
     "DevLink": null,
-    "Publisher": "Activision Publishing, Inc.",
+    "Publisher": "Activision Publishing Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Activision_Publishing,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Carnival_Cruise_Line_Tycoon_2005:_Island_Hopping",
     "Platform": "Windows"
@@ -5560,7 +5560,7 @@
     "Platform": "Windows"
   },
   {
-    "Game": "Casino, Inc.",
+    "Game": "Casino Inc",
     "Year": 2003,
     "Dev": "Hothouse Creations",
     "DevLink": "https://en.wikipedia.org/wiki/Hothouse_Creations",
@@ -6102,9 +6102,9 @@
   {
     "Game": "Chessmaster Challenge",
     "Year": 2005,
-    "Dev": "PlayFirst, Inc.",
+    "Dev": "PlayFirst Inc",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=PlayFirst,_Inc.&action=edit&redlink=1",
-    "Publisher": "PlayFirst, Inc.",
+    "Publisher": "PlayFirst Inc",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/wiki/Chessmaster",
     "Platform": "Windows"
@@ -6173,9 +6173,9 @@
     "Game": "Chicken Shoot",
     "Year": 2003,
     "Dev": "Toontraxx",
-    "DevLink": "https://en.wikipedia.org/w/index.php?title=Toontraxx&action=edit&redlink=1",
-    "Publisher": "Zuxxez/TopWare Interactive",
-    "PublisherLink": null,
+    "DevLink": null,
+    "Publisher": "TopWare Interactive",
+    "PublisherLink": "https://en.wikipedia.org/wiki/TopWare_Interactive",
     "GameLink": "https://en.wikipedia.org/wiki/Chicken_Shoot",
     "Platform": "Windows"
   },
@@ -6792,7 +6792,7 @@
   {
     "Game": "Clue",
     "Year": 1998,
-    "Dev": "Engineering Animation, Inc.",
+    "Dev": "Engineering Animation Inc",
     "DevLink": "https://en.wikipedia.org/wiki/Engineering_Animation,_Inc.",
     "Publisher": "Hasbro Interactive",
     "PublisherLink": "https://en.wikipedia.org/wiki/Hasbro_Interactive",
@@ -7102,9 +7102,9 @@
   {
     "Game": "Comanche 2",
     "Year": 1995,
-    "Dev": "NovaLogic, Inc.",
+    "Dev": "NovaLogic Inc",
     "DevLink": "https://en.wikipedia.org/wiki/NovaLogic,_Inc.",
-    "Publisher": "NovaLogic, Inc.",
+    "Publisher": "NovaLogic Inc",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/w/index.php?title=Comanche_2&action=edit&redlink=1",
     "Platform": "Windows"
@@ -7112,9 +7112,9 @@
   {
     "Game": "Comanche 3",
     "Year": 1997,
-    "Dev": "NovaLogic, Inc.",
+    "Dev": "NovaLogic Inc",
     "DevLink": "https://en.wikipedia.org/wiki/NovaLogic,_Inc.",
-    "Publisher": "NovaLogic, Inc.",
+    "Publisher": "NovaLogic Inc",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/wiki/Comanche_3",
     "Platform": "Windows"
@@ -7122,9 +7122,9 @@
   {
     "Game": "Comanche Gold",
     "Year": 1998,
-    "Dev": "NovaLogic, Inc.",
+    "Dev": "NovaLogic Inc",
     "DevLink": "https://en.wikipedia.org/wiki/NovaLogic,_Inc.",
-    "Publisher": "NovaLogic, Inc.",
+    "Publisher": "NovaLogic Inc",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/wiki/Comanche_Gold",
     "Platform": "Windows"
@@ -7132,9 +7132,9 @@
   {
     "Game": "Comanche 4",
     "Year": 2001,
-    "Dev": "NovaLogic, Inc.",
+    "Dev": "NovaLogic Inc",
     "DevLink": "https://en.wikipedia.org/wiki/NovaLogic,_Inc.",
-    "Publisher": "Electronic Arts, Inc.",
+    "Publisher": "Electronic Arts Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Electronic_Arts,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Comanche_4",
     "Platform": "Windows"
@@ -8104,7 +8104,7 @@
     "Year": 2003,
     "Dev": "Cat Daddy Games",
     "DevLink": "https://en.wikipedia.org/wiki/Cat_Daddy_Games",
-    "Publisher": "Activision Value Publishing, Inc.",
+    "Publisher": "Activision Value Publishing Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Activision_Value_Publishing,_Inc.",
     "GameLink": null,
     "Platform": "Windows"
@@ -8762,9 +8762,9 @@
   {
     "Game": "Dark Sun Online: Crimson Sands",
     "Year": 1996,
-    "Dev": "Strategic Simulations, Inc.",
+    "Dev": "Strategic Simulations Inc",
     "DevLink": "https://en.wikipedia.org/wiki/Strategic_Simulations,_Inc.",
-    "Publisher": "Strategic Simulations, Inc.",
+    "Publisher": "Strategic Simulations Inc",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/wiki/Dark_Sun_Online:_Crimson_Sands",
     "Platform": "Windows"
@@ -11052,7 +11052,7 @@
   {
     "Game": "Dragon's Lair II: Time Warp",
     "Year": 1996,
-    "Dev": "Sullivan Bluth Interactive Media, Inc.",
+    "Dev": "Sullivan Bluth Interactive Media Inc",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=Sullivan_Bluth_Interactive_Media,_Inc.&action=edit&redlink=1",
     "Publisher": "ReadySoft Incorporated",
     "PublisherLink": "https://en.wikipedia.org/wiki/ReadySoft_Incorporated",
@@ -11462,7 +11462,7 @@
   {
     "Game": "Dungeons & Dragons Online",
     "Year": 2006,
-    "Dev": "Turbine, Inc.",
+    "Dev": "Turbine Inc",
     "DevLink": "https://en.wikipedia.org/wiki/Turbine,_Inc.",
     "Publisher": "Atari",
     "PublisherLink": "https://en.wikipedia.org/wiki/Atari",
@@ -11972,9 +11972,9 @@
   {
     "Game": "Elf Bowling",
     "Year": 1999,
-    "Dev": "NStorm, Inc.",
+    "Dev": "NStorm Inc",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=NStorm,_Inc.&action=edit&redlink=1",
-    "Publisher": "NStorm, Inc.",
+    "Publisher": "NStorm Inc",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/wiki/Elf_Bowling",
     "Platform": "Windows"
@@ -11982,9 +11982,9 @@
   {
     "Game": "Elf Bowling 2 : Elves Paradise",
     "Year": 2000,
-    "Dev": "NStorm, Inc.",
+    "Dev": "NStorm Inc",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=NStorm,_Inc.&action=edit&redlink=1",
-    "Publisher": "NStorm, Inc.",
+    "Publisher": "NStorm Inc",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/w/index.php?title=Elf_Bowling_2_:_Elves_Paradise&action=edit&redlink=1",
     "Platform": "Windows"
@@ -11992,9 +11992,9 @@
   {
     "Game": "Elf Bowling 3",
     "Year": 2002,
-    "Dev": "NStorm, Inc.",
+    "Dev": "NStorm Inc",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=NStorm,_Inc.&action=edit&redlink=1",
-    "Publisher": "NStorm, Inc.",
+    "Publisher": "NStorm Inc",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/w/index.php?title=Elf_Bowling_3&action=edit&redlink=1",
     "Platform": "Windows"
@@ -12002,9 +12002,9 @@
   {
     "Game": "Elf Bowling 6: Air Biscuits",
     "Year": 2005,
-    "Dev": "NStorm, Inc.",
+    "Dev": "NStorm Inc",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=NStorm,_Inc.&action=edit&redlink=1",
-    "Publisher": "NStorm, Inc.",
+    "Publisher": "NStorm Inc",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/w/index.php?title=Elf_Bowling_6:_Air_Biscuits&action=edit&redlink=1",
     "Platform": "Windows"
@@ -12012,9 +12012,9 @@
   {
     "Game": "Elf Bowling 7 1/7: The Last Insult",
     "Year": 2007,
-    "Dev": "Hot Lava Games, NStorm, Inc.",
+    "Dev": "Hot Lava Games, NStorm Inc",
     "DevLink": null,
-    "Publisher": "MumboJumbo, LLC",
+    "Publisher": "MumboJumbo LLC",
     "PublisherLink": "https://en.wikipedia.org/w/index.php?title=MumboJumbo,_LLC&action=edit&redlink=1",
     "GameLink": "https://en.wikipedia.org/w/index.php?title=Elf_Bowling_7_1/7:_The_Last_Insult&action=edit&redlink=1",
     "Platform": "Windows"
@@ -12022,9 +12022,9 @@
   {
     "Game": "Elf Bowling: Bocce Style",
     "Year": 2004,
-    "Dev": "NStorm, Inc.",
+    "Dev": "NStorm Inc",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=NStorm,_Inc.&action=edit&redlink=1",
-    "Publisher": "NStorm, Inc.",
+    "Publisher": "NStorm Inc",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/w/index.php?title=Elf_Bowling:_Bocce_Style&action=edit&redlink=1",
     "Platform": "Windows"
@@ -12032,9 +12032,9 @@
   {
     "Game": "Elf Bowling: Hawaiian Vacation",
     "Year": 2008,
-    "Dev": "Hot Lava Games, NStorm, Inc.",
+    "Dev": "Hot Lava Games, NStorm Inc",
     "DevLink": null,
-    "Publisher": "MumboJumbo, LLC",
+    "Publisher": "MumboJumbo LLC",
     "PublisherLink": "https://en.wikipedia.org/w/index.php?title=MumboJumbo,_LLC&action=edit&redlink=1",
     "GameLink": "https://en.wikipedia.org/w/index.php?title=Elf_Bowling:_Hawaiian_Vacation&action=edit&redlink=1",
     "Platform": "Windows"
@@ -13472,9 +13472,9 @@
   {
     "Game": "Fantasy General",
     "Year": 1996,
-    "Dev": "Strategic Simulations, Inc.",
+    "Dev": "Strategic Simulations Inc",
     "DevLink": "https://en.wikipedia.org/wiki/Strategic_Simulations,_Inc.",
-    "Publisher": "Strategic Simulations, Inc.",
+    "Publisher": "Strategic Simulations Inc",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/wiki/Fantasy_General",
     "Platform": "Windows"
@@ -14114,7 +14114,7 @@
     "Year": 1997,
     "Dev": "Holistic Design",
     "DevLink": "https://en.wikipedia.org/wiki/Holistic_Design",
-    "Publisher": "Strategic Simulations, Inc.",
+    "Publisher": "Strategic Simulations Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Strategic_Simulations,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Final_Liberation",
     "Platform": "Windows"
@@ -14552,7 +14552,7 @@
   {
     "Game": "The Forgotten Realms Archives",
     "Year": 1997,
-    "Dev": "Strategic Simulations, Inc.",
+    "Dev": "Strategic Simulations Inc",
     "DevLink": "https://en.wikipedia.org/wiki/Strategic_Simulations,_Inc.",
     "Publisher": "Interplay Entertainment",
     "PublisherLink": "https://en.wikipedia.org/wiki/Interplay_Entertainment",
@@ -15442,7 +15442,7 @@
   {
     "Game": "Gadget: Invention, Travel, & Adventure",
     "Year": 1993,
-    "Dev": "Synergy, Inc.",
+    "Dev": "Synergy Inc",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=Synergy,_Inc.&action=edit&redlink=1",
     "Publisher": "Synergy Interactive",
     "PublisherLink": "https://en.wikipedia.org/w/index.php?title=Synergy_Interactive&action=edit&redlink=1",
@@ -15622,7 +15622,7 @@
   {
     "Game": "Garfield: Caught in the Act",
     "Year": 1996,
-    "Dev": "Point of View, Inc.",
+    "Dev": "Point of View Inc",
     "DevLink": "https://en.wikipedia.org/wiki/Point_of_View,_Inc.",
     "Publisher": "Sega",
     "PublisherLink": "https://en.wikipedia.org/wiki/Sega",
@@ -16522,7 +16522,7 @@
   {
     "Game": "Gregory and the Hot Air Balloon",
     "Year": 1996,
-    "Dev": "Capitol Multimedia, Inc.",
+    "Dev": "Capitol Multimedia Inc",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=Capitol_Multimedia,_Inc.&action=edit&redlink=1",
     "Publisher": "Brøderbund",
     "PublisherLink": "https://en.wikipedia.org/wiki/Brøderbund",
@@ -17512,7 +17512,7 @@
   {
     "Game": "Heroes of Might and Magic",
     "Year": 1995,
-    "Dev": "New World Computing, Inc.",
+    "Dev": "New World Computing Inc",
     "DevLink": "https://en.wikipedia.org/wiki/New_World_Computing,_Inc.",
     "Publisher": "Softgold Computerspiele GmbH",
     "PublisherLink": "https://en.wikipedia.org/w/index.php?title=Softgold_Computerspiele_GmbH&action=edit&redlink=1",
@@ -18412,7 +18412,7 @@
   {
     "Game": "Hoyle Table Games 2004",
     "Year": 2003,
-    "Dev": "Buzz Monkey Software, LLC, Sierra Entertainment",
+    "Dev": "Buzz Monkey Software LLC, Sierra Entertainment",
     "DevLink": null,
     "Publisher": "Sierra Entertainment",
     "PublisherLink": null,
@@ -18424,7 +18424,7 @@
     "Year": 2000,
     "Dev": "Mindsai Productions",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=Mindsai_Productions&action=edit&redlink=1",
-    "Publisher": "Scholastic, Inc.",
+    "Publisher": "Scholastic Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Scholastic,_Inc.",
     "GameLink": "https://en.wikipedia.org/w/index.php?title=Huggly_Saves_the_Turtles&action=edit&redlink=1",
     "Platform": "Windows"
@@ -18774,7 +18774,7 @@
     "Year": 1997,
     "Dev": "Frog City Software",
     "DevLink": "https://en.wikipedia.org/wiki/Frog_City_Software",
-    "Publisher": "Strategic Simulations, Inc.",
+    "Publisher": "Strategic Simulations Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Strategic_Simulations,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Imperialism_(video_game)",
     "Platform": "Windows"
@@ -18784,7 +18784,7 @@
     "Year": 1999,
     "Dev": "Frog City Software",
     "DevLink": "https://en.wikipedia.org/wiki/Frog_City_Software",
-    "Publisher": "Strategic Simulations, Inc.",
+    "Publisher": "Strategic Simulations Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Strategic_Simulations,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Imperialism_II:_Age_of_Exploration",
     "Platform": "Windows"
@@ -19014,8 +19014,8 @@
     "Year": 1999,
     "Dev": "LucasArts",
     "DevLink": "https://en.wikipedia.org/wiki/LucasArts",
-    "Publisher": "LucasArts, THQ",
-    "PublisherLink": "https://en.wikipedia.org/wiki/THQ",
+    "Publisher": "LucasArts",
+    "PublisherLink": "https://en.wikipedia.org/wiki/LucasArts",
     "GameLink": "https://en.wikipedia.org/wiki/Indiana_Jones_and_the_Infernal_Machine",
     "Platform": "Windows"
   },
@@ -19162,7 +19162,7 @@
   {
     "Game": "Insecticide",
     "Year": 2008,
-    "Dev": "Crackpot Entertainment, Creat Studios, Inc.",
+    "Dev": "Crackpot Entertainment, Creat Studios Inc",
     "DevLink": null,
     "Publisher": "Gamecock Media Group",
     "PublisherLink": "https://en.wikipedia.org/wiki/Gamecock_Media_Group",
@@ -19424,7 +19424,7 @@
     "Year": 2003,
     "Dev": "Artifact Entertainment",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=Artifact_Entertainment&action=edit&redlink=1",
-    "Publisher": "Artifact Entertainment, Virtrium LLC, Tulga Games, LLC, EI Interactive",
+    "Publisher": "Artifact Entertainment, Virtrium LLC, Tulga Games LLC, EI Interactive",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/wiki/Istaria:_Chronicles_of_the_Gifted",
     "Platform": "Windows"
@@ -19534,7 +19534,7 @@
     "Year": 2002,
     "Dev": "Looking Glass Studios",
     "DevLink": "https://en.wikipedia.org/wiki/Looking_Glass_Studios",
-    "Publisher": "Xicat Interactive, Inc.",
+    "Publisher": "Xicat Interactive Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Xicat_Interactive,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Jane%27s_Attack_Squadron",
     "Platform": "Windows"
@@ -20182,9 +20182,9 @@
   {
     "Game": "King of Dragon Pass",
     "Year": 1999,
-    "Dev": "A Sharp, LLC",
+    "Dev": "A Sharp LLC",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=A_Sharp,_LLC&action=edit&redlink=1",
-    "Publisher": "A Sharp, LLC",
+    "Publisher": "A Sharp LLC",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/wiki/King_of_Dragon_Pass",
     "Platform": "Windows"
@@ -21612,9 +21612,9 @@
   {
     "Game": "Lord of the Rings Online: Mines of Moria",
     "Year": 2008,
-    "Dev": "Turbine, Inc.",
+    "Dev": "Turbine Inc",
     "DevLink": "https://en.wikipedia.org/wiki/Turbine,_Inc.",
-    "Publisher": "Turbine, Inc.",
+    "Publisher": "Turbine Inc",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/wiki/The_Lord_of_the_Rings_Online:_Mines_of_Moria",
     "Platform": "Windows"
@@ -21622,9 +21622,9 @@
   {
     "Game": "Lord of the Rings Online: Shadows of Angmar",
     "Year": 2007,
-    "Dev": "Turbine, Inc.",
+    "Dev": "Turbine Inc",
     "DevLink": "https://en.wikipedia.org/wiki/Turbine,_Inc.",
-    "Publisher": "Turbine, Inc.",
+    "Publisher": "Turbine Inc",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/wiki/The_Lord_of_the_Rings_Online:_Shadows_of_Angmar",
     "Platform": "Windows"
@@ -21864,7 +21864,7 @@
     "Year": 1999,
     "Dev": "Eagle Interactive, R3M Infografica, REM 3D Models Bank",
     "DevLink": null,
-    "Publisher": "Strategic Simulations, Inc.",
+    "Publisher": "Strategic Simulations Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Strategic_Simulations,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Luftwaffe_Commander",
     "Platform": "Windows"
@@ -22062,7 +22062,7 @@
   {
     "Game": "Mad Dog II: The Lost Gold",
     "Year": 2003,
-    "Dev": "American Laser Games, Inc.",
+    "Dev": "American Laser Games Inc",
     "DevLink": "https://en.wikipedia.org/wiki/American_Laser_Games,_Inc.",
     "Publisher": "Selectsoft Publishing",
     "PublisherLink": null,
@@ -22552,7 +22552,7 @@
   {
     "Game": "Mall Tycoon",
     "Year": 2002,
-    "Dev": "Holistic Design, Inc.",
+    "Dev": "Holistic Design Inc",
     "DevLink": "https://en.wikipedia.org/wiki/Holistic_Design,_Inc.",
     "Publisher": "Take-Two Interactive",
     "PublisherLink": "https://en.wikipedia.org/wiki/Take-Two_Interactive",
@@ -22692,7 +22692,7 @@
   {
     "Game": "Mario's Game Gallery",
     "Year": 1995,
-    "Dev": "Presage Software, Inc.",
+    "Dev": "Presage Software Inc",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=Presage_Software,_Inc.&action=edit&redlink=1",
     "Publisher": "Interplay Entertainment",
     "PublisherLink": "https://en.wikipedia.org/wiki/Interplay_Entertainment",
@@ -23052,7 +23052,7 @@
   {
     "Game": "Medal of Honor: Allied Assault",
     "Year": 2002,
-    "Dev": "2015, Inc.",
+    "Dev": "2015 Inc",
     "DevLink": "https://en.wikipedia.org/wiki/2015,_Inc.",
     "Publisher": "Electronic Arts",
     "PublisherLink": "https://en.wikipedia.org/wiki/Electronic_Arts",
@@ -23154,7 +23154,7 @@
     "Year": 1997,
     "Dev": "Capcom Production Studio 2",
     "DevLink": "https://en.wikipedia.org/wiki/Capcom_Production_Studio_2",
-    "Publisher": "Capcom Entertainment, Inc.",
+    "Publisher": "Capcom Entertainment Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Capcom_Entertainment,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Mega_Man_Legends_(video_game)",
     "Platform": "Windows"
@@ -23164,7 +23164,7 @@
     "Year": 2000,
     "Dev": "Capcom Production Studio 2",
     "DevLink": "https://en.wikipedia.org/wiki/Capcom_Production_Studio_2",
-    "Publisher": "Capcom Entertainment, Inc.",
+    "Publisher": "Capcom Entertainment Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Capcom_Entertainment,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Mega_Man_Legends_2",
     "Platform": "Windows"
@@ -23262,7 +23262,7 @@
   {
     "Game": "Men of Valor",
     "Year": 2004,
-    "Dev": "2015, Inc.",
+    "Dev": "2015 Inc",
     "DevLink": "https://en.wikipedia.org/wiki/2015,_Inc.",
     "Publisher": "Vivendi Universal",
     "PublisherLink": "https://en.wikipedia.org/wiki/Vivendi_Universal",
@@ -23292,7 +23292,7 @@
   {
     "Game": "Merchant Prince II",
     "Year": 2001,
-    "Dev": "Holistic Design, Inc.",
+    "Dev": "Holistic Design Inc",
     "DevLink": "https://en.wikipedia.org/wiki/Holistic_Design,_Inc.",
     "Publisher": "TalonSoft",
     "PublisherLink": "https://en.wikipedia.org/wiki/TalonSoft",
@@ -23892,9 +23892,9 @@
   {
     "Game": "Minions of Mirth",
     "Year": 2005,
-    "Dev": "Prairie Games, Inc.",
+    "Dev": "Prairie Games Inc",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=Prairie_Games,_Inc.&action=edit&redlink=1",
-    "Publisher": "Prairie Games, Inc.",
+    "Publisher": "Prairie Games Inc",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/wiki/Minions_of_Mirth",
     "Platform": "Windows"
@@ -23912,8 +23912,8 @@
   {
     "Game": "Missile Command",
     "Year": 1999,
-    "Dev": "Meyer/Glass Interactive",
-    "DevLink": "https://en.wikipedia.org/wiki/Meyer/Glass_Interactive",
+    "Dev": "Atari Inc",
+    "DevLink": "https://en.wikipedia.org/wiki/Atari,_Inc.",
     "Publisher": "Hasbro Interactive",
     "PublisherLink": "https://en.wikipedia.org/wiki/Hasbro_Interactive",
     "GameLink": "https://en.wikipedia.org/wiki/Missile_Command",
@@ -24062,7 +24062,7 @@
   {
     "Game": "Monopoly 2008",
     "Year": 2007,
-    "Dev": "TikGames, LLC",
+    "Dev": "TikGames LLC",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=TikGames,_LLC&action=edit&redlink=1",
     "Publisher": "Encore Software",
     "PublisherLink": "https://en.wikipedia.org/wiki/Encore_Software",
@@ -24394,8 +24394,8 @@
     "Year": 1998,
     "Dev": "Delphine Software International",
     "DevLink": "https://en.wikipedia.org/wiki/Delphine_Software_International",
-    "Publisher": "Delphine Software International/Electronic Arts",
-    "PublisherLink": null,
+    "Publisher": "Electronic Arts",
+    "PublisherLink": "https://en.wikipedia.org/wiki/Electronic_Arts",
     "GameLink": "https://en.wikipedia.org/wiki/Moto_Racer_2",
     "Platform": "Windows"
   },
@@ -25572,8 +25572,8 @@
   {
     "Game": "Need for Speed: Hot Pursuit 2",
     "Year": 2002,
-    "Dev": "Black Box Games/EA Black Box, EA Seattle",
-    "DevLink": null,
+    "Dev": "EA Black Box",
+    "DevLink": "https://en.wikipedia.org/wiki/EA_Black_Box",
     "Publisher": "EA Games",
     "PublisherLink": "https://en.wikipedia.org/wiki/EA_Games",
     "GameLink": "https://en.wikipedia.org/wiki/Need_for_Speed:_Hot_Pursuit_2",
@@ -26004,8 +26004,8 @@
     "Year": 2002,
     "Dev": "BioWare",
     "DevLink": "https://en.wikipedia.org/wiki/BioWare",
-    "Publisher": "Infogrames/Atari",
-    "PublisherLink": null,
+    "Publisher": "Infogrames",
+    "PublisherLink": "https://en.wikipedia.org/wiki/Atari_SA",
     "GameLink": "https://en.wikipedia.org/wiki/Neverwinter_Nights_(2002_video_game)",
     "Platform": "Windows"
   },
@@ -26744,7 +26744,7 @@
     "Year": 1994,
     "Dev": "Stephen R. Woods",
     "DevLink": null,
-    "Publisher": "Financial Systems Associates, Inc.",
+    "Publisher": "Financial Systems Associates Inc",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/w/index.php?title=Oh_No!_-_A_Game_of_Chance&action=edit&redlink=1",
     "Platform": "Windows"
@@ -27662,9 +27662,9 @@
   {
     "Game": "Panzer General 3D Assault",
     "Year": 1999,
-    "Dev": "Strategic Simulations, Inc.",
+    "Dev": "Strategic Simulations Inc",
     "DevLink": "https://en.wikipedia.org/wiki/Strategic_Simulations,_Inc.",
-    "Publisher": "Strategic Simulations, Inc.",
+    "Publisher": "Strategic Simulations Inc",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/wiki/Panzer_General_3D_Assault",
     "Platform": "Windows"
@@ -27672,9 +27672,9 @@
   {
     "Game": "Panzer General II",
     "Year": 1997,
-    "Dev": "Strategic Simulations, Inc.",
+    "Dev": "Strategic Simulations Inc",
     "DevLink": "https://en.wikipedia.org/wiki/Strategic_Simulations,_Inc.",
-    "Publisher": "Strategic Simulations, Inc.",
+    "Publisher": "Strategic Simulations Inc",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/wiki/Panzer_General_II",
     "Platform": "Windows"
@@ -27932,9 +27932,9 @@
   {
     "Game": "People's General",
     "Year": 1998,
-    "Dev": "Strategic Simulations, Inc.",
+    "Dev": "Strategic Simulations Inc",
     "DevLink": "https://en.wikipedia.org/wiki/Strategic_Simulations,_Inc.",
-    "Publisher": "Strategic Simulations, Inc.",
+    "Publisher": "Strategic Simulations Inc",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/wiki/People%27s_General",
     "Platform": "Windows"
@@ -28052,10 +28052,10 @@
   {
     "Game": "Phantasmagoria",
     "Year": 1995,
-    "Dev": "Sierra On-Line/Kronos Digital",
-    "DevLink": null,
+    "Dev": "Sierra On-Line",
+    "DevLink": "https://en.wikipedia.org/wiki/Sierra_Entertainment",
     "Publisher": "Sierra On-Line",
-    "PublisherLink": null,
+    "PublisherLink": "https://en.wikipedia.org/wiki/Sierra_Entertainment",
     "GameLink": "https://en.wikipedia.org/wiki/Phantasmagoria_(video_game)",
     "Platform": "Windows"
   },
@@ -28312,10 +28312,10 @@
   {
     "Game": "Pirates of the Caribbean: The Legend of Jack Sparrow",
     "Year": 2006,
-    "Dev": "7 Studios/Buena Vista Games",
+    "Dev": "7 Studios",
     "DevLink": null,
-    "Publisher": "Bethesda Softworks/Ubisoft",
-    "PublisherLink": null,
+    "Publisher": "Bethesda Softworks",
+    "PublisherLink": "https://en.wikipedia.org/wiki/Bethesda_Softworks",
     "GameLink": "https://en.wikipedia.org/wiki/Pirates_of_the_Caribbean:_The_Legend_of_Jack_Sparrow",
     "Platform": "Windows"
   },
@@ -29414,7 +29414,7 @@
     "Year": 2007,
     "Dev": "Cold Breath, Co., Ltd.",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=Cold_Breath,_Co.,_Ltd.&action=edit&redlink=1",
-    "Publisher": "Artifact, Co., Ltd., Policros, LLC",
+    "Publisher": "Artifact, Co., Ltd., Policros LLC",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/wiki/Puppet_Guardian",
     "Platform": "Windows"
@@ -29652,10 +29652,10 @@
   {
     "Game": "Puzzle Bobble 2",
     "Year": 1995,
-    "Dev": "Taito/Probe Entertainment",
-    "DevLink": null,
+    "Dev": "Taito",
+    "DevLink": "https://en.wikipedia.org/wiki/Taito",
     "Publisher": "Taito",
-    "PublisherLink": null,
+    "PublisherLink": "https://en.wikipedia.org/wiki/Taito",
     "GameLink": "https://en.wikipedia.org/wiki/Puzzle_Bobble_2",
     "Platform": "Windows"
   },
@@ -30242,7 +30242,7 @@
   {
     "Game": "Re-Mission",
     "Year": 2006,
-    "Dev": "Realtime Associates, Inc.",
+    "Dev": "Realtime Associates Inc",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=Realtime_Associates,_Inc.&action=edit&redlink=1",
     "Publisher": "HopeLab",
     "PublisherLink": "https://en.wikipedia.org/wiki/HopeLab",
@@ -30264,7 +30264,7 @@
     "Year": 2000,
     "Dev": "Strategic Studies Group",
     "DevLink": "https://en.wikipedia.org/wiki/Strategic_Studies_Group",
-    "Publisher": "Strategic Simulations, Inc.",
+    "Publisher": "Strategic Simulations Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Strategic_Simulations,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Reach_for_the_Stars_(video_game)",
     "Platform": "Windows"
@@ -30942,7 +30942,7 @@
   {
     "Game": "Return Fire",
     "Year": 1995,
-    "Dev": "Silent Software, Inc.",
+    "Dev": "Silent Software Inc",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=Silent_Software,_Inc.&action=edit&redlink=1",
     "Publisher": "Prolific Publishing",
     "PublisherLink": null,
@@ -30952,7 +30952,7 @@
   {
     "Game": "Return Fire 2",
     "Year": 1998,
-    "Dev": "Silent Software, Inc.",
+    "Dev": "Silent Software Inc",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=Silent_Software,_Inc.&action=edit&redlink=1",
     "Publisher": "Ripcord Games",
     "PublisherLink": "https://en.wikipedia.org/wiki/Ripcord_Games",
@@ -31242,9 +31242,9 @@
   {
     "Game": "Rise: The Vieneo Province",
     "Year": 2006,
-    "Dev": "Unistellar Industries, LLC",
+    "Dev": "Unistellar Industries LLC",
     "DevLink": "http://www.linkedin.com/company/unistellar-industries-llc",
-    "Publisher": "Unistellar Industries, LLC",
+    "Publisher": "Unistellar Industries LLC",
     "PublisherLink": "http://www.linkedin.com/company/unistellar-industries-llc",
     "GameLink": "https://en.wikipedia.org/wiki/Rise:_The_Vieneo_Province",
     "Platform": "Windows"
@@ -32204,7 +32204,7 @@
     "Year": 1998,
     "Dev": "DreamForge Intertainment",
     "DevLink": "https://en.wikipedia.org/wiki/DreamForge_Intertainment",
-    "Publisher": "ASC Games, XS Games, LLC",
+    "Publisher": "ASC Games, XS Games LLC",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/wiki/Sanitarium_(video_game)",
     "Platform": "Windows"
@@ -32332,7 +32332,7 @@
   {
     "Game": "Scooby-Doo! Mystery of the Fun Park Phantom",
     "Year": 1999,
-    "Dev": "Engineering Animation, Inc.",
+    "Dev": "Engineering Animation Inc",
     "DevLink": "https://en.wikipedia.org/wiki/Engineering_Animation,_Inc.",
     "Publisher": "SouthPeak Games",
     "PublisherLink": "https://en.wikipedia.org/wiki/SouthPeak_Games",
@@ -32354,7 +32354,7 @@
     "Year": 1996,
     "Dev": "Zyrinx",
     "DevLink": "https://en.wikipedia.org/wiki/Zyrinx",
-    "Publisher": "Scavenger, Inc.",
+    "Publisher": "Scavenger Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Scavenger,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Scorcher_(video_game)",
     "Platform": "Windows"
@@ -32672,7 +32672,7 @@
   {
     "Game": "Sega Marine Fishing",
     "Year": 2001,
-    "Dev": "Wow Entertainment, Inc.",
+    "Dev": "Wow Entertainment Inc",
     "DevLink": "https://en.wikipedia.org/wiki/Wow_Entertainment,_Inc.",
     "Publisher": "Sega, Empire Interactive Europe Ltd.",
     "PublisherLink": null,
@@ -32982,7 +32982,7 @@
   {
     "Game": "Shadowgate",
     "Year": 2014,
-    "Dev": "Zojoi, LLC",
+    "Dev": "Zojoi LLC",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=Zojoi,_LLC&action=edit&redlink=1",
     "Publisher": "Reverb Triple XP",
     "PublisherLink": "https://en.wikipedia.org/w/index.php?title=Reverb_Triple_XP&action=edit&redlink=1",
@@ -33252,7 +33252,7 @@
   {
     "Game": "The Shield",
     "Year": 2007,
-    "Dev": "Point of View, Inc.",
+    "Dev": "Point of View Inc",
     "DevLink": "https://en.wikipedia.org/wiki/Point_of_View,_Inc.",
     "Publisher": "Aspyr Media",
     "PublisherLink": "https://en.wikipedia.org/wiki/Aspyr_Media",
@@ -34132,7 +34132,7 @@
   {
     "Game": "SiN: Wages of Sin",
     "Year": 1999,
-    "Dev": "2015, Inc.",
+    "Dev": "2015 Inc",
     "DevLink": "https://en.wikipedia.org/wiki/2015,_Inc.",
     "Publisher": "Activision",
     "PublisherLink": "https://en.wikipedia.org/wiki/Activision",
@@ -34174,8 +34174,8 @@
     "Year": 2007,
     "Dev": "White Birds Productions",
     "DevLink": "https://en.wikipedia.org/wiki/White_Birds_Productions",
-    "Publisher": "Microids/Encore Games",
-    "PublisherLink": null,
+    "Publisher": "Microids",
+    "PublisherLink": "https://en.wikipedia.org/wiki/Microids",
     "GameLink": "https://en.wikipedia.org/wiki/Sinking_Island",
     "Platform": "Windows"
   },
@@ -34454,7 +34454,7 @@
     "Year": 1998,
     "Dev": "Random Games",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=Random_Games&action=edit&redlink=1",
-    "Publisher": "Strategic Simulations, Inc.",
+    "Publisher": "Strategic Simulations Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Strategic_Simulations,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Soldiers_at_War",
     "Platform": "Windows"
@@ -34952,7 +34952,7 @@
   {
     "Game": "Space Pirates",
     "Year": 2008,
-    "Dev": "American Laser Games, Inc.",
+    "Dev": "American Laser Games Inc",
     "DevLink": "https://en.wikipedia.org/wiki/American_Laser_Games,_Inc.",
     "Publisher": "1C Company",
     "PublisherLink": "https://en.wikipedia.org/wiki/1C_Company",
@@ -35134,7 +35134,7 @@
     "Year": 2003,
     "Dev": "Phenomic Game Development",
     "DevLink": "https://en.wikipedia.org/wiki/Phenomic_Game_Development",
-    "Publisher": "Encore, Inc.",
+    "Publisher": "Encore Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Encore,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/SpellForce:_The_Order_of_Dawn",
     "Platform": "Windows"
@@ -36764,7 +36764,7 @@
     "Year": 1996,
     "Dev": "Eagle Dynamics",
     "DevLink": "https://en.wikipedia.org/wiki/Eagle_Dynamics",
-    "Publisher": "Strategic Simulations, Inc.",
+    "Publisher": "Strategic Simulations Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Strategic_Simulations,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Su-27_Flanker_(video_game)",
     "Platform": "Windows"
@@ -37224,7 +37224,7 @@
     "Year": 2004,
     "Dev": "MC2-Microids",
     "DevLink": "https://en.wikipedia.org/wiki/MC2-Microids",
-    "Publisher": "XS Games, LLC",
+    "Publisher": "XS Games LLC",
     "PublisherLink": "https://en.wikipedia.org/wiki/XS_Games,_LLC",
     "GameLink": "https://en.wikipedia.org/wiki/Syberia_II",
     "Platform": "Windows"
@@ -37384,7 +37384,7 @@
     "Year": 2001,
     "Dev": "Magitech",
     "DevLink": "https://en.wikipedia.org/wiki/Magitech",
-    "Publisher": "Xicat Interactive, Inc.",
+    "Publisher": "Xicat Interactive Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Xicat_Interactive,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Takeda_(video_game)",
     "Platform": "Windows"
@@ -39144,7 +39144,7 @@
     "Year": 2001,
     "Dev": "William A. Romanowski",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=William_A._Romanowski&action=edit&redlink=1",
-    "Publisher": "TQworld, LLC.",
+    "Publisher": "TQworld LLC.",
     "PublisherLink": "https://en.wikipedia.org/w/index.php?title=TQworld,_LLC.&action=edit&redlink=1",
     "GameLink": "https://en.wikipedia.org/wiki/Tranquility_(video_game)",
     "Platform": "Windows"
@@ -40092,7 +40092,7 @@
   {
     "Game": "Urban Terror",
     "Year": 2000,
-    "Dev": "Silicon Ice Development/Frozen Sand, LLC",
+    "Dev": "Frozen Sand LLC",
     "DevLink": null,
     "Publisher": null,
     "PublisherLink": null,
@@ -40694,7 +40694,7 @@
     "Year": 2008,
     "Dev": "Heavy Iron Studios, Asobo Studio, Savage Entertainment",
     "DevLink": null,
-    "Publisher": "Disney Interactive Studios, THQ",
+    "Publisher": "THQ",
     "PublisherLink": null,
     "GameLink": "https://en.wikipedia.org/wiki/WALL-E_(video_game)",
     "Platform": "Windows"
@@ -40774,7 +40774,7 @@
     "Year": 1996,
     "Dev": "DreamForge Intertainment",
     "DevLink": "https://en.wikipedia.org/wiki/DreamForge_Intertainment",
-    "Publisher": "Strategic Simulations, Inc.",
+    "Publisher": "Strategic Simulations Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Strategic_Simulations,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/War_Wind",
     "Platform": "Windows"
@@ -40784,7 +40784,7 @@
     "Year": 1997,
     "Dev": "DreamForge Intertainment",
     "DevLink": "https://en.wikipedia.org/wiki/DreamForge_Intertainment",
-    "Publisher": "Strategic Simulations, Inc.",
+    "Publisher": "Strategic Simulations Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Strategic_Simulations,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/War_Wind_II:_Human_Onslaught",
     "Platform": "Windows"
@@ -40864,8 +40864,8 @@
     "Year": 1998,
     "Dev": "Interactive Studios",
     "DevLink": "https://en.wikipedia.org/wiki/Interactive_Studios",
-    "Publisher": "MGM Interactive, MGM/UA",
-    "PublisherLink": null,
+    "Publisher": "MGM Interactive",
+    "PublisherLink": "https://en.wikipedia.org/wiki/Metro-Goldwyn-Mayer",
     "GameLink": "https://en.wikipedia.org/wiki/WarGames:_Defcon_1",
     "Platform": "Windows"
   },
@@ -40874,7 +40874,7 @@
     "Year": 1998,
     "Dev": "Random Games Inc.",
     "DevLink": "https://en.wikipedia.org/w/index.php?title=Random_Games_Inc.&action=edit&redlink=1",
-    "Publisher": "Strategic Simulations, Inc.",
+    "Publisher": "Strategic Simulations Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Strategic_Simulations,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Warhammer_40,000:_Chaos_Gate",
     "Platform": "Windows"
@@ -40954,7 +40954,7 @@
     "Year": 1999,
     "Dev": "DreamForge",
     "DevLink": "https://en.wikipedia.org/wiki/DreamForge",
-    "Publisher": "Strategic Simulations, Inc.",
+    "Publisher": "Strategic Simulations Inc",
     "PublisherLink": "https://en.wikipedia.org/wiki/Strategic_Simulations,_Inc.",
     "GameLink": "https://en.wikipedia.org/wiki/Warhammer_40,000:_Rites_of_War",
     "Platform": "Windows"
@@ -42833,9 +42833,9 @@
     "Game": "Zettai Fukuju Meirei",
     "Year": 2005,
     "Dev": "Langmaor",
-    "DevLink": "https://en.wikipedia.org/w/index.php?title=Langmaor&action=edit&redlink=1",
-    "Publisher": "JAST USA/Peach Princess",
-    "PublisherLink": null,
+    "DevLink": null,
+    "Publisher": "JAST USA",
+    "PublisherLink": "https://en.wikipedia.org/wiki/JAST_USA",
     "GameLink": "https://en.wikipedia.org/wiki/Zettai_Fukuju_Meirei",
     "Platform": "Windows"
   },

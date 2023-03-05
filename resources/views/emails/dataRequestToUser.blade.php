@@ -1,0 +1,1 @@
+{{ _('Thank you for your data request which you can find here below:') . " \n\n$emailBody\n\n" . env('APP_NAME') }}

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use App\Notifications\ResetPasswordNotification;
@@ -24,6 +23,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'bio',
+        'private_profile'
     ];
 
     /**
@@ -50,5 +51,14 @@ class User extends Authenticatable implements MustVerifyEmail
         $url = route('password.reset', $token);
 
         $this->notify(new ResetPasswordNotification($url));
+    }
+
+    public function avatar(int $size = 250): string
+    {
+        if (!$this->email_verified_at) {
+            return '';
+        }
+        
+        return getLibravatar($this->email);
     }
 }

@@ -1,11 +1,9 @@
 @extends('layouts.base')
 
-@section('title') {{ _('Edit review') }} @endsection
-
 @section('content')
 <section class="template-default template-reviews">
     <div class="container">
-        <h2>{{ _('Edit review') }}</h2>
+        <h1 class="title is-2">{{ _('Edit review') }}</h1>
         <p>{{ _('Review:') . ' ' . $review->title }}</p>
         @if ($errors->any())
             @include('forms.errors', ['class' => 'is-danger', 'text' => _('Errors found')])
@@ -13,7 +11,7 @@
     
         <x-flash-message />
     
-        <form action="{{ route('reviews.store', $review->game_id)}}" method="post" enctype="multipart/form-data">
+        <form id="form-edit" action="{{ route('reviews.update', $review->game_id)}}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="field">
@@ -39,37 +37,29 @@
                 <label for="reviews-edit-text" class="label">{{ _('Text') }}</label>
                 <textarea id="reviews-edit-text" name="text" rows="10" cols="40" class="textarea">{{ $review->text }}</textarea>
             </div>
-    
-            <div class="field">
-                @error('approved')
-                <x-form-error>
-                    <x-slot:text>
-                        {{ $message }}
-                    </x-slot>
-                </x-form-error>
-                @enderror
-                <fieldset>
-                    <legend>{{ _('Approved') }}</legend>
-                    <input type="radio" name="approved" id="reviews-edit-approved-t" class="radio" value="true"{{ $review->approved ? ' checked="checked' : '' }}>
-                    <label for="reviews-edit-approved-t" class="radio">{{ _('Yes') }}</label>
-                    <input type="radio" name="approved" id="reviews-edit-approved-f" class="radio" value="false"{{ $review->approved ? '' : ' checked="checked' }}>
-                    <label for="reviews-edit-approved-f" class="radio">{{ _('No') }}</label>
-                </fieldset>
-            </div>
-    
-            <button type="submit" name="send" class="button is-primary">{{ _('Save') }}</button>
+
+            <x-form-image-field name="image" :help="$supportedImageFormats" :image="$image" :filename="$review->image"></x-form-image-field>
+
+            <p class="mb-3"><strong>{{ _('Approved') }}</strong>: {{ $review->approved ? _('Yes') : _('No') }}</p>
         </form>
     
-        <p>
-            <a href="{{ route('reviews.create', $review->game_id) }}" class="button is-primary">{{ _('Create new') }}</a>
-        </p>
-    
-        <form action="{{ route('reviews.index', $review)}}" method="post">
+        <form id="form-delete" action="{{ route('reviews.index', $review)}}" method="post">
             @csrf
             @method('DELETE')
-    
-            <button type="submit" name="delete" onclick="return confirm('{{ _('Are you sure you want to delete this record?') }}')" class="button is-danger">{{ _('Delete') }}</button>
         </form>
+
+        <x-reviews.form-publish :review="$review"></x-reviews>
+
+        <div class="buttons">
+            <button type="submit" name="send" class="button is-primary" form="form-edit">
+                <span class="icon is-small"><i class="fas fa-check"></i></span>
+                <span>{{ _('Save') }}</span>
+            </button>
+            <button type="submit" name="delete" onclick="return confirm('{{ _('Are you sure you want to delete this record?') }}')" class="button is-danger" form="form-delete">
+                <span class="icon is-small"><i class="fas fa-trash"></i></span>
+                <span>{{ _('Delete') }}</span>
+            </button>
+        </div>
     </div>
 </section>
 

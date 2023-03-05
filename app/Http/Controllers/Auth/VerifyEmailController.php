@@ -32,6 +32,6 @@ class VerifyEmailController extends Controller
     {
         self::$templateStylesheets[] = '/css/dashboard.css';
         
-        return view('auth.verify-email');
+        return view('auth.verify-email', ['pageTitle' => _('Verify your email')]);
     }
 }

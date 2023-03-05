@@ -1,24 +1,51 @@
-@if (Auth::check() and !Auth::user()->is_superadmin)
-    {!! '<p>Thank you for registering. GameAdvisor is currently Work in Progress. Coming soon! Follow me on <a href="https://www.github.com/eartahhj" rel="external">GitHub</a> to know more!</p>' !!}
-    @php exit(); @endphp
-@endif
+<?php
+try {
+    $matomoTracker->doTrackPageView($pageTitle);
+} catch (\Exception $e) {
+    error_log($e->getMessage());
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>
-            @hasSection('title')
-                @yield('title')
-                - 
-            @endif
-            {{ env('APP_NAME') }}
+            {{ $pageTitle }} - {{ env('APP_NAME') }}
         </title>
         <link rel="preload" href="{{ asset('css/bulma/bulma.min.css') }}" as="style">
         <link rel="preload" href="{{ asset('css/style.css') }}" as="style">
         <link rel="preload" href="/vendor/fontawesome/css/all.min.css" as="style">
 
         <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
+
+        <style media="screen" title="Default">
+        @font-face {
+            font-family:'Lexend';
+            src:url('/css/fonts/lexend/Lexend-Regular.ttf') format('truetype'),
+            font-weight:normal;
+            font-style:normal;
+            font-display:swap;
+        }
+
+        @font-face {
+            font-family:'LexendSemibold';
+            src:url('/css/fonts/lexend/Lexend-Semibold.ttf') format('truetype'),
+            font-weight:normal;
+            font-style:normal;
+            font-display:swap;
+        }
+
+        @font-face {
+            font-family:'LexendBold';
+            src:url('/css/fonts/lexend/Lexend-Bold.ttf') format('truetype'),
+            font-weight:normal;
+            font-style:normal;
+            font-display:swap;
+        }
+        </style>
 
         @if (!empty($templateStylesheets))
             @foreach ($templateStylesheets as $css)
@@ -49,6 +76,24 @@
                 <script type="text/javascript" src="{{ asset($js) }}"></script>
             @endforeach
         @endif
+        <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        // _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        _paq.push(['enableHeartBeatTimer', 15]);
+        (function() {
+        var u="https://matomo.gaminghouse.community/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '6']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+        </script>
+
+        @if (env('APP_ENV') == 'production')
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6766935573967740" crossorigin="anonymous"></script>
+        @endif
     </head>
     <body>
 
@@ -76,32 +121,26 @@
                         <p><?= env('APP_NAME') ?></p>
                     </div>
                     <nav id="nav-main" class="navbar">
-                        <ul class="navbar-start">
-                            <x-nav-item>
-                                <x-slot:route>{{ route('index') }}</x-slot>
-                                <x-slot:text>{{_('Homepage')}}</x-slot>
-                            </x-nav-item>
-                            <x-nav-item>
-                                <x-slot:route>{{ route('reviews.index') }}</x-slot>
-                                <x-slot:text>{{_('Reviews')}}</x-slot>
-                            </x-nav-item>
-                            <x-nav-item>
-                                <x-slot:route>{{ route('games.index') }}</x-slot>
-                                <x-slot:text>{{_('Games')}}</x-slot>
-                            </x-nav-item>
-                            <x-nav-item>
-                                <x-slot:route>{{ route('platforms.index') }}</x-slot>
-                                <x-slot:text>{{_('Platforms')}}</x-slot>
-                            </x-nav-item>
-                            <x-nav-item>
-                                <x-slot:route>{{ route('developers.index') }}</x-slot>
-                                <x-slot:text>{{_('Developers')}}</x-slot>
-                            </x-nav-item>
-                            <x-nav-item>
-                                <x-slot:route>{{ route('publishers.index') }}</x-slot>
-                                <x-slot:text>{{_('Publishers')}}</x-slot>
-                            </x-nav-item>
-                        </ul>
+                        <div id="nav-main-container">
+                            <input type="checkbox" id="navbar-main-handler" class="sr-only" tabindex="0">
+                            <label for="navbar-main-handler" tabindex="-1">
+                                <span class="icon is-medium"></span>
+                                <span class="text"><?= _('Menu') ?></span>
+                                <span class="sr-only"><?= _('(Open/close the menu)') ?></span>
+                            </label>
+                            <ul class="navbar-start">
+                                @if (!auth()->user())
+                                <x-nav-item :route="route('users.register.form')" :text="_('Register')" :routeName="'register'"></x-nav-item>
+                                <x-nav-item :route="route('users.login.form')" :text="_('Login')" :routeName="'login'"></x-nav-item>
+                                @endif
+                                <x-nav-item :route="route('reviews.index')" :text="_('Reviews')" :routeName="'review'"></x-nav-item>
+                                <x-nav-item :route="route('games.index')" :text="_('Games')" :routeName="'game'"></x-nav-item>
+                                <x-nav-item :route="route('platforms.index')" :text="_('Platforms')" :routeName="'platform'"></x-nav-item>
+                                <x-nav-item :route="route('developers.index')" :text="_('Developers')" :routeName="'developer'"></x-nav-item>
+                                <x-nav-item :route="route('publishers.index')" :text="_('Publishers')" :routeName="'publisher'"></x-nav-item>
+                            </ul>
+                            <div id="nav-main-shadow" onclick="closeMainNavigation()"></div>
+                        </div>
                         <div class="navbar-end">
                             <?php
                             /*
@@ -155,7 +194,7 @@
                             <a href="<?= route('user.profile') ?>" class="navbar-item"><?= _('My profile') ?></a>
                         </li>
                         <li>
-                            <a href="<?= route('users.resetpassword') ?>" class="navbar-item"><?= _('Change password') ?></a>
+                            <a href="<?= route('user.changePasswordView') ?>" class="navbar-item"><?= _('Change password') ?></a>
                         </li>
                         <li>
                             <a href="<?= route('users.logout') ?>" class="navbar-item"><?= _('Logout') ?></a>
@@ -163,6 +202,18 @@
                         <?php if ($authUser->is_superadmin):?>
                             <li>
                                 <a href="<?= route('admin.index') ?>" class="navbar-item"><?= _('Administration') ?></a>
+                            </li>
+                            <li>
+                                <a href="<?= route('admin.games.index') ?>" class="navbar-item"><?= _('Manage games') ?></a>
+                            </li>
+                            <li>
+                                <a href="<?= route('admin.platforms.index') ?>" class="navbar-item"><?= _('Manage platforms') ?></a>
+                            </li>
+                            <li>
+                                <a href="<?= route('admin.developers.index') ?>" class="navbar-item"><?= _('Manage developers') ?></a>
+                            </li>
+                            <li>
+                                <a href="<?= route('admin.publishers.index') ?>" class="navbar-item"><?= _('Manage publishers') ?></a>
                             </li>
                             <li>
                                 <a href="<?= route('admin.pages.index') ?>" class="navbar-item"><?= _('Manage pages') ?></a>
@@ -177,11 +228,31 @@
         </section>
         @endif
 
+        <div id="banner-global" class="banner">
+            <figure>
+                <img src="/storage/images/banners/banner{{ rand(1, 6) }}.png" alt="" width="1920" height="200">
+            </figure>
+        </div>
+
         <main id="main-content">
         @hasSection('alerts')
         <div id="page-alerts">
             @yield('alerts')
         </div>
+        @endif
+
+        @hasSection('breadcrumbs')
+        <div id="page-breadcrumbs" class="container">
+            <nav class="breadcrumb">
+                @yield('breadcrumbs')
+            </nav>
+        </div>
+        @else
+            @unless(!Breadcrumbs::exists(request()->route()->getName()) or request()->route()->getName() == 'index')
+            <div id="page-breadcrumbs" class="container">
+                {{ Breadcrumbs::render() }}
+            </div>
+            @endunless
         @endif
 
         @hasSection('content')
@@ -190,6 +261,14 @@
         </div>
         @endif
         </main>
+
+        @if (env('APP_ENV') == 'production')
+        <div id="gads-bottom" class="gads">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6766935573967740" data-ad-slot="8905929447" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+        @endif
+
         <footer>
             <div class="container">
                 <div class="grid">
@@ -201,11 +280,11 @@
                     </div>
                     <div id="footer-col-2" class="grid-col">
                         <nav class="languages-list">
-                            <span><?=_('Change language')?></span>
+                            <span class="title is-5"><?=_('Change language')?></span>
                             <x-languages-list />
                         </nav>
                         <nav id="footer-policies">
-                            <h2><?= _('Policies') ?></h2>
+                            <h2 class="title is-5"><?= _('Policies') ?></h2>
                             <ul>
                                 <li>
                                     <a href="<?= page_url(3) ?>"><?= _('Privacy policy') ?></a>
@@ -222,7 +301,7 @@
                                 <span class="icon is-large" aria-hidden="true">
                                     <i class="fab fa-github fa-3x"></i>
                                 </span>
-                                <a href="https://github.com/eartahhj/swiccy" rel="external noopener" target="_blank">
+                                <a href="https://github.com/eartahhj/GameAdvisor" rel="external noopener" target="_blank">
                                     Github
                                     <span class="sr-only"><?= _('(opens in a new window)') ?></span>
                                 </a>
@@ -259,10 +338,13 @@
                         </ul>
                     </nav>
                 </div>
-                <p id="footer-realized-by">&copy; <?=date('Y')?> <?=_('A project realized by')?> <a href="https://github.com/eartahhj" rel="external noopener nofollow" target="_blank">eartahhj</a></p>
+                <p id="footer-realized-by">&copy; <?=date('Y')?> <?=_('A project realized by')?> <a href="https://github.com/eartahhj" rel="external noopener nofollow" target="_blank">eartahhj</a> - <span>{{ sprintf(_('Version: %s'), env('APP_VERSION')) }}</p>
             </div>
             <nav id="footer-bottom">
                 <ul>
+                    <li>
+                        <a href="{{ route('datarequests.create') }}">{{ _('Send a request') }}</a>
+                    </li>
                     <li>
                         <a href="{{ env('APP_WEBSITE_ADMIN') }}" rel="external noopener"><?= _('Need a web developer? Hire me') ?></a>
                     </li>

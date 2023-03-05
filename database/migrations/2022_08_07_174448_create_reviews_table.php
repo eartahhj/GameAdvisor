@@ -16,11 +16,13 @@ return new class extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
-            $table->string('author_name');
-            $table->string('author_email');
+            $table->string('author_name')->nullable();
+            $table->string('author_email')->nullable();
             $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->restrictOnDelete();
             $table->string('title');
+            $table->string('language')->default('en');
             $table->text('text');
+            $table->string('image')->nullable();
             $table->boolean('approved')->default('false');
             $table->integer('rating');
             $table->foreignId('game_id')->constrained()->cascadeOnUpdate()->restrictOnDelete();

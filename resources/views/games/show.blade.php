@@ -1,49 +1,64 @@
 @extends('layouts.base')
 
-@section('title') {{ sprintf(_('Game: %s'), $game->title) }} @endsection
-
 @section('content')
 <section class="template-default template-games">
     <div class="container">
-        <h2>{{ $game->title }}</h2>
-    
-        <p>{{ $game->description }}</p>
-    
-        @if ($developer)
-            <p>{!! _(sprintf('Developed by: %s', '<a href="' . route('developers.show', $developer->id) . '">' . $developer->name . '</a>')) !!}</p>
-        @endif
-    
-        @if ($publisher)
-            <p>{!! _(sprintf('Published by: %s', '<a href="' . route('publishers.show', $publisher->id) . '">' . $publisher->name . '</a>')) !!}</p>
-        @endif
-    
-        @if ($game->image and $image)
-            <figure>
-                <img src="/storage/{{ $game->image }}" alt="" width="{{ $image->width() }}" height="{{ $image->height() }}">
-            </figure>
-        @endif
-    
-        @if (!empty(auth()->user()->id))
-            <p>
-                <a href="{{ route('games.edit', $game) }}">{{ _('Edit') }}</a>
-                <a href="{{ route('games.create') }}">{{ _('Create new') }}</a>
+        
+        <div class="grid grid-7-3">
+            <article>
+                <h1 class="title is-2">{{ $pageTitle }}</h1>
+                @if ($game->description)
+                <p>{{ $game->description }}</p>
+                @endif
+            </article>
+
+            <aside>
+                @if ($game->image and $image)
+                <figure class="image">
+                    <img src="/storage/{{ $game->image }}" alt="" width="{{ $image->width() }}" height="{{ $image->height() }}">
+                </figure>
+                @endif
+
+                <dl>
+                    <dt>{{ _('Rating') }}:</dt>
+                    <dd class="game-rating">
+                        <span class="sr-only">{{ sprintf(_('%d out of %d'), intval($rating), 5) }}</span>
+                        @for ($stars = 1; $stars <= 5; $stars++)
+                        <span class="star star-<?=($stars <= $rating ? 'on' : 'off')?>" aria-hidden="true"></span>
+                        @endfor
+                    </dd>
+                    @if ($developer)
+                    <dt>{{ _('Developer') }}</dt>
+                    <dd>
+                        <a href="{{ route('developers.show', $developer->id) }}">{{ $developer->name }}</a>
+                    </dd>
+                    @endif
+                    @if ($publisher)
+                    <dt>{{ _('Publisher') }}</dt>
+                    <dd>
+                        <a href="{{ route('publishers.show', $publisher->id) }}">{{ $publisher->name }}</a>
+                    </dd>
+                    @endif
+                </dl>
+            </aside>
+        </div>
+
+        @if (auth()->user() and auth()->user()->is_superadmin)
+            <p class="mt-6 mb-6">
+                <x-button-bulma link="{{ route('games.edit', $game) }}" text="{{ _('Edit') }}" class="is-warning"></x-button-bulma>
+                <x-button-bulma link="{{ route('games.create') }}" text="{{ _('Create new') }}" class="is-info"></x-button-bulma>
             </p>
-    
-            <form action="{{ route('games.index', $game)}}" method="post">
-                @csrf
-                @method('DELETE')
-    
-                <button type="submit" name="delete" onclick="return confirm('{{ _('Are you sure you want to delete this record?') }}')">{{ _('Delete') }}</button>
-            </form>
         @endif
     
         @if (!$reviews->isEmpty())
-            <p class="title is-3">{{ sprintf(_('Reviews for %s'), $game->title) }}</p>
-            <x-reviews.form-order-by>
+        <p class="title is-3">{{ sprintf(_('Reviews for %s'), $game->title) }}</p>
+            @if ($reviews->count() > 12)
+            <x-form-order-by>
                 <x-slot:action>{{ route('games.show', $game->id) }}</x-slot>
-            </x-reviews.form-order-by>
+            </x-form-order-by>
+            @endif
     
-            <ul>
+            <ul class="grid reviews-list">
                 @foreach ($reviews as $review)
                     <x-reviews.list-item :review="$review" />
                 @endforeach

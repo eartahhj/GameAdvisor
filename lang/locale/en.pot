@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-25 14:36+0100\n"
+"POT-Creation-Date: 2023-03-05 18:26+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,87 +16,89 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 msgid "m/d/Y H:i"
 msgstr ""
 
-msgid "This user was not found"
+msgid "Administration panel"
 msgstr ""
 
-msgid "There was an error updating the groups"
+msgid "Manage pages"
 msgstr ""
 
-msgid "Groups updated!"
+msgid "Manage users"
 msgstr ""
 
-msgid "There was an error updating the permissions"
+msgid "Insert a new user"
 msgstr ""
 
-msgid "Permissions updated!"
+msgid "User created"
 msgstr ""
 
-msgid "This post was not found"
-msgstr ""
-
-msgid "Unauthorized access"
-msgstr ""
-
-msgid "An error occured during the approve/revoke operation"
+msgid "Error creating user"
 msgstr ""
 
 #, php-format
-msgid "Post #%s has been approved"
+msgid "Modifying user: %s"
+msgstr ""
+
+msgid "Send us a request"
 msgstr ""
 
 #, php-format
-msgid "Post #%s has been revoked"
-msgstr ""
-
-msgid "Page created succesfully!"
-msgstr ""
-
-msgid "This page was not found"
-msgstr ""
-
-msgid "No data has changed"
-msgstr ""
-
-msgid "Page updated succesfully!"
+msgid "Title: %s"
 msgstr ""
 
 #, php-format
-msgid "Page #%s has been published"
+msgid "Type: %s"
 msgstr ""
 
 #, php-format
-msgid "Page #%s has been unpublished"
+msgid "Description: %s"
 msgstr ""
 
-msgid "Error uploading image"
+#, php-format
+msgid "Email: %s"
 msgstr ""
 
-msgid "Game created"
+#, php-format
+msgid "Notes: %s"
 msgstr ""
 
-msgid "Error creating game"
+msgid "Thank you! We will look into your data request as soon as possible!"
 msgstr ""
 
-msgid "Game updated"
+#, php-format
+msgid ""
+"There was an error with your request, please try again or send us an email "
+"at: %s"
 msgstr ""
 
-msgid "Error updating the game"
+msgid "No developers to show at the moment."
 msgstr ""
 
-msgid "Game deleted"
+msgid "All developers"
 msgstr ""
 
-msgid "Error deleting game"
+#, php-format
+msgid "All developers for: %s"
+msgstr ""
+
+msgid "New developer"
 msgstr ""
 
 msgid "Developer created"
 msgstr ""
 
 msgid "Error creating developer"
+msgstr ""
+
+#, php-format
+msgid "Developer: %s"
+msgstr ""
+
+msgid "Edit developer"
 msgstr ""
 
 msgid "Developer updated"
@@ -111,10 +113,109 @@ msgstr ""
 msgid "Error deleting developer"
 msgstr ""
 
+msgid "No games to show at the moment."
+msgstr ""
+
+#, php-format
+msgid "All games for: %s, %s"
+msgstr ""
+
+#, php-format
+msgid "All games for: %s"
+msgstr ""
+
+msgid "All games"
+msgstr ""
+
+msgid "Insert a new game"
+msgstr ""
+
+msgid "Game created"
+msgstr ""
+
+msgid "Error creating game"
+msgstr ""
+
+msgid "Edit game"
+msgstr ""
+
+msgid "Game updated"
+msgstr ""
+
+msgid "Error updating the game"
+msgstr ""
+
+msgid "Game deleted"
+msgstr ""
+
+msgid "Error deleting game"
+msgstr ""
+
+msgid "Reviewing games, made easy!"
+msgstr ""
+
+msgid "Create a new page"
+msgstr ""
+
+msgid "Error uploading image"
+msgstr ""
+
+msgid "Page created succesfully!"
+msgstr ""
+
+msgid "Error creating page"
+msgstr ""
+
+msgid "Edit page"
+msgstr ""
+
+msgid "No data has changed"
+msgstr ""
+
+msgid "Page updated succesfully!"
+msgstr ""
+
+msgid "Page deleted"
+msgstr ""
+
+msgid "Error deleting page"
+msgstr ""
+
+msgid "An error occured during the approve/revoke operation"
+msgstr ""
+
+#, php-format
+msgid "Page #%s has been published"
+msgstr ""
+
+#, php-format
+msgid "Page #%s has been unpublished"
+msgstr ""
+
+msgid "No platforms to show at the moment."
+msgstr ""
+
+msgid "All platforms"
+msgstr ""
+
+#, php-format
+msgid "All platforms for: %s"
+msgstr ""
+
+msgid "New platform"
+msgstr ""
+
 msgid "Platform created"
 msgstr ""
 
 msgid "Error creating platform"
+msgstr ""
+
+#, php-format
+msgid "Platform: %s"
+msgstr ""
+
+msgid "Edit platform"
 msgstr ""
 
 msgid "Platform updated"
@@ -129,16 +230,30 @@ msgstr ""
 msgid "Error deleting platform"
 msgstr ""
 
-msgid "Error creating page"
+msgid "No publishers to show at the moment."
 msgstr ""
 
-msgid "Invalid Page URL Format"
+msgid "All publishers"
+msgstr ""
+
+#, php-format
+msgid "All publishers for: %s"
+msgstr ""
+
+msgid "New publisher"
 msgstr ""
 
 msgid "Publisher created"
 msgstr ""
 
 msgid "Error creating publisher"
+msgstr ""
+
+#, php-format
+msgid "Publisher: %s"
+msgstr ""
+
+msgid "Edit publisher"
 msgstr ""
 
 msgid "Publisher updated"
@@ -153,10 +268,45 @@ msgstr ""
 msgid "Error deleting publisher"
 msgstr ""
 
-msgid "Review created"
+msgid "No reviews to show at the moment."
+msgstr ""
+
+#, php-format
+msgid "All reviews for: %s, with rating of %s"
+msgstr ""
+
+msgid "star"
+msgid_plural "stars"
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid "All reviews with rating: %s"
+msgstr ""
+
+#, php-format
+msgid "All reviews for: %s"
+msgstr ""
+
+msgid "All reviews"
+msgstr ""
+
+msgid "New review"
+msgstr ""
+
+msgid ""
+"Your review has been created but there was an error uploading the image."
+msgstr ""
+
+msgid ""
+"Thank you for submitting your review! Please note that it must be approved "
+"before being published!"
 msgstr ""
 
 msgid "Error creating review"
+msgstr ""
+
+msgid "Edit review"
 msgstr ""
 
 msgid "Review updated"
@@ -174,8 +324,44 @@ msgstr ""
 msgid "Error deleting review"
 msgstr ""
 
+#, php-format
+msgid "Review #%s has been approved"
+msgstr ""
+
+#, php-format
+msgid "Review #%s has been unapproved"
+msgstr ""
+
+msgid "Choose a game to review"
+msgstr ""
+
+msgid "New user"
+msgstr ""
+
+#, php-format
+msgid "User: %s"
+msgstr ""
+
 msgid ""
-"Registration successfull! You will receive an email to activate your account!"
+"There was an error sending the activation email. Your email address has been "
+"changed anyway. You can request a new verification email below."
+msgstr ""
+
+msgid "Please check your email to activate it."
+msgstr ""
+
+msgid "Profile info updated successfully."
+msgstr ""
+
+#, php-format
+msgid "User #%s has been deleted succesfully"
+msgstr ""
+
+msgid "Create an account"
+msgstr ""
+
+msgid ""
+"Registration successful! You will receive an email to activate your account!"
 msgstr ""
 
 msgid "Error upon registration"
@@ -184,15 +370,27 @@ msgstr ""
 msgid "Logged out successfully"
 msgstr ""
 
+msgid "Login"
+msgstr ""
+
 msgid "Logged in successfully"
 msgstr ""
 
 msgid "Invalid credentials"
 msgstr ""
 
+msgid "Reset password"
+msgstr ""
+
 msgid ""
 "If an account is associated to the e-mail address provided, you will receive "
 "instructions on how to reset your password."
+msgstr ""
+
+msgid "Change your password"
+msgstr ""
+
+msgid "Password updated!"
 msgstr ""
 
 msgid "Your password has been updated."
@@ -201,12 +399,102 @@ msgstr ""
 msgid "Error resetting password."
 msgstr ""
 
-msgid ""
-"Thank you for registering! Please verify your email by clicking the button "
-"below"
+msgid "Dashboard"
+msgstr ""
+
+msgid "My profile"
+msgstr ""
+
+msgid "My reviews"
+msgstr ""
+
+#, php-format
+msgid "Reviews posted by user: %s"
+msgstr ""
+
+msgid "There was an error deleting your account!"
+msgstr ""
+
+msgid "Your account has been deleted succesfully!"
+msgstr ""
+
+msgid "There was an error deleting your review!"
+msgstr ""
+
+msgid "Your review has been deleted succesfully!"
+msgstr ""
+
+msgid "Edit your review"
 msgstr ""
 
 msgid "Verify your email"
+msgstr ""
+
+msgid "New data request"
+msgstr ""
+
+msgid "Your data request"
+msgstr ""
+
+#, php-format
+msgid "New review has been posted on %s"
+msgstr ""
+
+#, php-format
+msgid "New user has registered on %s"
+msgstr ""
+
+#, php-format
+msgid ""
+"Supported Formats: JPEG, PNG, WEBP or AVIF. Dimensions between %s and %s. "
+"Maximum size for each image: %s."
+msgstr ""
+
+msgid "Developer"
+msgstr ""
+
+msgid "Game"
+msgstr ""
+
+msgid "Platform"
+msgstr ""
+
+msgid "Publisher"
+msgstr ""
+
+msgid "Other"
+msgstr ""
+
+msgid "Newest first"
+msgstr ""
+
+msgid "Oldest first"
+msgstr ""
+
+msgid "A to Z"
+msgstr ""
+
+msgid "Z to A"
+msgstr ""
+
+msgid "Author (A to Z)"
+msgstr ""
+
+msgid "Author (Z to A)"
+msgstr ""
+
+msgid "Best rating first"
+msgstr ""
+
+msgid "Worst rating first"
+msgstr ""
+
+msgid "[...]"
+msgstr ""
+
+msgid ""
+"Thank you for registering! Please verify your email by clicking the button "
+"below"
 msgstr ""
 
 msgid ""
@@ -223,25 +511,156 @@ msgstr ""
 msgid "If you did not requested a password reset, you can ignore this email."
 msgstr ""
 
-msgid "Turn on animations"
+msgid "Games"
 msgstr ""
 
-msgid "Turn off animations"
+msgid "Manage games"
 msgstr ""
 
-msgid "Animations"
+msgid "Create game"
 msgstr ""
 
-msgid "Off"
+msgid "Platforms"
 msgstr ""
 
-msgid "On"
+msgid ""
+"Manage platforms\n"
+"                    "
+msgstr ""
+
+msgid "Create platform"
+msgstr ""
+
+msgid "Publishers"
+msgstr ""
+
+msgid ""
+"Manage publishers\n"
+"                    "
+msgstr ""
+
+msgid "Create publisher"
+msgstr ""
+
+msgid "Developers"
+msgstr ""
+
+msgid ""
+"Manage developers\n"
+"                    "
+msgstr ""
+
+msgid "Create developer"
+msgstr ""
+
+msgid "Users"
+msgstr ""
+
+msgid "Create user"
+msgstr ""
+
+msgid "Pages"
+msgstr ""
+
+msgid "New page"
+msgstr ""
+
+msgid "No pages to show at the moment"
+msgstr ""
+
+msgid "No users to show at the moment"
+msgstr ""
+
+msgid "Choose image to upload"
+msgstr ""
+
+msgid "Browse..."
+msgstr ""
+
+msgid "View this page"
+msgstr ""
+
+#, php-format
+msgid "Published: %s"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Really unapprove this review?"
+msgstr ""
+
+msgid "Unapprove this review"
+msgstr ""
+
+msgid "Really approve this review?"
+msgstr ""
+
+msgid "Approve this review"
+msgstr ""
+
+#, php-format
+msgid "Verified: %s"
+msgstr ""
+
+msgid ""
+"Supported Formats: JPEG, PNG, WEBP or AVIF. Dimensions: 800x600px. Maximum "
+"size: 800KB."
+msgstr ""
+
+#, php-format
+msgid "Name (%s)"
+msgstr ""
+
+msgid "*"
+msgstr ""
+
+#, php-format
+msgid "Description (%s)"
+msgstr ""
+
+msgid "Please consider writing the text in a SEO-friendly way."
+msgstr ""
+
+#, php-format
+msgid "Title (%s)"
+msgstr ""
+
+#, php-format
+msgid "HTML (%s)"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+msgid "(Open/close the menu)"
 msgstr ""
 
 msgid "Change language"
 msgstr ""
 
-msgid "Homepage"
+msgid "User menu"
+msgstr ""
+
+msgid "Change password"
+msgstr ""
+
+msgid "Logout"
+msgstr ""
+
+msgid "Administration"
+msgstr ""
+
+msgid "Manage platforms"
+msgstr ""
+
+msgid "Manage developers"
+msgstr ""
+
+msgid "Manage publishers"
 msgstr ""
 
 msgid "Policies"
@@ -272,27 +691,7 @@ msgstr ""
 msgid "Want to advertise here? Email me"
 msgstr ""
 
-msgid "Create a new page"
-msgstr ""
-
-msgid "Edit page"
-msgstr ""
-
-#, php-format
-msgid "Title (%s)"
-msgstr ""
-
-msgid "*"
-msgstr ""
-
 msgid "The title of the page should be below 60 characters"
-msgstr ""
-
-#, php-format
-msgid "HTML (%s)"
-msgstr ""
-
-msgid "Please consider writing the text in a SEO-friendly way."
 msgstr ""
 
 #, php-format
@@ -338,6 +737,52 @@ msgstr ""
 msgid "You are creating a new review as %s"
 msgstr ""
 
+msgid "This review has not been approved yet, and is visible only to you."
+msgstr ""
+
+msgid "All fields are mandatory."
+msgstr ""
+
+msgid "New password"
+msgstr ""
+
+msgid "Confirm password"
+msgstr ""
+
+msgid "Repeat the password"
+msgstr ""
+
+msgid "Really delete this user?"
+msgstr ""
+
+msgid "Delete this user"
+msgstr ""
+
+#, php-format
+msgid "You can change your avatar at %s"
+msgstr ""
+
+msgid "Libravatar"
+msgstr ""
+
+msgid "GameAdvisor"
+msgstr ""
+
+msgid "Reviews"
+msgstr ""
+
+msgid "Review"
+msgstr ""
+
+msgid "Write a review"
+msgstr ""
+
+msgid "Register"
+msgstr ""
+
+msgid "Send a request"
+msgstr ""
+
 msgid "Thank you! Your e-mail address has been verified!"
 msgstr ""
 
@@ -368,22 +813,22 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-msgid "Reviews"
+msgid "Turn on animations"
 msgstr ""
 
-msgid "Games"
+msgid "Turn off animations"
 msgstr ""
 
-msgid "Platforms"
+msgid "Homepage"
 msgstr ""
 
-msgid "Developers"
+msgid "Animations"
 msgstr ""
 
-msgid "Publishers"
+msgid "Off"
 msgstr ""
 
-msgid "Dashboard"
+msgid "On"
 msgstr ""
 
 msgid "Welcome"
@@ -395,13 +840,178 @@ msgstr ""
 msgid "Resend verification email"
 msgstr ""
 
-msgid "Author"
+msgid "Previous page"
 msgstr ""
 
-msgid "Game"
+msgid "Next page"
+msgstr ""
+
+#, php-format
+msgid "Bio: %s"
+msgstr ""
+
+msgid "Reviews by this user"
 msgstr ""
 
 msgid "Edit"
+msgstr ""
+
+msgid "Info"
+msgstr ""
+
+msgid "Success"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid "Error:"
+msgstr ""
+
+msgid "Rating"
+msgstr ""
+
+msgid "stars"
+msgstr ""
+
+msgid "Author"
+msgstr ""
+
+msgid "Review your favorite games. Free and simple!"
+msgstr ""
+
+msgid "Start reviewing games"
+msgstr ""
+
+msgid "Create an account now"
+msgstr ""
+
+msgid "Reviewing games, made easy"
+msgstr ""
+
+msgid "Here's how:"
+msgstr ""
+
+msgid "Create a <strong>free account</strong>"
+msgstr ""
+
+msgid ""
+"Search for a game by browsing the <strong>list of games</strong>, or by "
+"searching by <strong>developer</strong>, <strong>publisher</strong> or "
+"<strong>platform</strong>"
+msgstr ""
+
+msgid ""
+"<strong>Choose your game</strong> and start reviewing, you can even send "
+"<strong>anonymous reviews</strong>"
+msgstr ""
+
+msgid "Wait for your review to be <strong>approved</strong>"
+msgstr ""
+
+msgid ""
+"Could not find the game you were looking for? <strong>Request a game</"
+"strong> by compiling our form or by sending us an email!"
+msgstr ""
+
+msgid "Request a game"
+msgstr ""
+
+msgid "Send an email"
+msgstr ""
+
+msgid "Share your thoughts with others!"
+msgstr ""
+
+msgid ""
+"<strong>Before buying a game</strong>, we all take a look at reviews, right?"
+msgstr ""
+
+msgid ""
+"This is the main goal of this portal: to allow everyone to <strong>write "
+"reviews</strong> for free, even <strong>anonymously</strong>."
+msgstr ""
+
+msgid ""
+"So, what are you waiting for? Take a look around and then leave some reviews!"
+msgstr ""
+
+msgid "Browse games"
+msgstr ""
+
+msgid "See all reviews"
+msgstr ""
+
+msgid "Benefits"
+msgstr ""
+
+msgid "<strong>Help others</strong> to get useful information about games!"
+msgstr ""
+
+msgid ""
+"Let the developers know <strong>why you like or do not like their games</"
+"strong>: this will contribute to improve the game itself, and <strong>spread "
+"awareness</strong> of bugs and features!"
+msgstr ""
+
+msgid ""
+"Players reading your reviews might want to say their own thoughts about the "
+"game, and this will <strong>make the community grow</strong>!"
+msgstr ""
+
+msgid ""
+"Last but not least, you can <strong>help small and less known games to rise "
+"up from the shadows</strong> and build interest around them!"
+msgstr ""
+
+msgid "Browse developers"
+msgstr ""
+
+msgid "Browse publishers"
+msgstr ""
+
+msgid "Browse platforms"
+msgstr ""
+
+msgid "Contribute"
+msgstr ""
+
+msgid ""
+"We have already imported a <strong>long list</strong> of games, developers "
+"and publishers!"
+msgstr ""
+
+msgid ""
+"Of course that is not enough, so we would like your help in making our "
+"platform a <strong>better place</strong>."
+msgstr ""
+
+msgid ""
+"Adding new games, developers, publishers, improving the text and images, and "
+"helping us finding mistakes: that is where you can help!"
+msgstr ""
+
+msgid ""
+"Moreover, being this an <strong>open source</strong> project, you can help "
+"by participating on <strong>Github</strong>!"
+msgstr ""
+
+msgid "Otherwise, simply support us with a <strong>donation</strong>!"
+msgstr ""
+
+msgid "Github"
+msgstr ""
+
+msgid "Donate"
+msgstr ""
+
+msgid "Latest reviews"
+msgstr ""
+
+msgid "Latest games"
+msgstr ""
+
+msgid "See all games"
 msgstr ""
 
 #, php-format
@@ -411,13 +1021,23 @@ msgstr ""
 msgid "No one has reviewed this game yet."
 msgstr ""
 
-msgid "Write a review"
-msgstr ""
-
 msgid "Review this game"
 msgstr ""
 
-msgid "Edit review"
+#, php-format
+msgid "%d out of %d"
+msgstr ""
+
+msgid "Read the full review"
+msgstr ""
+
+msgid "Platform:"
+msgstr ""
+
+msgid "Current file:"
+msgstr ""
+
+msgid "View file"
 msgstr ""
 
 msgid "Review:"
@@ -432,16 +1052,6 @@ msgstr ""
 msgid "Text"
 msgstr ""
 
-msgid "No developers to show at the moment."
-msgstr ""
-
-msgid "All developers"
-msgstr ""
-
-#, php-format
-msgid "All developers for: %s"
-msgstr ""
-
 msgid "Search by name:"
 msgstr ""
 
@@ -449,22 +1059,6 @@ msgid "Search"
 msgstr ""
 
 msgid "You can now login at:"
-msgstr ""
-
-msgid "Login"
-msgstr ""
-
-msgid "No reviews to show at the moment."
-msgstr ""
-
-msgid "All reviews"
-msgstr ""
-
-#, php-format
-msgid "All reviews on: %s"
-msgstr ""
-
-msgid "Verify your account"
 msgstr ""
 
 msgid "You will receive an email to verify your account"
@@ -479,55 +1073,135 @@ msgstr ""
 msgid "Your email has already been verified"
 msgstr ""
 
+msgid "Wikipedia"
+msgstr ""
+
+msgid "View on Wikipedia"
+msgstr ""
+
+msgid "See games for this platform"
+msgstr ""
+
+#, php-format
+msgid "All reviews on: %s"
+msgstr ""
+
+msgid "Filter by:"
+msgstr ""
+
+msgid "Choose platform"
+msgstr ""
+
+msgid "Search title:"
+msgstr ""
+
+msgid "Verify your account"
+msgstr ""
+
 #, php-format
 msgid "No reviews to show at the moment for: %s"
 msgstr ""
 
+msgid "See games by this publisher"
+msgstr ""
+
+msgid "Full name"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Admin"
+msgstr ""
+
+msgid "Superadmin"
+msgstr ""
+
+msgid "View all users"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "Avatar"
+msgstr ""
+
+msgid "Your email address"
+msgstr ""
+
+msgid "Email address"
+msgstr ""
+
+msgid "Save email"
+msgstr ""
+
+msgid "Delete your account"
+msgstr ""
+
+msgid "Order by"
+msgstr ""
+
+msgid "Not registered?"
+msgstr ""
+
+msgid "New user has registered to "
+msgstr ""
+
+msgid "You are already logged in."
+msgstr ""
+
 #, php-format
-msgid "All reviews for: %s"
+msgid "Go to your %s"
 msgstr ""
 
-msgid "No platforms to show at the moment."
+msgid "dashboard"
 msgstr ""
 
-msgid "All platforms"
-msgstr ""
-
-msgid "Donate"
-msgstr ""
-
-msgid "Rating"
+msgid "Could not find what you are looking for?"
 msgstr ""
 
 #, php-format
-msgid "%d out of %d"
+msgid "so that we can add the missing %s."
+msgstr ""
+
+msgid "publisher"
+msgstr ""
+
+msgid "Filter"
 msgstr ""
 
 msgid "Language"
 msgstr ""
 
-msgid "Edit game"
+msgid ""
+"In this page you can find the latest inserted reviews and games. Every game "
+"can be reviewed, even anonymously. Some information and functionalities are "
+"reserved to registered and verified users only."
+msgstr ""
+
+msgid ""
+"You can search for several games, there are a lot already present in our "
+"database, but if you cannot find a specific game, it would be appreciated if "
+"you could create an account and request a new game to be added."
 msgstr ""
 
 msgid "Game:"
 msgstr ""
 
-msgid "Error:"
-msgstr ""
-
-msgid "Platform"
-msgstr ""
-
 msgid "Image"
 msgstr ""
 
-msgid "Current file:"
+msgid ""
+"Please note that by editing your review it will need to be approved again"
 msgstr ""
 
-msgid "View file"
+msgid "Are you sure you want to delete this review?"
 msgstr ""
 
-msgid "Insert a new game"
+msgid "Confirm new password"
 msgstr ""
 
 #, php-format
@@ -544,15 +1218,6 @@ msgstr ""
 
 #, php-format
 msgid "Fields marked with %s are mandatory"
-msgstr ""
-
-msgid "Review"
-msgstr ""
-
-msgid "star"
-msgstr ""
-
-msgid "stars"
 msgstr ""
 
 msgid "Your name"
@@ -582,9 +1247,6 @@ msgid ""
 "can also create a free account if you wish."
 msgstr ""
 
-msgid "Register"
-msgstr ""
-
 msgid ""
 "Nonetheless, please be aware that your IP address is stored in the server's "
 "log files and might be retrieved in cases of law infringement, by combining "
@@ -599,152 +1261,193 @@ msgstr ""
 msgid "Send"
 msgstr ""
 
-msgid "Create an account"
+msgid "developer"
 msgstr ""
 
-msgid "Logout"
+msgid ""
+"Supported Formats: JPEG, PNG, WEBP or AVIF. Maximum dimensions: 1000x1000px. "
+"Maximum size for each image: 500KB."
 msgstr ""
 
-msgid "Email"
-msgstr ""
-
-msgid "Password"
-msgstr ""
-
-msgid "Confirm password"
+msgid "Search by name"
 msgstr ""
 
 msgid "Already registered?"
 msgstr ""
 
-msgid "Newest first"
-msgstr ""
-
-msgid "Author (A to Z)"
-msgstr ""
-
-msgid "Author (Z to A)"
-msgstr ""
-
-msgid "Best rating first"
-msgstr ""
-
-msgid "Worst rating first"
-msgstr ""
-
-msgid "Order by"
-msgstr ""
-
 msgid "See games made by this developer"
 msgstr ""
 
-msgid "Edit game platform"
-msgstr ""
-
-msgid "Platform:"
-msgstr ""
-
-msgid "You are already logged in."
-msgstr ""
-
-#, php-format
-msgid "Go to your %s"
-msgstr ""
-
-msgid "dashboard"
-msgstr ""
-
-msgid "Reset password"
-msgstr ""
-
-msgid "Not registered?"
-msgstr ""
-
-msgid "See games by this publisher"
-msgstr ""
-
-msgid "Info"
-msgstr ""
-
-msgid "Success"
-msgstr ""
-
-msgid "Error"
-msgstr ""
-
-msgid "New password"
-msgstr ""
-
-msgid "Confirm new password"
-msgstr ""
-
-msgid "New review"
-msgstr ""
-
-msgid "No publishers to show at the moment."
-msgstr ""
-
-msgid "All publishers"
-msgstr ""
-
-#, php-format
-msgid "All publishers for: %s"
-msgstr ""
-
-msgid "Yes"
-msgstr ""
-
-msgid "No"
-msgstr ""
-
-msgid "No games to show at the moment."
-msgstr ""
-
-#, php-format
-msgid "All games for: %s"
-msgstr ""
-
-msgid "All games"
-msgstr ""
-
-msgid "Filter by:"
-msgstr ""
-
-msgid "Choose platform"
-msgstr ""
-
-msgid "Search title:"
-msgstr ""
-
-msgid "Previous page"
-msgstr ""
-
-msgid "Next page"
-msgstr ""
-
-msgid "See games for this platform"
-msgstr ""
-
-msgid "Insert a new platform"
-msgstr ""
-
-msgid "Choose a game to review"
-msgstr ""
-
-msgid "Leave a review"
-msgstr ""
-
-msgid "Latest reviews"
+msgid "platform"
 msgstr ""
 
 msgid "You are already registered."
 msgstr ""
 
+#, php-format
+msgid "Game: %s"
+msgstr ""
+
+msgid "Approved"
+msgstr ""
+
+msgid "Posted at"
+msgstr ""
+
+#, php-format
+msgid "You are logged in as %s"
+msgstr ""
+
+msgid "Edit game platform"
+msgstr ""
+
+msgid ""
+"By default your profile is private. You can change this by removing the "
+"corresponding flag below and saving the changes."
+msgstr ""
+
+msgid "Profile visibility"
+msgstr ""
+
+msgid "Private profile"
+msgstr ""
+
+msgid "Public profile"
+msgstr ""
+
+msgid ""
+"Private profile means that your profile will not have a public page to view "
+"on the website, so some of your information will not be disclosed. Your name "
+"and email will still be associated to your reviews, unless you make them "
+"anonymously."
+msgstr ""
+
+msgid ""
+"Public profile means that your profile can be viewed, so some of your "
+"information will be disclosed. Your name and email will be associated to "
+"your reviews unless you make them anonymously."
+msgstr ""
+
+msgid ""
+"If you change your email address, we will send you a new verification email "
+"to activate the new address."
+msgstr ""
+
+msgid "Bio"
+msgstr ""
+
+msgid "Make my profile private"
+msgstr ""
+
+msgid "By removing the flag here, your profile will become public."
+msgstr ""
+
+msgid "Save info"
+msgstr ""
+
+msgid "Choose images to upload"
+msgstr ""
+
+msgid ""
+"You can select up to 5 images. Supported Formats: JPEG, PNG, WEBP or AVIF. "
+"Maximum dimensions: 1000x1000px. Maximum size for each image: 500KB."
+msgstr ""
+
+msgid "game"
+msgstr ""
+
+#, php-format
+msgid "Version: %s"
+msgstr ""
+
+msgid "You have not written any review yet!"
+msgstr ""
+
+msgid "Insert a new publisher"
+msgstr ""
+
+msgid "Thank you for your data request which you can find here below:"
+msgstr ""
+
+msgid ""
+"Please note that here you will see all your reviews, even those that have "
+"not been approved yet, but you will not find your anonymous reviews."
+msgstr ""
+
+msgid "Change order"
+msgstr ""
+
+msgid "Mandatory fields are marked with a star (*)"
+msgstr ""
+
+msgid "Publisher:"
+msgstr ""
+
+#, php-format
+msgid "A new request has been sent on %s:"
+msgstr ""
+
+msgid "Breadcrumbs"
+msgstr ""
+
+msgid "You are here:"
+msgstr ""
+
+msgid ""
+"We have tried to add as much data as possible to give you a more useful "
+"portal, but of course we might have missed many information."
+msgstr ""
+
+msgid ""
+"For example you could request us to add games, platforms, publishers and "
+"developers."
+msgstr ""
+
+msgid "The fields marked with an asterisk are mandatory."
+msgstr ""
+
+msgid "Type of request"
+msgstr ""
+
+msgid "Select"
+msgstr ""
+
+msgid "What kind of data should we add?"
+msgstr ""
+
+msgid ""
+"Please write the title of the data to add, like the name of the game or "
+"publisher that is missing."
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid ""
+"We would appreciate a more detailed description, for example you could "
+"provide us some links. It can be short, just to help us out a bit."
+msgstr ""
+
+msgid ""
+"If you want you can write an email to receive an update about your request."
+msgstr ""
+
+msgid "Notes"
+msgstr ""
+
+msgid "In case you want to add some notes about your request."
+msgstr ""
+
+msgid ""
+"Thank you for signing up! Please verify your email address to unlock all the "
+"features!"
+msgstr ""
+
+msgid "Insert a new platform"
+msgstr ""
+
+msgid "Leave a review"
+msgstr ""
+
 msgid "Insert a new developer"
-msgstr ""
-
-msgid "New page"
-msgstr ""
-
-msgid "Oldest first"
 msgstr ""

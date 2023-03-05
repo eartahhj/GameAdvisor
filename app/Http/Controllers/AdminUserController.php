@@ -11,14 +11,28 @@ class AdminUserController extends Controller
     {
         $users = User::all();
 
-        return response()->view('admin/users/index', compact('users'));
+        $pageTitle = _('Manage users');
+
+        self::$templateStylesheets[] = '/css/panel.css';
+
+        return response()->view('admin/users/index', [
+            'users' => $users,
+            'pageTitle' => $pageTitle,
+            'templateStylesheets' => static::$templateStylesheets,
+            'templateJavascripts' => static::$templateJavascripts
+        ]);
     }
 
     public function create()
     {
+        self::$templateStylesheets[] = '/css/panel.css';
         self::$templateStylesheets[] = '/css/forms.css';
 
-        return view('admin.users.create', ['templateStylesheets' => static::$templateStylesheets, 'templateJavascripts' => static::$templateJavascripts]);
+        return view('admin.users.create', [
+            'templateStylesheets' => static::$templateStylesheets,
+            'templateJavascripts' => static::$templateJavascripts,
+            'pageTitle' => _('Insert a new user')
+        ]);
     }
 
     public function store(Request $request, User $user)
@@ -28,8 +42,8 @@ class AdminUserController extends Controller
             'name' => 'required',
             'password' => 'required|min:8',
             'email' => 'required|min:8|unique:users,email',
-            'is_admin' => '',
-            'is_superadmin' => ''
+            'is_admin' => 'boolean',
+            'is_superadmin' => 'boolean'
         ]);
 
         $formFields['password'] = bcrypt($formFields['password']);
@@ -53,53 +67,111 @@ class AdminUserController extends Controller
             abort(401);
         }
 
-        return view('admin/users/edit', compact('user'));
+        $pageTitle = sprintf(_('Modifying user: %s'), $user->name);
+
+        self::$templateStylesheets[] = '/css/panel.css';
+
+        return view('admin/users/edit', [
+            'user' => $user,
+            'pageTitle' => $pageTitle,
+            'templateStylesheets' => static::$templateStylesheets,
+            'templateJavascripts' => static::$templateJavascripts
+        ]);
     }
 
     public function editUserGroups(int $userId)
     {
-        $user = $this->users->find($userId);
+        // Taken from another project in CodeIgniter
 
-        if (!$user) {
-            abort(401);
-        }
+        // $user = $this->users->find($userId);
 
-        if (!auth()->user()->is_superadmin) {
-            abort(401);
-        }
+        // if (!$user) {
+        //     abort(401);
+        // }
 
-        $groups = $this->request->getPost('groups');
+        // if (!auth()->user()->is_superadmin) {
+        //     abort(401);
+        // }
+
+        // $groups = $this->request->getPost('groups');
         
-        if (!$user->syncGroups(...$groups)) {
-            return redirect()->back()->with('error', _('There was an error updating the groups'))->withInput();
-        } else {
-            return redirect()->back()->with('success', _('Groups updated!'));
-        }
+        // if (!$user->syncGroups(...$groups)) {
+        //     return redirect()->back()->with('error', _('There was an error updating the groups'))->withInput();
+        // } else {
+        //     return redirect()->back()->with('success', _('Groups updated!'));
+        // }
     }
 
     public function editUserPermissions(int $userId)
     {
-        $user = $this->users->find($userId);
+        // Taken from another project in CodeIgniter
 
-        if (!$user) {
-            abort(401);
-        }
+        // $user = $this->users->find($userId);
 
-        if (!auth()->user()->is_superadmin) {
-            abort(401);
-        }
+        // if (!$user) {
+        //     abort(401);
+        // }
 
-        $permissions = $this->request->getPost('permissions');
+        // if (!auth()->user()->is_superadmin) {
+        //     abort(401);
+        // }
+
+        // $permissions = $this->request->getPost('permissions');
         
-        if (!$user->syncPermissions(...$permissions)) {
-            return redirect()->back()->with('error', _('There was an error updating the permissions'))->withInput();
-        } else {
-            return redirect()->back()->with('success', _('Permissions updated!'));
-        }
+        // if (!$user->syncPermissions(...$permissions)) {
+        //     return redirect()->back()->with('error', _('There was an error updating the permissions'))->withInput();
+        // } else {
+        //     return redirect()->back()->with('success', _('Permissions updated!'));
+        // }
     }
 
-    public function update()
+    public function update(User $user)
     {
+        // TODO Test and improve, 2023-03-05
+
+        $email = $request->input('email');
+        
+        $validationRules = [
+            'bio' => 'max:1000',
+            'is_admin' => 'boolean',
+            'is_superadmin' => 'boolean'
+        ];
+
+        if ($email != $user->email) {
+            $validationRules['email'] = ['email', Rule::unique('users', 'email')];
+        }
+
+        if (!$formFields = $request->validate($validationRules)
+        ) {
+            return back()->with('errors', $request->errors());
+        }
+
+        if (!empty($formFields['email']) and $formFields['email'] != $user->email) {
+            $user->email = $formFields['email'];
+
+            // Should we send verification email if this user is being changed by admin?
+            // if ($user->sendEmailVerificationNotification()) {
+            //     redirect(route('verification.notice'))->with('warning', _('There was an error sending the activation email. Your email address has been changed anyway. You can request a new verification email below.'))->withInput();
+            // }
+
+            // $user->email_verified_at = null;
+        }
+        
+        $user->bio = $formFields['bio'];
+        
+        if (isset($formFields['is_admin'])) {
+            $user->is_admin = true;
+        } else {
+            $user->is_admin = false;
+        }
+
+        if (isset($formFields['is_superadmin'])) {
+            $user->is_superadmin = true;
+        } else {
+            $user->is_superadmin = false;
+        }
+
+        // $user->save();
     }
 
     public function delete()
