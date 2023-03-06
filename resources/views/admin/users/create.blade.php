@@ -14,38 +14,27 @@
         <form action="{{ route('admin.users.store')}}" method="post">
             @csrf
             <div class="field">
-                @error('name')
-                <x-form-error>
-                    <x-slot:text>
-                    {{ $message }}
-                    </x-slot>
-                </x-form-error>
-                @enderror
                 <label for="user-create-name" class="label">{{ _('Name') }}</label>
+                @error('name')
+                <x-form-error :text="$message"></x-form-error>
+                @enderror
                 <input id="user-create-name" type="text" name="name" value="{{ old('name') }}" class="input" required="required" autocomplete="name" placeholder="{{ _('Full name') }}">
             </div>
 
             <div class="field">
-                @error('password')
-                <x-form-error>
-                    <x-slot:text>
-                    {{ $message }}
-                    </x-slot>
-                </x-form-error>
-                @enderror
                 <label for="user-create-password" class="label">{{ _('Password') }}</label>
+                @error('password')
+                <x-form-error :text="$message"></x-form-error>
+                @enderror
                 <input id="user-create-password" type="text" name="password" value="{{ old('password') }}" class="input" required="required" autocomplete="new-password" placeholder="{{ _('Password') }}">
+                <p class="help"><?= _('The password is visible only in this page') ?></p>
             </div>
 
             <div class="field">
-                @error('email')
-                <x-form-error>
-                    <x-slot:text>
-                    {{ $message }}
-                    </x-slot>
-                </x-form-error>
-                @enderror
                 <label for="user-create-email" class="label">{{ _('Email') }}</label>
+                @error('email')
+                <x-form-error :text="$message"></x-form-error>
+                @enderror
                 <input id="user-create-email" type="text" name="email" value="{{ old('email') }}" class="input" required="required" autocomplete="email" placeholder="{{ _('Email') }}">
             </div>
 
@@ -53,11 +42,7 @@
                 <legend class="label">{{ _('Admin')}}</legend>
                 <div class="field">
                     @error('is_admin', 'is_superadmin')
-                    <x-form-error>
-                        <x-slot:text>
-                            {{ $message }}
-                            </x-slot>
-                    </x-form-error>
+                    <x-form-error :text="$message"></x-form-error>
                     @enderror
                     <label for="user-create-is_admin" class="checkbox">
                         <input id="user-create-is_admin" type="checkbox" name="is_admin" value="1" class="" {!! old('is_admin') ? ' checked="checked"' : '' !!}>

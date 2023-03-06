@@ -174,34 +174,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        if ($user = User::find($id)) {
-
-            $reviews = Review::where('user_id', $user->id)->find();
-
-            if (!$reviews->isEmpty()) {
-                foreach ($reviews as $review) {
-                    $reviewsIds[$review->id] = $review->id;
-                }
-
-                $reviews->update(['user_id', null]);
-        
-                // $postsImages = $imageModel->whereIn('post_id', $postIds)->find();
-                
-                // if (!empty($postsImages)) {
-                //     foreach ($postsImages as $image) {
-                //         if (!is_file(WRITEPATH . 'uploads/' . $image->filename)) {
-                //             continue;
-                //         }
-        
-                //         unlink(WRITEPATH . 'uploads/' . $image->filename);
-                //     }
-                // }
-            }
-
-            if ($user->delete()) {
-                return back()->with('success', sprintf(_('User #%s has been deleted succesfully'), $id));
-            }
-        }
     }
 
     public function registrationForm()
