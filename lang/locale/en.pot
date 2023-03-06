@@ -523,9 +523,7 @@ msgstr ""
 msgid "Platforms"
 msgstr ""
 
-msgid ""
-"Manage platforms\n"
-"                    "
+msgid "Manage platforms"
 msgstr ""
 
 msgid "Create platform"
@@ -534,9 +532,7 @@ msgstr ""
 msgid "Publishers"
 msgstr ""
 
-msgid ""
-"Manage publishers\n"
-"                    "
+msgid "Manage publishers"
 msgstr ""
 
 msgid "Create publisher"
@@ -545,9 +541,7 @@ msgstr ""
 msgid "Developers"
 msgstr ""
 
-msgid ""
-"Manage developers\n"
-"                    "
+msgid "Manage developers"
 msgstr ""
 
 msgid "Create developer"
@@ -1046,9 +1040,6 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-msgid "Test error message as component"
-msgstr ""
-
 msgid "Text"
 msgstr ""
 
@@ -1147,7 +1138,7 @@ msgstr ""
 msgid "Not registered?"
 msgstr ""
 
-msgid "New user has registered to "
+msgid "New user has registered to"
 msgstr ""
 
 msgid "You are already logged in."

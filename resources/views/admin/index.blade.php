@@ -21,8 +21,7 @@
             <h2 class="title is-5"><?= _('Platforms') ?></h2>
             <ul>
                 <li>
-                    <a href="<?= route('admin.platforms.index') ?>"><?= _('Manage platforms
-                    ') ?></a>
+                    <a href="<?= route('admin.platforms.index') ?>"><?= _('Manage platforms') ?></a>
                 </li>
                 <li>
                     <a href="<?= route('platforms.create') ?>"><?= _('Create platform') ?></a>
@@ -32,8 +31,7 @@
             <h2 class="title is-5"><?= _('Publishers') ?></h2>
             <ul>
                 <li>
-                    <a href="<?= route('admin.publishers.index') ?>"><?= _('Manage publishers
-                    ') ?></a>
+                    <a href="<?= route('admin.publishers.index') ?>"><?= _('Manage publishers') ?></a>
                 </li>
                 <li>
                     <a href="<?= route('publishers.create') ?>"><?= _('Create publisher') ?></a>

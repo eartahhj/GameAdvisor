@@ -30,6 +30,7 @@
         @else
             <form action="{{ route('users.register.register')}}" method="post">
                 @csrf
+                <x-honeypot />
                 <div class="field">
                     <label for="user-registration-name" class="label">{{ _('Name') }}</label>
                     @error('name')

@@ -1,6 +1,7 @@
 <?php
 use App\Models\Review;
 use Illuminate\Support\Facades\Route;
+use Spatie\Honeypot\ProtectAgainstSpam;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
@@ -63,7 +64,7 @@ Route::group([
         Route::post(
             LaravelLocalization::transRoute('routes.users.register'),
             [UserController::class, 'register']
-        )->name('users.register.register');
+        )->middleware(ProtectAgainstSpam::class)->name('users.register.register');
 
         ### --- EMAIL VERIFICATION --- ###
         Route::get(
