@@ -204,7 +204,7 @@ Route::group([
         Route::get(
             LaravelLocalization::transRoute('routes.reviews.create.{game}'),
             [ReviewController::class, 'create']
-        )->name('reviews.create');
+        )->middleware(ProtectAgainstSpam::class)->name('reviews.create');
 
         Route::post(
             LaravelLocalization::transRoute('routes.reviews.store.{game}'),
