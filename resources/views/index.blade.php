@@ -132,7 +132,6 @@
         <div class="grid">
             <div class="grid-col">
                 <h2 class="title is-4">🫂 {{ _('Contribute') }}</h2>
-                <p>{{ _('') }}</p>
                 <p class="mb-3">{!! _('We have already imported a <strong>long list</strong> of games, developers and publishers!') !!}</p>
                 <p class="mb-3">{!! _('Of course that is not enough, so we would like your help in making our platform a <strong>better place</strong>.') !!}</p>
                 <p class="mb-3">{!! _('Adding new games, developers, publishers, improving the text and images, and helping us finding mistakes: that is where you can help!') !!}</p>
