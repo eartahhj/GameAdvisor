@@ -170,11 +170,6 @@ Route::group([
             [UserController::class, 'deleteMyAccount']
         )->middleware(['auth', 'verified'])->name('user.deleteMyAccount');
 
-        Route::delete(
-            LaravelLocalization::transRoute('routes.user.delete'),
-            [UserController::class, 'destroy']
-        )->middleware(['auth', 'admin'])->name('user.delete');
-
         Route::get(
             LaravelLocalization::transRoute('routes.user.review.{review}.edit'),
             [UserController::class, 'editReview']
@@ -204,12 +199,12 @@ Route::group([
         Route::get(
             LaravelLocalization::transRoute('routes.reviews.create.{game}'),
             [ReviewController::class, 'create']
-        )->middleware(ProtectAgainstSpam::class)->name('reviews.create');
+        )->name('reviews.create');
 
         Route::post(
             LaravelLocalization::transRoute('routes.reviews.store.{game}'),
             [ReviewController::class, 'store']
-        )->name('reviews.store');
+        )->middleware(ProtectAgainstSpam::class)->name('reviews.store');
 
         Route::get(
             LaravelLocalization::transRoute('routes.reviews.{review}.edit'),
@@ -501,6 +496,6 @@ Route::group([
         Route::post(
             LaravelLocalization::transRoute('routes.datarequests.store'),
             [DataRequestController::class, 'store']
-        )->name('datarequests.store');
+        )->middleware(ProtectAgainstSpam::class)->name('datarequests.store');
     }
 );

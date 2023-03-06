@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Review;
 use Illuminate\Http\Request;
 
 class AdminUserController extends Controller
@@ -174,7 +175,43 @@ class AdminUserController extends Controller
         // $user->save();
     }
 
-    public function delete()
+    public function destroy(User $user)
     {
+        if (empty(auth()->user())) {
+            abort(404);
+        }
+
+        if (!auth()->user()->is_superadmin) {
+            abort(404);
+        }
+
+        $userId = $user->id;
+
+        $reviews = Review::where('user_id', $user->id)->get();
+
+        if (!$reviews->isEmpty()) {
+            foreach ($reviews as $review) {
+                $reviewsIds[$review->id] = $review->id;
+            }
+
+            $reviews->update(['user_id', null]);
+
+            // From codeigniter, as a reference
+            // $postsImages = $imageModel->whereIn('post_id', $postIds)->find();
+
+            // if (!empty($postsImages)) {
+                //     foreach ($postsImages as $image) {
+                //         if (!is_file(WRITEPATH . 'uploads/' . $image->filename)) {
+                //             continue;
+                //         }
+
+                //         unlink(WRITEPATH . 'uploads/' . $image->filename);
+                //     }
+            // }
+        }
+
+        if ($user->delete()) {
+            return back()->with('success', sprintf(_('User #%s has been deleted succesfully'), $userId));
+        }
     }
 }
