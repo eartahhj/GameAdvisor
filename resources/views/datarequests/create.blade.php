@@ -17,6 +17,7 @@
     
         <form action="{{ route('datarequests.store')}}" method="post" enctype="multipart/form-data">
             @csrf
+            <x-honeypot />
             <div class="field">
                 @error('title')
                 <x-form-error><x-slot:text :message="$message"></x-slot></x-form-error>
