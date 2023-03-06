@@ -24,7 +24,7 @@
 
         <form action="{{ route('reviews.store', $game->id)}}" method="post" enctype="multipart/form-data">
             @csrf
-
+            <x-honeypot />
             <p class="mb-2">{{ sprintf(_('Fields marked with %s are mandatory'), _('*')) }}</p>
 
             <fieldset class="improved">
