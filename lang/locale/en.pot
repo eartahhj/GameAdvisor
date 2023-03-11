@@ -1442,3 +1442,9 @@ msgstr ""
 
 msgid "Insert a new developer"
 msgstr ""
+
+msgid "Hours played"
+msgstr ""
+
+msgid "Manage reviews"
+msgstr ""

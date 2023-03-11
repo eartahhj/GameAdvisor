@@ -79,6 +79,8 @@ return [
 
     'admin.index' => 'amministrazione/cruscotto',
 
+    'admin.reviews.index' => 'amministrazione/recensioni',
+
     'admin.platforms.index' => 'amministrazione/piattaforme',
 
     'admin.publishers.index' => 'amministrazione/editori',

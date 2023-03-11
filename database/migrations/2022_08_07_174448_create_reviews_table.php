@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->string('author_name')->nullable();
             $table->string('author_email')->nullable();
-            $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->restrictOnDelete();
+            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->restrictOnDelete();
             $table->string('title');
             $table->string('language')->default('en');
             $table->text('text');

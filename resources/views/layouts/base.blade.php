@@ -204,6 +204,9 @@ try {
                                 <a href="<?= route('admin.index') ?>" class="navbar-item"><?= _('Administration') ?></a>
                             </li>
                             <li>
+                                <a href="<?= route('admin.reviews.index') ?>" class="navbar-item"><?= _('Manage reviews') ?></a>
+                            </li>
+                            <li>
                                 <a href="<?= route('admin.games.index') ?>" class="navbar-item"><?= _('Manage games') ?></a>
                             </li>
                             <li>

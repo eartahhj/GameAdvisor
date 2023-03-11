@@ -457,7 +457,8 @@ class UserController extends Controller
             'title' => 'required',
             'text' => 'required',
             'rating' => 'required',
-            'image' => Review::returnImageValidationString()
+            'image' => Review::returnImageValidationString(),
+            'hours_played' => 'numeric'
         ]);
 
         if ($request->hasFile('image') and auth()->user()->email_verified_at) {

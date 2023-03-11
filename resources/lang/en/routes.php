@@ -62,6 +62,8 @@ return [
 
     'admin.index' => 'admin/dashboard',
 
+    'admin.reviews.index' => 'admin/reviews',
+
     'admin.platforms.index' => 'admin/platforms',
 
     'admin.publishers.index' => 'admin/publishers',

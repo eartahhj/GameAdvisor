@@ -18,8 +18,8 @@ return new class extends Migration
             $table->id();
             $table->string('title_en');
             $table->string('title_it');
-            $table->text('description_en')->nullable()->default('');
-            $table->text('description_it')->nullable()->default('');
+            $table->text('description_en')->nullable();
+            $table->text('description_it')->nullable();
             $table->string('image')->nullable();
             $table->text('year')->nullable();
             $table->timestamps();

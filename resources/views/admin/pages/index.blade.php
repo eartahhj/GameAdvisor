@@ -1,15 +1,12 @@
 @extends('layouts.base')
 
-@section('title') {{ _('Manage pages') }} @endsection
-
 @section('content')
-
 <section class="template-default template-admin">
     <div class="container">
         <x-flash-message />
         
         <div class="box">
-            <h1 class="title is-2">{{ $pageTitle }}</h1>
+            <x-page-title :text="$pageTitle"></x-page-title>
 
             <p class="buttons">
                 <a href="<?= route('pages.create') ?>" class="button is-link"><?= _('New page') ?></a>

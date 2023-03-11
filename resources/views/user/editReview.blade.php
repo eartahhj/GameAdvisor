@@ -27,6 +27,14 @@
             </div>
 
             <x-reviews.form-field-rating :currentRating="$review->rating"></x-reviews.form-field-rating>
+
+            <div class="field">
+                @error('hours_played')
+                <x-form-error :text="$message"></x-form-error>
+                @enderror
+                <label for="reviews-edit-hours_played" class="label">{{ _('Hours played') }}</label>
+                <input id="reviews-edit-hours_played" type="number" name="hours_played" value="{{ old('hours_played') }}" class="input" step="0.01" min="0">
+            </div>
     
             <div class="field">
                 @error('text')

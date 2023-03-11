@@ -28,7 +28,8 @@ class Review extends BaseModel
         'approved',
         'rating',
         'game_id',
-        'image'
+        'image',
+        'hours_played'
     ];
 
     public static function getOrderBy(): array

@@ -50,6 +50,7 @@
                     @endif
                     @if (auth()->user() and auth()->user()->is_superadmin)
                     <a href="{{ route('reviews.edit', $review) }}" class="button is-dark">{{ _('Edit') }}</a>
+                    <x-reviews.form-approve :review="$review"></x-reviews>
                     @endif
                 </p>
             </div>

@@ -14,6 +14,7 @@ use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\DeveloperController;
 use App\Http\Controllers\PublisherController;
 use App\Http\Controllers\DataRequestController;
+use App\Http\Controllers\AdminReviewsController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -426,6 +427,11 @@ Route::group([
             LaravelLocalization::transRoute('routes.admin.index'),
             [AdminController::class, 'index']
         )->middleware(['auth', 'admin'])->name('admin.index');
+
+        Route::get(
+            LaravelLocalization::transRoute('routes.admin.reviews.index'),
+            [AdminReviewsController::class, 'index']
+        )->middleware(['auth', 'admin'])->name('admin.reviews.index');
 
         Route::get(
             LaravelLocalization::transRoute('routes.admin.games.index'),

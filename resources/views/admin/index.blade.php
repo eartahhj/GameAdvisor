@@ -4,9 +4,10 @@
 <section id="panel-index" class="template-default template-admin">
     <div class="container">
         <x-flash-message />
+
         
         <div class="box">
-            <h1 class="title is-3">{{ $pageTitle }}</h1>
+            <x-page-title :text="$pageTitle"></x-page-title>
 
             <h2 class="title is-5"><?= _('Games') ?></h2>
             <ul>

@@ -25,6 +25,16 @@
                 <label for="reviews-edit-title" class="label">{{ _('Title') }}</label>
                 <input id="reviews-edit-title" type="text" name="title" value="{{ $review->title }}" class="input">
             </div>
+
+            <x-form-image-field name="image" :help="$supportedImageFormats" :image="$image" :filename="$review->image"></x-form-image-field>
+
+            <div class="field">
+                @error('hours_played')
+                <x-form-error :text="$message"></x-form-error>
+                @enderror
+                <label for="reviews-edit-hours_played" class="label">{{ _('Hours played') }}</label>
+                <input id="reviews-edit-hours_played" type="number" name="hours_played" value="{{ old('hours_played') }}" class="input" step="0.01" min="0">
+            </div>
     
             <div class="field">
                 @error('text')
@@ -38,8 +48,6 @@
                 <textarea id="reviews-edit-text" name="text" rows="10" cols="40" class="textarea">{{ $review->text }}</textarea>
             </div>
 
-            <x-form-image-field name="image" :help="$supportedImageFormats" :image="$image" :filename="$review->image"></x-form-image-field>
-
             <p class="mb-3"><strong>{{ _('Approved') }}</strong>: {{ $review->approved ? _('Yes') : _('No') }}</p>
         </form>
     
@@ -48,7 +56,7 @@
             @method('DELETE')
         </form>
 
-        <x-reviews.form-publish :review="$review"></x-reviews>
+        <x-reviews.form-approve :review="$review"></x-reviews>
 
         <div class="buttons">
             <button type="submit" name="send" class="button is-primary" form="form-edit">

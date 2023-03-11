@@ -35,10 +35,18 @@
                     <x-form-error :text="$message"></x-form-error>
                     @enderror
                     <label for="reviews-create-title" class="label">{{ _('Title') }} {{ _('*') }}</label>
-                    <input id="reviews-create-title" type="text" name="title" value="{{ old('title') }}" class="input">
+                    <input id="reviews-create-title" type="text" name="title" value="{{ old('title') }}" class="input" required="required">
                 </div>
 
                 <x-reviews.form-field-rating :currentRating="old('rating', 0)"></x-reviews.form-field-rating>
+
+                <div class="field">
+                    @error('hours_played')
+                    <x-form-error :text="$message"></x-form-error>
+                    @enderror
+                    <label for="reviews-create-hours_played" class="label">{{ _('Hours played') }}</label>
+                    <input id="reviews-create-hours_played" type="number" name="hours_played" value="{{ old('hours_played') }}" class="input" step="0.01" min="0">
+                </div>
 
                 <div class="field">
                     @error('text')

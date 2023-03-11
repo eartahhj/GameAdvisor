@@ -109,7 +109,8 @@ class ReviewController extends Controller
         $fieldsToValidate = [
             'title' => 'required',
             'text' => 'required',
-            'rating' => 'required'
+            'rating' => 'required',
+            'hours_played' => 'nullable|numeric'
         ];
 
         $imageError = null;
@@ -118,9 +119,14 @@ class ReviewController extends Controller
             $fieldsToValidate['image'] = Review::returnImageValidationString();
         }
 
-        if (empty($request->is_anonymous)) {
+        if (empty(auth()->user())) {
             $fieldsToValidate['author_name'] = '';
-            $fieldsToValidate['author_email'] = 'email';
+            $fieldsToValidate['author_email'] = 'nullable|email';
+        } else {
+            if (empty($request->is_anonymous)) {
+                $fieldsToValidate['author_name'] = '';
+                $fieldsToValidate['author_email'] = 'email';
+            }
         }
 
         $formFields = $request->validate($fieldsToValidate);
@@ -246,7 +252,8 @@ class ReviewController extends Controller
             'title' => 'required',
             'text' => 'required',
             'author_email' => 'email',
-            'image' => Review::returnImageValidationString()
+            'image' => Review::returnImageValidationString(),
+            'hours_played' => 'numeric'
         ]);
 
         if ($request->hasFile('image')) {
