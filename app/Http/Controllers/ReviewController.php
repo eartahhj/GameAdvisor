@@ -311,8 +311,7 @@ class ReviewController extends Controller
             return back()->with('error', _('An error occured during the approve/revoke operation'));
         }
 
-        $reviewId = request()->input('id');
-        $review = Review::findOrFail($reviewId);
+        $review = Review::findOrFail($id);
         $review->approved = $approved;
 
         if ($review->save() === false) {

@@ -4,12 +4,15 @@
 <section class="template-default template-reviews">
     <div class="container">
         <h1 class="title is-2">{{ _('Edit review') }}</h1>
-        <p>{{ _('Review:') . ' ' . $review->title }}</p>
+        <x-flash-message />
+
+        <p class="subtitle">{{ _('Review:') . ' ' . $review->title }}</p>
+
         @if ($errors->any())
             @include('forms.errors', ['class' => 'is-danger', 'text' => _('Errors found')])
         @endif
     
-        <x-flash-message />
+        
     
         <form id="form-edit" action="{{ route('reviews.update', $review->game_id)}}" method="post" enctype="multipart/form-data">
             @csrf
@@ -27,14 +30,6 @@
             </div>
 
             <x-form-image-field name="image" :help="$supportedImageFormats" :image="$image" :filename="$review->image"></x-form-image-field>
-
-            <div class="field">
-                @error('hours_played')
-                <x-form-error :text="$message"></x-form-error>
-                @enderror
-                <label for="reviews-edit-hours_played" class="label">{{ _('Hours played') }}</label>
-                <input id="reviews-edit-hours_played" type="number" name="hours_played" value="{{ old('hours_played') }}" class="input" step="0.01" min="0">
-            </div>
     
             <div class="field">
                 @error('text')
