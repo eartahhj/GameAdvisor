@@ -12,6 +12,8 @@
 
 .games-list.grid { align-items:stretch; column-gap:2rem; row-gap:2rem; }
 
+.game-rating .votes-number { display:inline-block; vertical-align:middle; }
+
 @media only screen and (min-width:768px) {
     .games-list.grid { grid-template-columns:repeat(2, 1fr); }
 }

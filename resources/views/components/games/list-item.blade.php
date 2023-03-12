@@ -8,9 +8,9 @@
             @endif
         </figure>
         <div class="tile-content">
-            <p class="title game-title">
+            <h2 class="title is-4 game-title">
                 <a href="{{ route('games.show', $game->id) }}">{{ $game->title }}</a>
-            </p>
+            </h2>
             <p class="subtitle game-platform">
                 {{ $game->platform_name }}
             </p>

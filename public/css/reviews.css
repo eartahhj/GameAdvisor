@@ -7,7 +7,7 @@
 
 .review-single p { margin:0; }
 
-.star { background-position:left center; background-repeat:no-repeat; background-size:auto 100%; transition:background-image .4s, color .4s; width:1rem; height:1rem; display:inline-block; }
+.star { background-position:left center; background-repeat:no-repeat; background-size:auto 100%; transition:background-image .4s, color .4s; width:1rem; height:1rem; display:inline-block; vertical-align:middle; }
 .star-on { background-image:url('/img/svg/star-fill.svg'); }
 .star-off { background-image:url('/img/svg/star.svg'); }
 

@@ -1481,3 +1481,12 @@ msgstr ""
 
 msgid "Your consent to cookies has been updated!"
 msgstr ""
+
+msgid "%d votes"
+msgstr ""
+
+msgid "%d vote"
+msgstr ""
+
+msgid "Anonymous reviewer"
+msgstr ""

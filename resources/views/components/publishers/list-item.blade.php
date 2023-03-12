@@ -8,9 +8,9 @@
             @endif
         </figure>
         <div class="tile-content">
-            <p class="title publisher-title">
+            <h2 class="title is-4 publisher-title">
                 <a href="{{ route('publishers.show', $publisher->id) }}">{{ $publisher->name }}</a>
-            </p>
+            </h2>
             <p class="text publisher-text">{{ $publisher->description }}</p>
             <p class="buttons">
                 @if (!empty($href) and !empty($rel) and !empty($text))

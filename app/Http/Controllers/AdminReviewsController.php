@@ -14,6 +14,7 @@ class AdminReviewsController extends Controller
         $pageTitle = _('Manage reviews');
 
         self::$templateStylesheets[] = '/css/panel.css';
+        self::$templateStylesheets[] = '/css/reviews.css';
         
         return response()->view('admin/reviews/index', [
             'reviews' => $reviews,

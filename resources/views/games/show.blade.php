@@ -26,6 +26,9 @@
                         @for ($stars = 1; $stars <= 5; $stars++)
                         <span class="star star-<?=($stars <= $rating ? 'on' : 'off')?>" aria-hidden="true"></span>
                         @endfor
+                        @if ($numberOfVotes)
+                        <span class="votes-number">({{ sprintf(ngettext('%d vote', '%d votes', $numberOfVotes), $numberOfVotes) }})</span>
+                        @endif
                     </dd>
                     @if ($developer)
                     <dt>{{ _('Developer') }}</dt>

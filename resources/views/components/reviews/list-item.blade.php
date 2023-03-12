@@ -21,7 +21,13 @@
                     </figure>
                 </div>
                 <div class="media-content">
-                    <p class="title is-5">{{ $review->author_name }}</p>
+                    <p class="title is-5">
+                        @if ($review->author_name)
+                        {{ $review->author_name }}
+                        @else
+                        {{ _('Anonymous reviewer') }}
+                        @endif
+                    </p>
                 </div>
             </div>
 

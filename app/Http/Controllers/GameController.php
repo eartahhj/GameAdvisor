@@ -158,6 +158,11 @@ class GameController extends Controller
             'approved' => 1
         ])->avg('rating') or 0;
 
+        $numberOfVotes = 0;
+        if ($rating) {
+            $numberOfVotes = $reviews->count();
+        }
+
         $pageTitle = $game->title;
 
         return view('games.show', [
@@ -169,7 +174,8 @@ class GameController extends Controller
             'rating' => $rating,
             'templateStylesheets' => static::$templateStylesheets,
             'templateJavascripts' => static::$templateJavascripts,
-            'pageTitle' => $pageTitle
+            'pageTitle' => $pageTitle,
+            'numberOfVotes' => $numberOfVotes
         ]);
     }
 

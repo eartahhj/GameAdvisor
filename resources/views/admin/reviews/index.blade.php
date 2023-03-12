@@ -11,11 +11,9 @@
             <h2><?= _('No reviews to show at the moment.') ?></h2>
         <?php else:?>
             <ul id="reviews-list" class="items-list grid grid-mobile reviews-list">
-            <?php foreach ($reviews as $review):?>
-                <li class="<?= ($review->approved ? 'background-success' : 'background-warning') ?>">
-                    <x-reviews.list-item :review="$review"/>
-                </li>
-            <?php endforeach ?>
+                <?php foreach ($reviews as $review):?>
+                <x-reviews.list-item :review="$review"/>
+                <?php endforeach ?>
             </ul>
         <?php endif ?>
     </div>
