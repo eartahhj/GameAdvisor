@@ -159,7 +159,7 @@ if (!function_exists('uploadImage')) {
 }
 
 if (!function_exists('getLibravatar')) {
-    function getLibravatar(string $email, int $size = 80): string
+    function getLibravatar(string $email = '', int $size = 80): string
     {
         if ($size < 80) {
             $size = 80;
@@ -167,6 +167,10 @@ if (!function_exists('getLibravatar')) {
         
         if ($size > 2048) {
             $size = 2048;
+        }
+
+        if (!$email) {
+            return '/img/default-avatar.png';
         }
         
         return 'https://seccdn.libravatar.org/avatar/' . md5(strtolower(trim($email))) . "?s={$size}&d=mp";

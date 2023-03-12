@@ -12,11 +12,13 @@
         <div class="card-content">
             <div class="media">
                 <div class="media-left">
-                    @if ($review->author_email)
                     <figure class="image is-48x48">
+                        @if ($review->author_email)
                         <img src="{{ getLibravatar($review->author_email) }}" alt="" width="48" height="48">
+                        @else
+                        <img src="/img/default-avatar.png" alt="" width="48" height="48">
+                        @endif
                     </figure>
-                    @endif
                 </div>
                 <div class="media-content">
                     <p class="title is-5">{{ $review->author_name }}</p>
