@@ -6,6 +6,7 @@ use App\Models\Game;
 use App\Models\Developer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class DeveloperController extends Controller
 {
@@ -67,6 +68,9 @@ class DeveloperController extends Controller
     public function create()
     {
         self::$templateStylesheets[] = '/css/forms.css';
+        self::$templateJavascripts[] = '/js/simpjs/simp.js';
+        self::$templateJavascripts[] = '/js/simpjs/simp-init.js';
+        self::$templateStylesheets[] = '/js/simpjs/simp.css';
 
         return view('developers.create', [
             'templateStylesheets' => static::$templateStylesheets,
@@ -83,17 +87,19 @@ class DeveloperController extends Controller
             'name_it' => '',
             'description_en' => '',
             'description_it' => '',
-            'logo' => Developer::returnImageValidationString()
+            'logo' => Developer::returnImageValidationString(),
+            'link_en' => 'nullable|url',
+            'link_it' => 'nullable|url',
         ]);
-
-        if ($request->hasFile('logo')) {
-            $image = $developer->uploadImage();
-            $formFields['logo'] = $image;
-        }
 
         $formFields['approved'] = true;
 
         if ($newDeveloper = Developer::create($formFields)) {
+            if ($request->hasFile('logo') and $image = $newDeveloper->uploadImage('logo')) {
+                $newDeveloper->logo = $image;
+                $newDeveloper->save();
+            }
+
             return redirect(route('developers.edit', $newDeveloper))->with('confirm', _('Developer created'));
         } else {
             return redirect(route('developers.create'))->with('error', _('Error creating developer'));
@@ -111,8 +117,8 @@ class DeveloperController extends Controller
 
         $image = null;
         
-        if (!empty($developer->image)) {
-            $image = \Image::make(\Storage::disk('public')->get($developer->image));
+        if (!empty($developer->logo)) {
+            $logo = \Image::make(\Storage::disk('public')->get($developer->logo));
         }
 
         return view('developers.show', [
@@ -121,7 +127,7 @@ class DeveloperController extends Controller
             'pageTitle' => $pageTitle,
             'developer' => $developer,
             'numberOfGames' => $numberOfGames,
-            'image' => $image
+            'logo' => $logo
         ]);
     }
 
@@ -134,11 +140,14 @@ class DeveloperController extends Controller
     public function edit(Developer $developer)
     {
         self::$templateStylesheets[] = '/css/forms.css';
+        self::$templateJavascripts[] = '/js/simpjs/simp.js';
+        self::$templateJavascripts[] = '/js/simpjs/simp-init.js';
+        self::$templateStylesheets[] = '/js/simpjs/simp.css';
 
         $image = null;
         
-        if (!empty($developer->image)) {
-            $image = \Image::make(\Storage::disk('public')->get($developer->image));
+        if (!empty($developer->logo)) {
+            $logo = \Image::make(\Storage::disk('public')->get($developer->logo));
         }
         
         return view('developers.edit', compact('developer') + [
@@ -146,7 +155,7 @@ class DeveloperController extends Controller
             'templateJavascripts' => static::$templateJavascripts,
             'pageTitle' => _('Edit developer'),
             'developer' => $developer,
-            'image' => $image,
+            'image' => $logo,
             'supportedImageFormats' => Developer::returnImageSupportedFormatsString()
         ]);
     }
@@ -158,7 +167,9 @@ class DeveloperController extends Controller
             'name_it' => '',
             'description_en' => '',
             'description_it' => '',
-            'logo' => Developer::returnImageValidationString()
+            'logo' => Developer::returnImageValidationString(),
+            'link_en' => 'nullable|url',
+            'link_it' => 'nullable|url',
         ]);
 
         if ($request->hasFile('logo')) {
@@ -166,7 +177,7 @@ class DeveloperController extends Controller
                 Storage::delete($developer->logo);
             }
 
-            $image = $developer->uploadImage();
+            $image = $developer->uploadImage('logo');
             $formFields['logo'] = $image;
         }
 

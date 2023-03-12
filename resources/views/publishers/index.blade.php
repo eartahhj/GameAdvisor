@@ -30,7 +30,7 @@
         @if (!$publishers->isEmpty())
         <ul class="items-list grid grid-mobile publishers-list">
             @foreach ($publishers as $publisher)
-            <x-publishers.list-item :publisher="$publisher"/>
+            <x-publishers.list-item :publisher="$publisher" :logo="$publisher->getLogo()" />
             @endforeach
         </ul>
         @endif

@@ -1570,3 +1570,6 @@ msgstr ""
 
 msgid "Approve this publisher"
 msgstr ""
+
+msgid "Link (%s)"
+msgstr ""

@@ -32,7 +32,8 @@ class DevelopersSeeder extends Seeder
             Developer::create([
                 'name_en' => $developer->name,
                 'name_it' => $developer->name,
-                'link' => trim($developer->link ?? ''),
+                'link_en' => trim($developer->link ?? ''),
+                'link_it' => trim($developer->link ?? ''),
                 'approved' => true
             ]);
         }

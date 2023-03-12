@@ -41,6 +41,19 @@
                     </div>
                     <p class="help"><?=_('Please consider writing the text in a SEO-friendly way.')?></p>
                 </div>
+
+                <div class="field">
+                    @error('link_' . $langCode)
+                    <x-form-error :text="$message"></x-form-error>
+                    @enderror
+                    <label class="label" for="link_<?=$langCode?>"><?= sprintf(_('Link (%s)'), $lang) ?></label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input type="url" class="input" name="link_<?=$langCode?>" id="link_<?=$langCode?>" value="<?=old("link_{$langCode}")?>" minlength="5" maxlength="200" placeholder="" autocomplete="off">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-bullhorn"></i>
+                        </span>
+                    </div>
+                </div>
             </fieldset>
             <?php endforeach?>
 
@@ -49,10 +62,37 @@
                 <x-form-error :text="$message"></x-form-error>
                 @enderror
                 <label for="games-create-platform" class="label">{{ _('Platform') . ' ' . _('*') }}</label>
-                <select id="games-create-platform" name="platform_id" required="required">
-                @foreach ($platforms as $platform)
-                <option value="{{ $platform->id }}">{{ $platform->name }}</option>
-                @endforeach
+                <select id="games-create-platform" name="platform_id" required="required" class="chosen">
+                    <option value="">{{ _('Select') }}</option>
+                    @foreach ($platforms as $platform)
+                    <option value="{{ $platform->id }}"{{ ($platform->id == old('platform_id', null) ? ' selected="selected"' : '') }}>{{ $platform->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="field">
+                @error('developer_id')
+                <x-form-error :text="$message"></x-form-error>
+                @enderror
+                <label for="games-developer" class="label">{{ _('Developer') . ' ' . _('*') }}</label>
+                <select id="games-developer" name="developer_id" required="required" class="chosen">
+                    <option value="">{{ _('Select') }}</option>
+                    @foreach ($developers as $developer)
+                    <option value="{{ $developer->id }}"{{ ($developer->id == old('developer_id', null) ? ' selected="selected"' : '') }}>{{ $developer->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="field">
+                @error('publisher_id')
+                <x-form-error :text="$message"></x-form-error>
+                @enderror
+                <label for="games-publisher" class="label">{{ _('Publisher') . ' ' . _('*') }}</label>
+                <select id="games-publisher" name="publisher_id" required="required" class="chosen">
+                    <option value="">{{ _('Select') }}</option>
+                    @foreach ($publishers as $publisher)
+                    <option value="{{ $publisher->id }}"{{ ($publisher->id == old('publisher_id', null) ? ' selected="selected"' : '') }}>{{ $publisher->name }}</option>
+                    @endforeach
                 </select>
             </div>
 

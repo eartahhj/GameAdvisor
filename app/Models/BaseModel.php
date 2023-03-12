@@ -44,11 +44,12 @@ class BaseModel extends Model
         return 'file|between:1,' . static::IMAGE_MAX_WIDTH . '|mimetypes:' . static::IMAGE_MIMETYPES .'|dimensions:min_width=' . static::IMAGE_MIN_WIDTH . ',min_height=' . static::IMAGE_MIN_HEIGHT . ',max_width=' . static::IMAGE_MAX_WIDTH . ',max_height=' . static::IMAGE_MAX_HEIGHT;
     }
 
-    public function uploadImage(): string
+    public function uploadImage(string $inputName = 'image'): string
     {
         return uploadImage(
             fileFolder: 'images/' . mb_strtolower((new \ReflectionClass($this))->getShortName()) . 's',
-            newFileName: mb_strtolower((new \ReflectionClass($this))->getShortName()) . '-' . $this->id . '-image'
+            newFileName: mb_strtolower((new \ReflectionClass($this))->getShortName()) . '-' . $this->id . '-image',
+            inputName: $inputName
         );
     }
 
@@ -56,6 +57,15 @@ class BaseModel extends Model
     {
         if ($this->image) {
             return Image::make(Storage::disk('public')->path($this->image));
+        }
+
+        return null;
+    }
+
+    public function getLogo() : ?\Intervention\Image\Image
+    {
+        if ($this->logo) {
+            return Image::make(Storage::disk('public')->path($this->logo));
         }
 
         return null;

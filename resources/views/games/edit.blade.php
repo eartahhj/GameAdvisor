@@ -40,9 +40,22 @@
                     @enderror
                     <label class="label" for="description_<?=$langCode?>"><?= sprintf(_('Description (%s)'), $langName) ?> <?=_('*')?></label>
                     <div class="control">
-                        <textarea class="tinymce" id="description_<?=$langCode?>" name="description_<?=$langCode?>" cols="30" rows="10">{!! old("description_{$langCode}", $game->description) !!}</textarea>
+                        <textarea class="tinymce" id="description_<?=$langCode?>" name="description_<?=$langCode?>" cols="30" rows="10">{!! old("description_{$langCode}", $game->{'description_' . $langCode}) !!}</textarea>
                     </div>
                     <p class="help"><?=_('Please consider writing the text in a SEO-friendly way.')?></p>
+                </div>
+
+                <div class="field">
+                    @error('link_' . $langCode)
+                    <x-form-error :text="$message"></x-form-error>
+                    @enderror
+                    <label class="label" for="link_<?=$langCode?>"><?= sprintf(_('Link (%s)'), $langName) ?></label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input type="url" class="input" name="link_<?=$langCode?>" id="link_<?=$langCode?>" value="<?=old("link_{$langCode}", $game->{'link_' . $langCode})?>" minlength="5" maxlength="200" placeholder="" autocomplete="off">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-bullhorn"></i>
+                        </span>
+                    </div>
                 </div>
             </fieldset>
             @endforeach
@@ -52,9 +65,36 @@
                 <x-form-error :text="$message"></x-form-error>
                 @enderror
                 <label for="games-edit-platform" class="label">{{ _('Platform') . ' ' . _('*') }}</label>
-                <select id="games-edit-platform" name="platform_id" required="required">
+                <select id="games-edit-platform" name="platform_id" required="required" class="chosen">
+                    <option value="">{{ _('Select') }}</option>
                     @foreach ($platforms as $platform)
-                    <option value="{{ $platform->id }}">{{ $platform->name }}</option>
+                    <option value="{{ $platform->id }}"{{ ($platform->id == $game->platform_id ? ' selected="|selected' : '') }}>{{ $platform->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="field">
+                @error('developer_id')
+                <x-form-error :text="$message"></x-form-error>
+                @enderror
+                <label for="games-developer" class="label">{{ _('Developer') . ' ' . _('*') }}</label>
+                <select id="games-developer" name="developer_id" required="required" class="chosen">
+                    <option value="">{{ _('Select') }}</option>
+                    @foreach ($developers as $developer)
+                    <option value="{{ $developer->id }}"{{ ($developer->id == $game->developer_id ? ' selected="|selected' : '') }}>{{ $developer->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="field">
+                @error('publisher_id')
+                <x-form-error :text="$message"></x-form-error>
+                @enderror
+                <label for="games-publisher" class="label">{{ _('Publisher') . ' ' . _('*') }}</label>
+                <select id="games-publisher" name="publisher_id" required="required" class="chosen">
+                    <option value="">{{ _('Select') }}</option>
+                    @foreach ($publishers as $publisher)
+                    <option value="{{ $publisher->id }}"{{ ($publisher->id == $game->publisher_id ? ' selected="|selected' : '') }}>{{ $publisher->name }}</option>
                     @endforeach
                 </select>
             </div>

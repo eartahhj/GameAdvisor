@@ -23,6 +23,8 @@ return new class extends Migration
             $table->boolean('approved')->default(false);
             $table->boolean('hidden')->default(false);
             $table->string('image')->nullable();
+            $table->string('link_en')->nullable();
+            $table->string('link_it')->nullable();
             $table->timestamps();
         });
     }

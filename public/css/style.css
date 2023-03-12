@@ -168,8 +168,17 @@ label[for="navbar-auth-handler"] { color:#fff; cursor:pointer; display:flex; ali
 #navbar-auth { background-color:var(--green-dark); align-items:center; }
 #navbar-auth-user { color:#fff; align-self:center; }
 #navbar-auth-user-menu > ul { align-items:center; }
-#navbar-auth-user-menu li a { color:var(--gold); }
-#navbar-auth-user-menu li:hover a { color:var(--orange); }
+#navbar-auth-user-menu li > a { color:var(--gold); }
+#navbar-auth-user-menu li:hover > a { color:var(--orange); }
+
+label[for="nav-admin-handler"] { color:var(--gold); }
+label[for="nav-admin-handler"]:hover { cursor:pointer; color:var(--orange); }
+#nav-admin-handler ~ ul { display:none; }
+#nav-admin-handler:checked ~ ul { display:block; position:absolute; top:2rem; background-color:var(--green-dark); }
+#nav-admin-handler ~ label i.is-closed { display:block; }
+#nav-admin-handler ~ label i.is-open { display:none; }
+#nav-admin-handler:checked ~ label i.is-closed { display:none; }
+#nav-admin-handler:checked ~ label i.is-open { display:block; }
 
 #page-alerts { margin:1rem 0; }
 

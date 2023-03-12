@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Game;
 use App\Models\Platform;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PlatformController extends Controller
 {
@@ -76,15 +77,17 @@ class PlatformController extends Controller
             'name_it' => '',
             'description_en' => '',
             'description_it' => '',
-            'image' => Platform::returnImageValidationString()
+            'image' => Platform::returnImageValidationString(),
+            'link_en' => 'nullable|url',
+            'link_it' => 'nullable|url',
         ]);
 
-        if ($request->hasFile('image')) {
-            $image = $platform->uploadImage();
-            $formFields['image'] = $image;
-        }
-
         if ($newPlatform = Platform::create($formFields)) {
+            if ($request->hasFile('image') and $image = $newPlatform->uploadImage()) {
+                $newPlatform->image = $image;
+                $newPlatform->save();
+            }
+
             return redirect(route('platforms.edit', $newPlatform))->with('confirm', _('Platform created'));
         } else {
             return redirect(route('platforms.create'))->with('error', _('Error creating platform'));
@@ -150,7 +153,9 @@ class PlatformController extends Controller
             'name_it' => '',
             'description_en' => '',
             'description_it' => '',
-            'image' => Platform::returnImageValidationString()
+            'image' => Platform::returnImageValidationString(),
+            'link_en' => 'nullable|url',
+            'link_it' => 'nullable|url',
         ]);
 
         if ($request->hasFile('image')) {

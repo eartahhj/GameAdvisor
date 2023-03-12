@@ -15,28 +15,44 @@
             @csrf
             
             @foreach(getLanguages() as $langCode => $langName)
-            <div class="field">
-                @error("name_$langCode")
-                    <x-form-error>
-                        <x-slot:text>
-                        {{ $message }}
-                    </x-slot>
-                </x-form-error>
-                @enderror
-                <label for="developer-name_{{ $langCode }}" class="label">{{ sprintf(_('Name (%s)'), $langName) }}{{ $langCode == 'en' ? ' ' . _('*') : '' }}</label>
-                <input id="developer-name_{{ $langCode }}" type="text" name="name_{{ $langCode }}" value="{{ old("name_$langCode") }}" class="input"{{ $langCode == 'en' ? ' required="required"' : '' }}>
-            </div>
-            <div class="field">
-                @error("description_$langCode")
-                    <x-form-error>
-                        <x-slot:text>
-                        {{ $message }}
-                    </x-slot>
-                </x-form-error>
-                @enderror
-                <label for="developer-description_{{ $langCode }}" class="label">{{ sprintf(_('Description (%s)'), $langName) }}</label>
-                <input id="developer-description_{{ $langCode }}" type="text" name="description_{{ $langCode }}" value="{{ old("description_$langCode") }}" class="input">
-            </div>
+            <fieldset class="improved">
+                <legend><?= $langName ?></legend>
+                <div class="field">
+                    @error("name_$langCode")
+                        <x-form-error>
+                            <x-slot:text>
+                            {{ $message }}
+                        </x-slot>
+                    </x-form-error>
+                    @enderror
+                    <label for="developer-name_{{ $langCode }}" class="label">{{ sprintf(_('Name (%s)'), $langName) }}{{ $langCode == 'en' ? ' ' . _('*') : '' }}</label>
+                    <input id="developer-name_{{ $langCode }}" type="text" name="name_{{ $langCode }}" value="{{ old("name_$langCode") }}" class="input"{{ $langCode == 'en' ? ' required="required"' : '' }}>
+                </div>
+                <div class="field">
+                    @error("description_$langCode")
+                        <x-form-error>
+                            <x-slot:text>
+                            {{ $message }}
+                        </x-slot>
+                    </x-form-error>
+                    @enderror
+                    <label for="developer-description_{{ $langCode }}" class="label">{{ sprintf(_('Description (%s)'), $langName) }}</label>
+                    <input id="developer-description_{{ $langCode }}" type="text" name="description_{{ $langCode }}" value="{{ old("description_$langCode") }}" class="input">
+                </div>
+
+                <div class="field">
+                    @error('link_' . $langCode)
+                    <x-form-error :text="$message"></x-form-error>
+                    @enderror
+                    <label class="label" for="link_<?=$langCode?>"><?= sprintf(_('Link (%s)'), $langName) ?></label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input type="url" class="input" name="link_<?=$langCode?>" id="link_<?=$langCode?>" value="<?=old("link_{$langCode}")?>" minlength="5" maxlength="200" placeholder="" autocomplete="off">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-bullhorn"></i>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
             @endforeach
 
             <div class="field">

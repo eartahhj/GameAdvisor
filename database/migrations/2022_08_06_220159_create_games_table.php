@@ -25,7 +25,8 @@ return new class extends Migration
             $table->timestamps();
             $table->boolean('approved')->default(false);
             $table->boolean('hidden')->default(false);
-            $table->string('link')->nullable();
+            $table->string('link_en')->nullable();
+            $table->string('link_it')->nullable();
         });
     }
 

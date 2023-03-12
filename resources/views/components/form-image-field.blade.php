@@ -29,7 +29,6 @@
     @endisset
 
     <div id="images-previews" class="images-preview"></div>
-
     @isset ($filename, $image)
     <p>{{ _('Current file:') }}</p>
     <figure>

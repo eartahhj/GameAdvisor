@@ -2,7 +2,7 @@
     <article class="tile is-child">
         <figure class="image">
             @if ($publisher->logo and $logo)
-            <img src="/storage/{{ $publisher->logo }}" alt="" width="{{ $logo->width() }}" height="{{ $image->height() }}" loading="lazy">
+            <img src="/storage/{{ $publisher->logo }}" alt="" width="{{ $logo->width() }}" height="{{ $logo->height() }}" loading="lazy">
             @else
             <img src="/storage/images/placeholders/publisher1.png" alt="" width="800" height="600" loading="lazy">
             @endif

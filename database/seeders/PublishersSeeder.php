@@ -32,7 +32,8 @@ class PublishersSeeder extends Seeder
             Publisher::create([
                 'name_en' => $publisher->name,
                 'name_it' => $publisher->name,
-                'link' => trim($publisher->link ?? ''),
+                'link_en' => trim($publisher->link ?? ''),
+                'link_it' => trim($publisher->link ?? ''),
                 'approved' => true
             ]);
         }

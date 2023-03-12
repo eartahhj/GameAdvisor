@@ -6,6 +6,7 @@ use App\Models\Game;
 use App\Models\Publisher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class PublisherController extends Controller
 {
@@ -82,15 +83,18 @@ class PublisherController extends Controller
             'name_it' => '',
             'description_en' => '',
             'description_it' => '',
-            'logo' => Publisher::returnImageValidationString()
+            'logo' => Publisher::returnImageValidationString(),
+            'link_en' => 'nullable|url',
+            'link_it' => 'nullable|url',
         ]);
 
-        if ($request->hasFile('logo')) {
-            $logo = $publisher->uploadImage();
-            $formFields['logo'] = $logo;
-        }
 
         if ($newPublisher = Publisher::create($formFields)) {
+            if ($request->hasFile('logo') and $image = $newPublisher->uploadImage('logo')) {
+                $newPublisher->logo = $image;
+                $newPublisher->save();
+            }
+
             return redirect(route('publishers.edit', $newPublisher))->with('confirm', _('Publisher created'));
         } else {
             return redirect(route('publishers.create'))->with('error', _('Error creating publisher'));
@@ -106,8 +110,8 @@ class PublisherController extends Controller
 
         $image = null;
         
-        if (!empty($publisher->image)) {
-            $image = \Image::make(\Storage::disk('public')->get($publisher->image));
+        if (!empty($publisher->logo)) {
+            $logo = \Image::make(\Storage::disk('public')->get($publisher->logo));
         }
 
         return view('publishers.show', [
@@ -116,7 +120,7 @@ class PublisherController extends Controller
             'pageTitle' => sprintf(_('Publisher: %s'), $publisher->name),
             'publisher' => $publisher,
             'numberOfGames' => $numberOfGames,
-            'image' => $image
+            'image' => $logo
         ]);
     }
 
@@ -153,7 +157,9 @@ class PublisherController extends Controller
             'name_it' => '',
             'description_en' => '',
             'description_it' => '',
-            'logo' => Publisher::returnImageValidationString()
+            'logo' => Publisher::returnImageValidationString(),
+            'link_en' => 'nullable|url',
+            'link_it' => 'nullable|url',
         ]);
 
         if ($request->hasFile('logo')) {
@@ -161,7 +167,7 @@ class PublisherController extends Controller
                 Storage::delete($publisher->logo);
             }
 
-            $logo = $publisher->uploadImage();
+            $logo = $publisher->uploadImage('logo');
             $formFields['logo'] = $logo;
         }
 

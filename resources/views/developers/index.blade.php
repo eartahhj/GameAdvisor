@@ -30,7 +30,7 @@
         @if (!$developers->isEmpty())
         <ul class="items-list grid grid-mobile developers-list">
         @foreach ($developers as $developer)
-            <x-developers.list-item :developer="$developer"/>
+            <x-developers.list-item :developer="$developer" :logo="$developer->getLogo()" />
         @endforeach
         </ul>
         @endif

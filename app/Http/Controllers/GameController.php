@@ -94,15 +94,22 @@ class GameController extends Controller
         self::$templateStylesheets[] = '/js/simpjs/simp.css';
         self::$templateJavascripts[] = '/js/tinymce/tinymce.min.js';
         self::$templateJavascripts[] = '/js/tinymce-init.js';
+        self::$templateStylesheets[] = '/js/chosen/chosen.min.css';
+        self::$templateJavascripts[] = '/js/chosen/chosen.jquery.min.js';
+        self::$templateJavascripts[] = '/js/chosen-init.js';
 
         $platforms = Platform::all();
+        $developers = Developer::all();
+        $publishers = Publisher::all();
 
         return view('games.create', [
             'templateStylesheets' => static::$templateStylesheets,
             'templateJavascripts' => static::$templateJavascripts,
             'pageTitle' => _('Insert a new game'),
             'platforms' => $platforms,
-            'supportedImageFormats' => Game::returnImageSupportedFormatsString()
+            'supportedImageFormats' => Game::returnImageSupportedFormatsString(),
+            'developers' => $developers,
+            'publishers' => $publishers
         ]);
     }
 
@@ -115,20 +122,19 @@ class GameController extends Controller
             'description_it' => '',
             'description_en' => '',
             'platform_id' => 'required',
-            'image' => Game::returnImageValidationString()
+            'image' => Game::returnImageValidationString(),
+            'link_en' => 'nullable|url',
+            'link_it' => 'nullable|url'
         ]);
 
         $formFields['approved'] = true;
 
         if ($newGame = Game::create($formFields)) {
-            if ($request->hasFile('image') and !empty(auth()->user()) and auth()->user()->email_verified_at) {
-                if ($image = $newGame->uploadImage()) {
-                    $newGame->image = $image;
-                    $newGame->save();
-                } else {
-                    $imageError = _('Your review has been created but there was an error uploading the image.');
-                }
+            if ($request->hasFile('image') and $image = $newGame->uploadImage()) {
+                $newGame->image = $image;
+                $newGame->save();
             }
+            
             return redirect(route('games.edit', $newGame))->with('confirm', _('Game created'));
         } else {
             return redirect(route('games.create'))->with('error', _('Error creating game'));
@@ -207,8 +213,14 @@ class GameController extends Controller
         self::$templateStylesheets[] = '/js/simpjs/simp.css';
         self::$templateJavascripts[] = '/js/tinymce/tinymce.min.js';
         self::$templateJavascripts[] = '/js/tinymce-init.js';
+        self::$templateStylesheets[] = '/js/chosen/chosen.min.css';
+        self::$templateJavascripts[] = '/js/chosen/chosen.jquery.min.js';
+        self::$templateJavascripts[] = '/js/chosen-init.js';
+        self::$templateJavascripts[] = '/js/forms-validation.js';
 
         $platforms = Platform::all();
+        $developers = Developer::all();
+        $publishers = Publisher::all();
 
         $image = null;
 
@@ -223,7 +235,9 @@ class GameController extends Controller
             'platforms' => $platforms,
             'game' => $game,
             'image' => $image,
-            'supportedImageFormats' => Game::returnImageSupportedFormatsString()
+            'supportedImageFormats' => Game::returnImageSupportedFormatsString(),
+            'developers' => $developers,
+            'publishers' => $publishers
         ]);
     }
 
@@ -234,8 +248,12 @@ class GameController extends Controller
             'title_it' => 'required',
             'description_it' => '',
             'description_en' => '',
-            'platform_id' => 'required',
-            'image' => Game::returnImageValidationString()
+            'platform_id' => 'required|exists:platforms,id',
+            'image' => Game::returnImageValidationString(),
+            'link_en' => 'nullable|url',
+            'link_it' => 'nullable|url',
+            'developer_id' => 'required|exists:developers,id',
+            'publisher_id' => 'required|exists:publishers,id',
         ]);
 
         if ($request->hasFile('image')) {

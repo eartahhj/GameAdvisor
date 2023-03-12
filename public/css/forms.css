@@ -11,4 +11,6 @@ fieldset.improved > legend { background-color:#222; color:#eee;  padding:0.3rem 
 .form-inline { display:flex; gap:1rem; }
 .form-inline .buttons { padding-top:0; border-top:0; }
 
+.chosen-required { border:1px solid darkred; }
+
 

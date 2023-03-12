@@ -23,12 +23,15 @@ class Game extends BaseModel
         'image',
         'year',
         'publisher_id',
-        'developer_id'
+        'developer_id',
+        'link_it',
+        'link_en'
     ];
 
     protected static array $multiLingualFields = [
         'title',
-        'description'
+        'description',
+        'link'
     ];
 
     public static function returnImageValidationString(): string

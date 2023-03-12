@@ -20,17 +20,20 @@ class Publisher extends BaseModel
         'description_en',
         'description_it',
         'logo',
-        'approved'
+        'approved',
+        'link_en',
+        'link_it'
     ];
 
     protected static array $multiLingualFields = [
         'name',
-        'description'
+        'description',
+        'link'
     ];
 
     public static function returnImageValidationString(): string
     {
-        return parent::returnImageValidationString() . '|ratio=4/3';
+        return parent::returnImageValidationString() . '|dimensions:ratio=4/3';
     }
 
     public static function getOrderBy(): array

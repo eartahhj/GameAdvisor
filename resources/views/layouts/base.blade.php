@@ -207,29 +207,43 @@ try {
                             <a href="<?= route('users.logout') ?>" class="navbar-item"><?= _('Logout') ?></a>
                         </li>
                         <?php if ($authUser->is_superadmin):?>
-                            <li>
-                                <a href="<?= route('admin.index') ?>" class="navbar-item"><?= _('Administration') ?></a>
-                            </li>
-                            <li>
-                                <a href="<?= route('admin.reviews.index') ?>" class="navbar-item"><?= _('Manage reviews') ?></a>
-                            </li>
-                            <li>
-                                <a href="<?= route('admin.games.index') ?>" class="navbar-item"><?= _('Manage games') ?></a>
-                            </li>
-                            <li>
-                                <a href="<?= route('admin.platforms.index') ?>" class="navbar-item"><?= _('Manage platforms') ?></a>
-                            </li>
-                            <li>
-                                <a href="<?= route('admin.developers.index') ?>" class="navbar-item"><?= _('Manage developers') ?></a>
-                            </li>
-                            <li>
-                                <a href="<?= route('admin.publishers.index') ?>" class="navbar-item"><?= _('Manage publishers') ?></a>
-                            </li>
-                            <li>
-                                <a href="<?= route('admin.pages.index') ?>" class="navbar-item"><?= _('Manage pages') ?></a>
-                            </li>
-                            <li>
-                                <a href="<?= route('admin.users.index') ?>" class="navbar-item"><?= _('Manage users') ?></a>
+                            <li id="nav-admin-item">
+                                <div class="navbar-item">
+                                    <input type="checkbox" id="nav-admin-handler" tabindex="0" class="sr-only">
+                                    <label for="nav-admin-handler" tabindex="-1">
+                                        <span class="text"><?= _('Administration') ?></span>
+                                        <span class="icon">
+                                            <i class="fas fa-chevron-down is-closed"></i>
+                                            <i class="fas fa-chevron-up is-open"></i>
+                                        </span>
+                                    </label>
+                                    <ul>
+                                        <li>
+                                            <a href="<?= route('admin.index') ?>" class="navbar-item">{{ _('Dashboard') }}</a>
+                                        </li>
+                                        <li>
+                                            <a href="<?= route('admin.reviews.index') ?>" class="navbar-item"><?= _('Manage reviews') ?></a>
+                                        </li>
+                                        <li>
+                                            <a href="<?= route('admin.games.index') ?>" class="navbar-item"><?= _('Manage games') ?></a>
+                                        </li>
+                                        <li>
+                                            <a href="<?= route('admin.platforms.index') ?>" class="navbar-item"><?= _('Manage platforms') ?></a>
+                                        </li>
+                                        <li>
+                                            <a href="<?= route('admin.developers.index') ?>" class="navbar-item"><?= _('Manage developers') ?></a>
+                                        </li>
+                                        <li>
+                                            <a href="<?= route('admin.publishers.index') ?>" class="navbar-item"><?= _('Manage publishers') ?></a>
+                                        </li>
+                                        <li>
+                                            <a href="<?= route('admin.pages.index') ?>" class="navbar-item"><?= _('Manage pages') ?></a>
+                                        </li>
+                                        <li>
+                                            <a href="<?= route('admin.users.index') ?>" class="navbar-item"><?= _('Manage users') ?></a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                         <?php endif?>
                     </ul>

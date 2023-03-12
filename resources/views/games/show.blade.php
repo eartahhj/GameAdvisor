@@ -8,7 +8,7 @@
             <article>
                 <h1 class="title is-2">{{ $pageTitle }}</h1>
                 @if ($game->description)
-                <p>{{ $game->description }}</p>
+                <p>{!! $game->description !!}</p>
                 @endif
             </article>
 
