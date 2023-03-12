@@ -3,7 +3,7 @@
 @section('content')
 <section class="template-default template-games">
     <div class="container">
-        <h1 class="title is-2">{{ $pageTitle }}</h1>
+        <x-page-title :text="$pageTitle"></x-page-title>
 
         @if ($errors->any())
             @include('forms.errors', ['class' => 'is-danger', 'text' => _('Errors found')])
@@ -15,7 +15,7 @@
             @csrf
 
             <?php foreach (config('app')['languages'] as $langCode => $lang):?>
-            <fieldset>
+            <fieldset class="improved">
                 <legend><?= $lang ?></legend>
 
                 <div class="field">
@@ -33,11 +33,7 @@
 
                 <div class="field">
                     @error('description_' . $langCode)
-                    <x-form-error>
-                        <x-slot:text>
-                        {{ $message }}
-                        </x-slot>
-                    </x-form-error>
+                    <x-form-error :text="$message"></x-form-error>
                     @enderror
                     <label class="label" for="description_<?=$langCode?>"><?= sprintf(_('HTML (%s)'), $lang) ?> <?=_('*')?></label>
                     <div class="control">
@@ -50,7 +46,7 @@
 
             <div class="field">
                 @error('platform_id')
-                    @include('forms.message', ['class' => 'is-danger', 'text' =>  _('Error:') . ' ' . $message])
+                <x-form-error :text="$message"></x-form-error>
                 @enderror
                 <label for="games-create-platform" class="label">{{ _('Platform') . ' ' . _('*') }}</label>
                 <select id="games-create-platform" name="platform_id" required="required">

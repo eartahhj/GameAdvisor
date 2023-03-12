@@ -19,6 +19,7 @@ return [
     'games.store' => 'giochi/salva',
     'games.create' => 'giochi/crea',
     'games.platform.{id}' => 'giochi/piattaforma/{id}',
+    'games.{game}.approve' => 'giochi/{game}/approva',
 
     'users' => 'utenti',
     'users.show.{user}' => 'utenti/{user}',
@@ -49,6 +50,7 @@ return [
     'platforms.delete' => 'piattaforme/elimina',
     'platforms.store' => 'piattaforme/salva',
     'platforms.create' => 'piattaforme/crea',
+    'platforms.{publisher}.approve' => 'piattaforme/{publisher}/approva',
 
     'developers' => 'sviluppatori',
     'developers.{developer}.edit' => 'sviluppatori/{developer}/modifica',
@@ -57,6 +59,7 @@ return [
     'developers.delete' => 'sviluppatori/elimina',
     'developers.store' => 'sviluppatori/salva',
     'developers.create' => 'sviluppatori/crea',
+    'developers.{publisher}.approve' => 'sviluppatori/{publisher}/approva',
 
     'publishers' => 'publishers',
     'publishers.{publisher}.edit' => 'editori/{publisher}/modifica',
@@ -65,6 +68,7 @@ return [
     'publishers.delete' => 'editori/elimina',
     'publishers.store' => 'editori/salva',
     'publishers.create' => 'editori/crea',
+    'publishers.{publisher}.approve' => 'editori/{publisher}/approva',
 
     'pages.{page}.edit' => 'pagine/{page}/modifica',
     'pages.{page}' => 'pagine/{page}',

@@ -187,4 +187,34 @@ class PlatformController extends Controller
             return redirect(route('platforms.edit', $platform))->with('error', _('Error deleting platform'));
         }
     }
+
+    public function approve(int $id)
+    {
+        if (!auth()->user()->is_superadmin) {
+            abort(401);
+        }
+
+        if (request()->input('approve') == 1) {
+            $approved = true;
+        } elseif (request()->input('unapprove') == 1) {
+            $approved = false;
+        } else {
+            return back()->with('error', _('An error occured during the approve/revoke operation'));
+        }
+
+        $platform = Platform::findOrFail($id);
+        $platform->approved = $approved;
+
+        if ($platform->save() === false) {
+            return back()->with('errors', $platform->errors());
+        }
+
+        if ($approved) {
+            $message = sprintf(_('Platform #%s has been approved'), $platform->id);
+        } else {
+            $message = sprintf(_('Platform #%s has been unapproved'), $platform->id);
+        }
+
+        return back()->with('success', $message);
+    }
 }

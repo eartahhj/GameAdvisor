@@ -40,7 +40,7 @@
                     @enderror
                     <label class="label" for="description_<?=$langCode?>"><?= sprintf(_('Description (%s)'), $langName) ?> <?=_('*')?></label>
                     <div class="control">
-                        <textarea class="textarea" id="description_<?=$langCode?>" name="description_<?=$langCode?>" cols="30" rows="10"><?=old("description_{$langCode}", $game->{'description_' . $langCode})?></textarea>
+                        <textarea class="tinymce" id="description_<?=$langCode?>" name="description_<?=$langCode?>" cols="30" rows="10">{!! old("description_{$langCode}", $game->description) !!}</textarea>
                     </div>
                     <p class="help"><?=_('Please consider writing the text in a SEO-friendly way.')?></p>
                 </div>
@@ -66,6 +66,8 @@
             @csrf
             @method('DELETE')
         </form>
+
+        <x-games.form-approve :game="$game" />
     
         <div class="buttons">
             <button type="submit" name="send" class="button is-primary" form="form-edit">

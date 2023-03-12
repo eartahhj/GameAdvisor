@@ -14,6 +14,7 @@ return [
     'games.{game}' => 'games/{game}',
     'games.create' => 'games/create',
     'games.platform.{id}' => 'games/platform/{id}',
+    'games.{game}.approve' => 'games/{game}/approve',
 
     'users' => 'users',
     'users.show.{user}' => 'users/{user}',
@@ -41,16 +42,19 @@ return [
     'platforms.{platform}.edit' => 'platforms/{platform}/edit',
     'platforms.{platform}' => 'platforms/{platform}',
     'platforms.create' => 'platforms/create',
+    'platforms.{platform}.approve' => 'platforms/{platform}/approve',
 
     'developers' => 'developers',
     'developers.{developer}.edit' => 'developers/{developer}/edit',
     'developers.{developer}' => 'developers/{developer}',
     'developers.create' => 'developers/create',
+    'developers.{developer}.approve' => 'developers/{developer}/approve',
 
     'publishers' => 'publishers',
     'publishers.{publisher}.edit' => 'publishers/{publisher}/edit',
     'publishers.{publisher}' => 'publishers/{publisher}',
     'publishers.create' => 'publishers/create',
+    'publishers.{publisher}.approve' => 'publishers/{publisher}/approve',
 
     'pages.{page}.edit' => 'pages/{page}/edit',
     'pages.{page}' => 'pages/{page}',

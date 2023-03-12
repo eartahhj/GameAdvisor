@@ -33,7 +33,7 @@ class Game extends BaseModel
 
     public static function returnImageValidationString(): string
     {
-        return parent::returnImageValidationString() . '|ratio=4/3';
+        return parent::returnImageValidationString() . '|dimensions:ratio=4/3';
     }
 
     public static function getOrderBy(): array

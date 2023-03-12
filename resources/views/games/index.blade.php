@@ -33,7 +33,7 @@
 
         <ul class="items-list grid grid-mobile games-list">
         @foreach ($games as $game)
-            <x-games.list-item :game="$game"/>
+            <x-games.list-item :game="$game" :image="$game->getImage()" />
         @endforeach
         </ul>
 

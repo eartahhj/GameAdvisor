@@ -56,6 +56,8 @@
             @csrf
             @method('DELETE')
         </form>
+
+        <x-publishers.form-approve :publisher="$publisher" />
     
         <div class="buttons">
             <button type="submit" name="send" class="button is-primary" form="form-edit">

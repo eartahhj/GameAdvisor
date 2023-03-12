@@ -54,6 +54,8 @@
             @csrf
             @method('DELETE')
         </form>
+
+        <x-developers.form-approve :developer="$developer" />
     
         <div class="buttons">
             <button type="submit" name="send" class="button is-primary" form="form-edit">

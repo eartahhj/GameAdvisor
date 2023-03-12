@@ -56,7 +56,7 @@
             @method('DELETE')
         </form>
 
-        <x-reviews.form-approve :review="$review"></x-reviews>
+        <x-reviews.form-approve :review="$review" />
 
         <div class="buttons">
             <button type="submit" name="send" class="button is-primary" form="form-edit">

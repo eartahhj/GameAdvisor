@@ -39,7 +39,9 @@ class GameController extends Controller
             ->when($publisherId, function($query, $publisherId) {
                 $query->where('games.publisher_id', '=', $publisherId);
             })
-            ->where('games.approved', 1)
+            ->when(!auth()->user()->is_superadmin, function($query) {
+                $query->where('games.approved', 1);
+            })
         ->orderBy($orderBy['column'], $orderBy['order'])
         ->paginate(12);
         
@@ -89,6 +91,8 @@ class GameController extends Controller
         self::$templateJavascripts[] = '/js/simpjs/simp.js';
         self::$templateJavascripts[] = '/js/simpjs/simp-init.js';
         self::$templateStylesheets[] = '/js/simpjs/simp.css';
+        self::$templateJavascripts[] = '/js/tinymce/tinymce.min.js';
+        self::$templateJavascripts[] = '/js/tinymce-init.js';
 
         $platforms = Platform::all();
 
@@ -105,8 +109,10 @@ class GameController extends Controller
     {
         // Rule::unique('reviews', 'text')
         $formFields = $request->validate([
-            'title' => 'required',
-            'description' => '',
+            'title_en' => 'required',
+            'title_it' => 'required',
+            'description_it' => '',
+            'description_en' => '',
             'platform_id' => 'required',
             'image' => Game::returnImageValidationString()
         ]);
@@ -115,6 +121,8 @@ class GameController extends Controller
             $image = $game->uploadImage();
             $formFields['image'] = $image;
         }
+
+        $formFields['approved'] = true;
 
         if ($newGame = Game::create($formFields)) {
             return redirect(route('games.edit', $newGame))->with('confirm', _('Game created'));
@@ -193,6 +201,8 @@ class GameController extends Controller
         self::$templateJavascripts[] = '/js/simpjs/simp.js';
         self::$templateJavascripts[] = '/js/simpjs/simp-init.js';
         self::$templateStylesheets[] = '/js/simpjs/simp.css';
+        self::$templateJavascripts[] = '/js/tinymce/tinymce.min.js';
+        self::$templateJavascripts[] = '/js/tinymce-init.js';
 
         $platforms = Platform::all();
 
@@ -216,8 +226,10 @@ class GameController extends Controller
     public function update(Request $request, Game $game)
     {
         $formFields = $request->validate([
-            'title' => 'required',
-            'description' => '',
+            'title_en' => 'required',
+            'title_it' => 'required',
+            'description_it' => '',
+            'description_en' => '',
             'platform_id' => 'required',
             'image' => Game::returnImageValidationString()
         ]);
@@ -256,5 +268,35 @@ class GameController extends Controller
         } else {
             return redirect(route('games.edit', $game))->with('error', _('Error deleting game'));
         }
+    }
+
+    public function approve(int $id)
+    {
+        if (!auth()->user()->is_superadmin) {
+            abort(401);
+        }
+
+        if (request()->input('approve') == 1) {
+            $approved = true;
+        } elseif (request()->input('unapprove') == 1) {
+            $approved = false;
+        } else {
+            return back()->with('error', _('An error occured during the approve/revoke operation'));
+        }
+
+        $game = Game::findOrFail($id);
+        $game->approved = $approved;
+
+        if ($game->save() === false) {
+            return back()->with('errors', $game->errors());
+        }
+
+        if ($approved) {
+            $message = sprintf(_('Game #%s has been approved'), $game->id);
+        } else {
+            $message = sprintf(_('Game #%s has been unapproved'), $game->id);
+        }
+
+        return back()->with('success', $message);
     }
 }

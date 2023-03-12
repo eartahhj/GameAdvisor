@@ -192,4 +192,34 @@ class PublisherController extends Controller
         }
 
     }
+
+    public function approve(int $id)
+    {
+        if (!auth()->user()->is_superadmin) {
+            abort(401);
+        }
+
+        if (request()->input('approve') == 1) {
+            $approved = true;
+        } elseif (request()->input('unapprove') == 1) {
+            $approved = false;
+        } else {
+            return back()->with('error', _('An error occured during the approve/revoke operation'));
+        }
+
+        $publisher = Publisher::findOrFail($id);
+        $publisher->approved = $approved;
+
+        if ($publisher->save() === false) {
+            return back()->with('errors', $publisher->errors());
+        }
+
+        if ($approved) {
+            $message = sprintf(_('Publisher #%s has been approved'), $publisher->id);
+        } else {
+            $message = sprintf(_('Publisher #%s has been unapproved'), $publisher->id);
+        }
+
+        return back()->with('success', $message);
+    }
 }

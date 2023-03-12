@@ -14,7 +14,7 @@
             <p class="subtitle game-platform">
                 {{ $game->platform_name }}
             </p>
-            <p class="text game-text">{{ $game->description }}</p>
+            <p class="text game-text">{{ strip_tags($game->description) }}</p>
             <p class="buttons">
                 <a href="{{ route('reviews.create', $game->id) }}" rel="nofollow" class="button is-primary">{{ _('Review this game') }}</a>
                 @if (!empty($href) and !empty($rel) and !empty($text))

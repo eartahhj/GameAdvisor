@@ -1490,3 +1490,83 @@ msgstr ""
 
 msgid "Anonymous reviewer"
 msgstr ""
+
+#, php-format
+msgid "Platform #%s has been approved"
+msgstr ""
+
+#, php-format
+msgid "Platform #%s has been unapproved"
+msgstr ""
+
+#, php-format
+msgid "Game #%s has been approved"
+msgstr ""
+
+#, php-format
+msgid "Game #%s has been unapproved"
+msgstr ""
+
+#, php-format
+msgid "Developer #%s has been approved"
+msgstr ""
+
+#, php-format
+msgid "Developer #%s has been unapproved"
+msgstr ""
+
+#, php-format
+msgid "Publisher #%s has been approved"
+msgstr ""
+
+#, php-format
+msgid "Publisher #%s has been unapproved"
+msgstr ""
+
+msgid "Really unapprove this platform?"
+msgstr ""
+
+msgid "Unapprove this platform"
+msgstr ""
+
+msgid "Really approve this platform?"
+msgstr ""
+
+msgid "Approve this platform"
+msgstr ""
+
+msgid "Really unapprove this game?"
+msgstr ""
+
+msgid "Unapprove this game"
+msgstr ""
+
+msgid "Really approve this game?"
+msgstr ""
+
+msgid "Approve this game"
+msgstr ""
+
+msgid "Really unapprove this developer?"
+msgstr ""
+
+msgid "Unapprove this developer"
+msgstr ""
+
+msgid "Really approve this developer?"
+msgstr ""
+
+msgid "Approve this developer"
+msgstr ""
+
+msgid "Really unapprove this publisher?"
+msgstr ""
+
+msgid "Unapprove this publisher"
+msgstr ""
+
+msgid "Really approve this publisher?"
+msgstr ""
+
+msgid "Approve this publisher"
+msgstr ""

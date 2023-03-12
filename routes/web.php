@@ -277,6 +277,11 @@ Route::group([
             LaravelLocalization::transRoute('routes.games.{game}'),
             [GameController::class, 'show']
         )->name('games.show');
+
+        Route::put(
+            LaravelLocalization::transRoute('routes.games.{game}.approve'),
+            [GameController::class, 'approve']
+        )->middleware(['auth', 'admin'])->name('games.approve');
         
         ### --- PLATFORMS --- ###
         Route::get(
@@ -314,6 +319,11 @@ Route::group([
             [PlatformController::class, 'show']
         )->name('platforms.show');
 
+        Route::put(
+            LaravelLocalization::transRoute('routes.platforms.{platform}.approve'),
+            [PlatformController::class, 'approve']
+        )->middleware(['auth', 'admin'])->name('platforms.approve');
+
         ### --- DEVELOPERS --- ###
         Route::get(
             LaravelLocalization::transRoute('routes.developers'),
@@ -350,7 +360,12 @@ Route::group([
             [DeveloperController::class, 'show']
         )->name('developers.show');
 
-        ### --- GAME PUBLISHERS --- ###
+        Route::put(
+            LaravelLocalization::transRoute('routes.developers.{developer}.approve'),
+            [DeveloperController::class, 'approve']
+        )->middleware(['auth', 'admin'])->name('developers.approve');
+
+        ### --- PUBLISHERS --- ###
         Route::get(
             LaravelLocalization::transRoute('routes.publishers'),
             [PublisherController::class, 'index']
@@ -385,6 +400,11 @@ Route::group([
             LaravelLocalization::transRoute('routes.publishers.{publisher}'),
             [PublisherController::class, 'show']
         )->name('publishers.show');
+
+        Route::put(
+            LaravelLocalization::transRoute('routes.publishers.{publisher}.approve'),
+            [PublisherController::class, 'approve']
+        )->middleware(['auth', 'admin'])->name('publishers.approve');
 
         ### --- PAGES --- ###
         Route::get(

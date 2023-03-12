@@ -91,6 +91,8 @@ class DeveloperController extends Controller
             $formFields['logo'] = $image;
         }
 
+        $formFields['approved'] = true;
+
         if ($newDeveloper = Developer::create($formFields)) {
             return redirect(route('developers.edit', $newDeveloper))->with('confirm', _('Developer created'));
         } else {
@@ -194,5 +196,35 @@ class DeveloperController extends Controller
             return redirect(route('developers.edit', $developer))->with('error', _('Error deleting developer'));
         }
 
+    }
+
+    public function approve(int $id)
+    {
+        if (!auth()->user()->is_superadmin) {
+            abort(401);
+        }
+
+        if (request()->input('approve') == 1) {
+            $approved = true;
+        } elseif (request()->input('unapprove') == 1) {
+            $approved = false;
+        } else {
+            return back()->with('error', _('An error occured during the approve/revoke operation'));
+        }
+
+        $developer = Developer::findOrFail($id);
+        $developer->approved = $approved;
+
+        if ($developer->save() === false) {
+            return back()->with('errors', $developer->errors());
+        }
+
+        if ($approved) {
+            $message = sprintf(_('Developer #%s has been approved'), $developer->id);
+        } else {
+            $message = sprintf(_('Developer #%s has been unapproved'), $developer->id);
+        }
+
+        return back()->with('success', $message);
     }
 }

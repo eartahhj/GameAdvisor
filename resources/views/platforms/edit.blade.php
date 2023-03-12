@@ -54,6 +54,8 @@
             @csrf
             @method('DELETE')
         </form>
+
+        <x-platforms.form-approve :platform="$platform" />
     
         <div class="buttons">
             <button type="submit" name="send" class="button is-primary" form="form-edit">
