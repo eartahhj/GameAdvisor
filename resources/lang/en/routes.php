@@ -54,8 +54,12 @@ return [
 
     'pages.{page}.edit' => 'pages/{page}/edit',
     'pages.{page}' => 'pages/{page}',
+    'pages.update' => 'pages/{page}',
+    'pages.delete' => 'pages/delete',
+    'pages.store' => 'pages/save',
     'pages.create' => 'pages/create',
     'pages.{page}.publish' => 'pages/{page}/publish',
+    'cookieConsent.modify' => 'modify-cookie-consent',
 
     'datarequests.create' => 'request-data',
     'datarequests.store' => 'request-data',

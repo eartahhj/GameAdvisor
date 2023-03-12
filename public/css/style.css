@@ -130,8 +130,13 @@ a.button[href] { text-decoration:none; }
 .template-standard .text ol { list-style-type:decimal; }
 .template-standard .text p { margin:0.5rem 0; }
 
-#cookie-policy-banner { background-color:var(--color-blue-medium); color:#fff; padding-top:1rem; padding-bottom:1rem; }
-#cookie-policy-banner .buttons { margin-top:1rem; }
+#cookie-policy-banner { background-color:var(--color-green); color:#222; padding-top:1rem; padding-bottom:1rem; }
+#cookie-policy-banner .buttons { margin-top:1rem; border-top:0; }
+#cookie-policy-banner .background-1 { color:#111; border:1px solid var(--gold); transition:background-color .4s, border .4s; }
+#cookie-policy-banner .button.background-1:hover { background-color:var(--orange); border:1px solid var(--orange); transition:background-color .4s, border .4s; }
+#cookie-policy-banner .text { padding-right:3rem; }
+#cookie-policy-banner .handler { position:absolute; right:0; top:0; width:2rem; height:2rem; border:1px solid var(--gold); background-color:var(--gold); transition:background-color .4s, border .4s; border-radius:50%; background-image:url('/img/svg/times-black.svg'); background-repeat:no-repeat; background-size:auto 1.5rem; background-position:center; }
+#cookie-policy-banner .handler:hover { border:1px solid var(--orange); background-color:var(--orange); transition:background-color .4s, border .4s; cursor:pointer; }
 
 #animations-switch-handler ~ #header-main-grid .switch-handler-label .off { display:none; }
 #animations-switch-handler ~ #header-main-grid .switch-handler-label .on { display:inline; }

@@ -9,11 +9,14 @@
 #home-section-1 .button.is-warning { background-color:var(--orange); }
 #home-section-1 .button.is-warning:hover { background-color:var(--gold); }
 
-#home-latest-reviews .button.is-info { background-color:var(--green); }
-#home-latest-reviews .button.is-info:hover { background-color:var(--green-dark); }
+#home-section-4 .button.is-success { background-color:var(--green-dark); }
+#home-section-4 .button.is-success:hover { background-color:var(--gray-dark); }
 
-#home-latest-games .button.is-info { background-color:var(--green); }
-#home-latest-games .button.is-info:hover { background-color:var(--green-dark); }
+#home-latest-reviews .button.is-info { background-color:var(--green-dark); }
+#home-latest-reviews .button.is-info:hover { background-color:var(--gray-dark); }
+
+#home-latest-games .button.is-info { background-color:var(--green-dark); }
+#home-latest-games .button.is-info:hover { background-color:var(--gray-dark); }
 
 @media only screen and (max-width:767px) {
     #home-intro .button { margin-bottom:1rem; margin-left:auto; margin-right:auto; display:inline-block; }

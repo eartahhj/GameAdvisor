@@ -208,4 +208,32 @@ class PageController extends Controller
 
         return back()->with('success', $message);
     }
+
+    public function modifyCookieConsentView()
+    {
+        self::$templateStylesheets[] = '/css/forms.css';
+
+        return view('pages/modifyCookieConsent', [
+            'templateJavascripts' => static::$templateJavascripts,
+            'templateStylesheets' => static::$templateStylesheets,
+            'pageTitle' => _('Modify your consent to cookies'),
+            'adsEnabled' => adsEnabled()
+        ]);
+    }
+
+    public function modifyCookieConsentAction(Request $request)
+    {
+        $currentConsent = $_COOKIE['cookiesConsent'];
+        $consentToAds = $request->input('ads');
+
+        $consentsGiven = ['technical'];
+
+        if (!empty($consentToAds)) {
+            $consentsGiven[] = 'ads';
+        }
+
+        setcookie('cookiesConsent', implode(',', $consentsGiven), time()+60*60*24*180);
+
+        return back()->with('success', _('Your consent to cookies has been updated!'));
+    }
 }

@@ -73,6 +73,7 @@ return [
     'pages.store' => 'pagine/salva',
     'pages.create' => 'pagine/crea',
     'pages.{page}.publish' => 'pagine/{page}/pubblica',
+    'cookieConsent.modify' => 'modify-cookie-consent',
 
     'datarequests.create' => 'richiedi',
     'datarequests.store' => 'richiedi',

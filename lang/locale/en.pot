@@ -1448,3 +1448,36 @@ msgstr ""
 
 msgid "Manage reviews"
 msgstr ""
+
+msgid "This website uses Matomo for statistics purposes. The data is anonymized by default and is stored in an European server controlled only by us. We do not share the data with third parties nor sell it to anyone."
+msgstr ""
+
+msgid "If you accept all cookies, it will also use Google Ads to show advertisement banners and allow us to support the costs for the server and the development of the platform."
+msgstr ""
+
+msgid "Accept only technical cookies"
+msgstr ""
+
+msgid "Accept all cookies"
+msgstr ""
+
+msgid "Read the full cookie policy"
+msgstr ""
+
+msgid "Modify cookie consent"
+msgstr ""
+
+msgid "Modify your consent to cookies"
+msgstr ""
+
+msgid "Your consent"
+msgstr ""
+
+msgid "Technical cookies (necessary)"
+msgstr ""
+
+msgid "Ads cookies"
+msgstr ""
+
+msgid "Your consent to cookies has been updated!"
+msgstr ""

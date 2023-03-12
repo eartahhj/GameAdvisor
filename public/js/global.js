@@ -19,7 +19,7 @@ function siteAnimations()
     $('#animations-switch-handler').change(function () {
         let isChecked = $(this).is(':checked');
         const d = new Date();
-        d.setTime(d.getTime() + (28*24*60*60*1000));
+        d.setTime(d.getTime() + (180*24*60*60*1000));
         let expires = "expires="+ d.toUTCString();
 
         if (isChecked) {
@@ -32,12 +32,27 @@ function siteAnimations()
     });
 }
 
-function closeCookieBanner()
+function acceptOnlyTechnicalCookies()
 {
     const d = new Date();
-    d.setTime(d.getTime() + (28*24*60*60*1000));
+    d.setTime(d.getTime() + (180*24*60*60*1000));
     let expires = "expires="+ d.toUTCString();
-    document.cookie = "privacy=ok; " + expires + "; path=/; secure; samesite=Strict;";
+    document.cookie = "cookiesConsent=technical; " + expires + "; path=/; secure; samesite=Strict;";
+
+    return document.getElementById('cookie-policy-banner').remove();
+}
+
+function acceptAllCookies()
+{
+    const d = new Date();
+    d.setTime(d.getTime() + (180*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = "cookiesConsent=technical,ads; " + expires + "; path=/; secure; samesite=Strict;";
+    
+    let adsScript = document.getElementById('gads-js');
+    let adsScriptSrc = adsScript.getAttribute('data-src');
+    adsScript.removeAttribute('data-src');
+    adsScript.setAttribute('src', adsScriptSrc);
 
     return document.getElementById('cookie-policy-banner').remove();
 }

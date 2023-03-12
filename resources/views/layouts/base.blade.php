@@ -15,9 +15,14 @@ try {
         <title>
             {{ $pageTitle }} - {{ env('APP_NAME') }}
         </title>
+        @if (env('APP_ENV') == 'production' and $adsEnabled)
+        <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+        @endif
+        <link rel="dns-prefetch" href="https://matomo.gaminghouse.community/">
         <link rel="preload" href="{{ asset('css/bulma/bulma.min.css') }}" as="style">
         <link rel="preload" href="{{ asset('css/style.css') }}" as="style">
         <link rel="preload" href="/vendor/fontawesome/css/all.min.css" as="style">
+        <link rel="preload" href="https://matomo.gaminghouse.community/matomo.js" as="script">
 
         <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
 
@@ -92,11 +97,13 @@ try {
         </script>
 
         @if (env('APP_ENV') == 'production')
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6766935573967740" crossorigin="anonymous"></script>
+        <script id="gads-js" async {{ ($adsEnabled ? 'src' : 'data-src') }}="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6766935573967740" crossorigin="anonymous"></script>
         @endif
     </head>
     <body>
-
+        <?php if ($showCookiePolicyBanner):?>
+        <x-cookie-banner></x-cookie-banner>
+        <?php endif?>
         <header id="header-main">
             <div class="container">
                 <?php /*
@@ -265,7 +272,7 @@ try {
         @endif
         </main>
 
-        @if (env('APP_ENV') == 'production')
+        @if (env('APP_ENV') == 'production' and $adsEnabled)
         <div id="gads-bottom" class="gads">
             <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6766935573967740" data-ad-slot="8905929447" data-ad-format="auto" data-full-width-responsive="true"></ins>
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -294,6 +301,9 @@ try {
                                 </li>
                                 <li>
                                     <a href="<?= page_url(4) ?>"><?= _('Cookie policy') ?></a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('cookieConsent.modify') }}"><?= _('Modify cookie consent') ?></a>
                                 </li>
                             </ul>
                         </nav>

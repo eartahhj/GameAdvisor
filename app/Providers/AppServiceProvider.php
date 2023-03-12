@@ -75,15 +75,15 @@ class AppServiceProvider extends ServiceProvider
         }
 
         $showCookiePolicyBanner = true;
-        $privacyCookie = request()->cookie('privacy');
         $cookiesConsent = request()->cookie('cookiesConsent');
-
-        if (!empty($privacyCookie)) {
-            $showCookiePolicyBanner = false;
-        }
+        $adsEnabled = false;
 
         if (!empty($cookiesConsent)) {
-            // dd($cookiesConsent);
+            $showCookiePolicyBanner = false;
+
+            if (strpos($cookiesConsent, 'ads')) {
+                $adsEnabled = true;
+            }
         }
 
         $matomoSiteId = env('MATOMO_SITEID');
@@ -97,8 +97,8 @@ class AppServiceProvider extends ServiceProvider
         View::share('locale', App::currentLocale());
         View::share('animationsEnabled', $animationsEnabled);
         View::share('languages', $languages);
-        View::share('showCookiePolicyBanner', $showCookiePolicyBanner);
         View::share('matomoTracker', $matomoTracker);
-        // View::share('hasUserAcceptedTracking', $hasUserAcceptedTracking);
+        View::share('showCookiePolicyBanner', $showCookiePolicyBanner);
+        View::share('adsEnabled', $adsEnabled);
     }
 }

@@ -422,6 +422,21 @@ Route::group([
             [PageController::class, 'show']
         )->name('pages.show');
 
+        Route::get(
+            LaravelLocalization::transRoute('routes.cookieConsent.modify'),
+            [PageController::class, 'modifyCookieConsentView']
+        )->name('cookieConsent.modify');
+
+        Route::post(
+            LaravelLocalization::transRoute('routes.cookieConsent.modify'),
+            [PageController::class, 'modifyCookieConsentAction']
+        );
+
+        Route::post(
+            LaravelLocalization::transRoute('routes.pages.store'),
+            [PageController::class, 'store']
+        )->middleware(['auth', 'admin'])->name('pages.store');
+
         ### --- ADMIN --- ###
         Route::get(
             LaravelLocalization::transRoute('routes.admin.index'),

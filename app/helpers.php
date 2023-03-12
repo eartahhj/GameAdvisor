@@ -186,3 +186,16 @@ if (!function_exists('getLanguage')) {
         return App::currentLocale();
     }
 }
+
+if (!function_exists('adsEnabled')) {
+    function adsEnabled(): int|false
+    {
+        $cookiesConsent = $_COOKIE['cookiesConsent'] ?? '';
+
+        if (strpos($cookiesConsent, 'ads')) {
+            return true;
+        }
+
+        return false;
+    }
+}
