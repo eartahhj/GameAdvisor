@@ -9,6 +9,7 @@ use App\Models\Developer;
 use App\Models\Publisher;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
 
 class GameController extends Controller
 {
@@ -117,14 +118,17 @@ class GameController extends Controller
             'image' => Game::returnImageValidationString()
         ]);
 
-        if ($request->hasFile('image')) {
-            $image = $game->uploadImage();
-            $formFields['image'] = $image;
-        }
-
         $formFields['approved'] = true;
 
         if ($newGame = Game::create($formFields)) {
+            if ($request->hasFile('image') and !empty(auth()->user()) and auth()->user()->email_verified_at) {
+                if ($image = $newGame->uploadImage()) {
+                    $newGame->image = $image;
+                    $newGame->save();
+                } else {
+                    $imageError = _('Your review has been created but there was an error uploading the image.');
+                }
+            }
             return redirect(route('games.edit', $newGame))->with('confirm', _('Game created'));
         } else {
             return redirect(route('games.create'))->with('error', _('Error creating game'));
