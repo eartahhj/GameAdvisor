@@ -26,9 +26,13 @@
     --color-yellow: #FFE34B;
     --color-green: #90d515;
     --font-title-regular: "LexendSemibold";
+    --font-title-2: "Arial";
+    --font-title-3: "Ubuntu";
     --font-link-regular: "Lexend";
+    --font-link-2: "Arial";
+    --font-link-3: "Ubuntu";
     --font-text-1: "Lexend";
-    --font-text-2: "Segoe UI";
+    --font-text-2: "Arial";
     --font-text-3: "Ubuntu";
     --gradient-primary: linear-gradient(105deg, #183d35 0%, rgb(6, 66, 46) 33%, rgb(7, 79, 35) 67%, rgb(13, 81, 17) 100%);
     --gradient-secondary: linear-gradient(105deg, rgb(201, 228, 240) 0%, rgb(125, 132, 177) 33%, rgb(144, 134, 205) 67%, rgb(182, 152, 218) 100%);
@@ -50,9 +54,9 @@
     .animated, .animated * { animation:none !important; }
 }
 
-html,body { font-family:var(--font-text-1); line-height:150%; }
-h1,h2,h3,h4,h5,h6 { font-family:var(--font-title-regular); font-weight:normal; }
-.title,.h1,.h2,.h3,.h4,.h5,.h6 { font-family:var(--font-title-regular); font-weight:normal; }
+html,body { font-family:var(--font-text-1), var(--font-text-2), var(--font-text-3); line-height:150%; }
+h1,h2,h3,h4,h5,h6 { font-family:var(--font-title-regular), var(--font-title-2), var(--font-title-3); font-weight:normal; }
+.title,.h1,.h2,.h3,.h4,.h5,.h6 { font-family:var(--font-title-regular), var(--font-title-2), var(--font-title-3); font-weight:normal; }
 
 img { display:block; width:auto; height:auto; }
 main a[href] { text-decoration:underline; color:var(--blue-dark); }
