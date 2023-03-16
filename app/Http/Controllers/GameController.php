@@ -80,7 +80,8 @@ class GameController extends Controller
                 'templateStylesheets' => static::$templateStylesheets,
                 'templateJavascripts' => static::$templateJavascripts,
                 'pageTitle' => $pageTitle,
-                'orderByOptions' => $orderByOptions
+                'orderByOptions' => $orderByOptions,
+                'pageHasAds' => true
             ],
             $responseCode
         );
@@ -109,7 +110,7 @@ class GameController extends Controller
             'platforms' => $platforms,
             'supportedImageFormats' => Game::returnImageSupportedFormatsString(),
             'developers' => $developers,
-            'publishers' => $publishers
+            'publishers' => $publishers,
         ]);
     }
 
@@ -193,7 +194,8 @@ class GameController extends Controller
             'templateStylesheets' => static::$templateStylesheets,
             'templateJavascripts' => static::$templateJavascripts,
             'pageTitle' => $pageTitle,
-            'numberOfVotes' => $numberOfVotes
+            'numberOfVotes' => $numberOfVotes,
+            'pageHasAds' => true
         ]);
     }
 
@@ -237,7 +239,7 @@ class GameController extends Controller
             'image' => $image,
             'supportedImageFormats' => Game::returnImageSupportedFormatsString(),
             'developers' => $developers,
-            'publishers' => $publishers
+            'publishers' => $publishers,
         ]);
     }
 

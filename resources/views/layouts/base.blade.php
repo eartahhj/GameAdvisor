@@ -15,7 +15,7 @@ try {
         <title>
             {{ $pageTitle }} - {{ env('APP_NAME') }}
         </title>
-        @if (env('APP_ENV') == 'production' and $adsEnabled)
+        @if (env('APP_ENV') == 'production' and $adsEnabled and $pageHasAds)
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
         @endif
         <link rel="dns-prefetch" href="https://matomo.gaminghouse.community/">
@@ -96,7 +96,7 @@ try {
         })();
         </script>
 
-        @if (env('APP_ENV') == 'production')
+        @if (env('APP_ENV') == 'production' and $pageHasAds)
         <script id="gads-js" async {{ ($adsEnabled ? 'src' : 'data-src') }}="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6766935573967740" crossorigin="anonymous"></script>
         @endif
     </head>
@@ -286,7 +286,7 @@ try {
         @endif
         </main>
 
-        @if (env('APP_ENV') == 'production' and $adsEnabled)
+        @if (env('APP_ENV') == 'production' and $adsEnabled and $pageHasAds)
         <div id="gads-bottom" class="gads">
             <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6766935573967740" data-ad-slot="8905929447" data-ad-format="auto" data-full-width-responsive="true"></ins>
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>

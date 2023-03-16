@@ -213,7 +213,8 @@ class ReviewController extends Controller
             'game' => $game,
             'review' => $review,
             'user' => $user,
-            'image' => $image
+            'image' => $image,
+            'pageHasAds' => true
         ]);
     }
 
@@ -359,7 +360,8 @@ class ReviewController extends Controller
             'reviews' => $reviews,
             'game' => $game,
             'pageTitle' => $pageTitle,
-            'orderByOptions' => $orderByOptions
+            'orderByOptions' => $orderByOptions,
+            'pageHasAds' => true
         ], $responseCode);
     }
 

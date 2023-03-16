@@ -58,7 +58,8 @@ class PublisherController extends Controller
                 'templateStylesheets' => static::$templateStylesheets,
                 'templateJavascripts' => static::$templateJavascripts,
                 'pageTitle' => $pageTitle,
-                'orderByOptions' => $orderByOptions
+                'orderByOptions' => $orderByOptions,
+                'pageHasAds' => true
             ],
             $responseCode
         );
@@ -120,7 +121,8 @@ class PublisherController extends Controller
             'pageTitle' => sprintf(_('Publisher: %s'), $publisher->name),
             'publisher' => $publisher,
             'numberOfGames' => $numberOfGames,
-            'image' => $logo
+            'image' => $logo,
+            'pageHasAds' => true
         ]);
     }
 

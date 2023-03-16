@@ -49,7 +49,8 @@ class PlatformController extends Controller
                 'templateStylesheets' => static::$templateStylesheets,
                 'templateJavascripts' => static::$templateJavascripts,
                 'pageTitle' => $pageTitle,
-                'orderByOptions' => $orderByOptions
+                'orderByOptions' => $orderByOptions,
+                'pageHasAds' => true
             ],
             $responseCode
         );
@@ -114,7 +115,8 @@ class PlatformController extends Controller
             'pageTitle' => $pageTitle,
             'platform' => $platform,
             'numberOfGames' => $numberOfGames,
-            'image' => $image
+            'image' => $image,
+            'pageHasAds' => true
         ]);
     }
 

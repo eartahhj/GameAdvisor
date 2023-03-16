@@ -100,5 +100,6 @@ class AppServiceProvider extends ServiceProvider
         View::share('matomoTracker', $matomoTracker);
         View::share('showCookiePolicyBanner', $showCookiePolicyBanner);
         View::share('adsEnabled', $adsEnabled);
+        View::share('pageHasAds', false);
     }
 }

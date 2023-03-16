@@ -59,7 +59,8 @@ class DeveloperController extends Controller
                 'templateStylesheets' => static::$templateStylesheets,
                 'templateJavascripts' => static::$templateJavascripts,
                 'pageTitle' => $pageTitle,
-                'orderByOptions' => $orderByOptions
+                'orderByOptions' => $orderByOptions,
+                'pageHasAds' => true
             ],
             $responseCode
         );
@@ -127,7 +128,8 @@ class DeveloperController extends Controller
             'pageTitle' => $pageTitle,
             'developer' => $developer,
             'numberOfGames' => $numberOfGames,
-            'logo' => $logo
+            'logo' => $logo,
+            'pageHasAds' => true
         ]);
     }
 
