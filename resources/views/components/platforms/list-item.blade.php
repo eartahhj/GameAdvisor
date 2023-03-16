@@ -11,7 +11,7 @@
             <h2 class="title is-4 platform-title">
                 <a href="{{ route('platforms.show', $platform->id) }}">{{ $platform->name }}</a>
             </h2>
-            <p class="text platform-text">{{ $platform->description }}</p>
+            <p class="text platform-text">{{ strip_tags($platform->description) }}</p>
             <p class="buttons">
                 @if (!empty($href) and !empty($rel) and !empty($text))
                 <a href="{{ $href }}" rel="{{ $rel }}" class="button is-secondary">{{ $text }}</a>

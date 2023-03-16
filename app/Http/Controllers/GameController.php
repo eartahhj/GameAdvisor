@@ -294,6 +294,10 @@ class GameController extends Controller
 
     public function approve(int $id)
     {
+        if (!auth()->user()) {
+            abort(401);
+        }
+        
         if (!auth()->user()->is_superadmin) {
             abort(401);
         }

@@ -11,7 +11,7 @@
             <h2 class="title is-4 publisher-title">
                 <a href="{{ route('publishers.show', $publisher->id) }}">{{ $publisher->name }}</a>
             </h2>
-            <p class="text publisher-text">{{ $publisher->description }}</p>
+            <p class="text publisher-text">{{ strip_tags($publisher->description) }}</p>
             <p class="buttons">
                 @if (!empty($href) and !empty($rel) and !empty($text))
                 <a href="{{ $href }}" rel="{{ $rel }}" class="button is-secondary">{{ $text }}</a>
