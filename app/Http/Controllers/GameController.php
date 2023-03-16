@@ -40,7 +40,7 @@ class GameController extends Controller
             ->when($publisherId, function($query, $publisherId) {
                 $query->where('games.publisher_id', '=', $publisherId);
             })
-            ->when(!auth()->user()->is_superadmin, function($query) {
+            ->when(auth()->user() and !auth()->user()->is_superadmin, function($query) {
                 $query->where('games.approved', 1);
             })
         ->orderBy($orderBy['column'], $orderBy['order'])
