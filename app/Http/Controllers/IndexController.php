@@ -27,7 +27,8 @@ class IndexController extends Controller
 
             'templateStylesheets' => static::$templateStylesheets,
             'templateJavascripts' => static::$templateJavascripts,
-            'pageTitle' => _('Reviewing games, made easy!')
+            'pageTitle' => _('Reviewing games, made easy!'),
+            'pageHasAds' => true
         ]);
     }
 
