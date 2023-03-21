@@ -48,6 +48,11 @@ class PublisherController extends Controller
             }
         }
 
+        $pageHasAds = true;
+        if ($publishers->isEmpty()) {
+            $pageHasAds = false;
+        }        
+
         return response()->view(
             'publishers.index',
             [
@@ -59,7 +64,7 @@ class PublisherController extends Controller
                 'templateJavascripts' => static::$templateJavascripts,
                 'pageTitle' => $pageTitle,
                 'orderByOptions' => $orderByOptions,
-                'pageHasAds' => true
+                'pageHasAds' => $pageHasAds
             ],
             $responseCode
         );
@@ -115,6 +120,11 @@ class PublisherController extends Controller
             $logo = \Image::make(\Storage::disk('public')->get($publisher->logo));
         }
 
+        $pageHasAds = true;
+        if ($publisher->description == '') {
+            $pageHasAds = false;
+        }
+
         return view('publishers.show', [
             'templateStylesheets' => static::$templateStylesheets,
             'templateJavascripts' => static::$templateJavascripts,
@@ -122,7 +132,7 @@ class PublisherController extends Controller
             'publisher' => $publisher,
             'numberOfGames' => $numberOfGames,
             'image' => $logo,
-            'pageHasAds' => true
+            'pageHasAds' => $pageHasAds
         ]);
     }
 

@@ -60,6 +60,11 @@ class ReviewController extends Controller
         if ($platformId !== false) {
             $platform = $platforms->where('id', $platformId)->first();
         }
+
+        $pageHasAds = true;
+        if ($reviews->isEmpty()) {
+            $pageHasAds = false;
+        } 
    
         return view('reviews.index', [
             'reviews' => $reviews,
@@ -69,7 +74,8 @@ class ReviewController extends Controller
             'orderByOptions' => $orderByOptions,
             'platforms' => $platforms,
             'platformId' => $platformId,
-            'ratings' => $ratings
+            'ratings' => $ratings,
+            'pageHasAds' => $pageHasAds
         ]);
     }
 
@@ -205,6 +211,11 @@ class ReviewController extends Controller
         if (!empty($review->image)) {
             $image = \Image::make(\Storage::disk('public')->get($review->image));
         }
+
+        $pageHasAds = true;
+        if (empty($review->text)) {
+            $pageHasAds = false;
+        }
         
         return view('reviews.show', [
             'templateStylesheets' => static::$templateStylesheets,
@@ -214,7 +225,7 @@ class ReviewController extends Controller
             'review' => $review,
             'user' => $user,
             'image' => $image,
-            'pageHasAds' => true
+            'pageHasAds' => $pageHasAds
         ]);
     }
 

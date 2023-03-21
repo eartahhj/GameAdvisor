@@ -68,6 +68,11 @@ class GameController extends Controller
             }
         }
 
+        $pageHasAds = true;
+        if ($games->isEmpty()) {
+            $pageHasAds = false;
+        }
+
         return response()->view(
             'games.index',
             [
@@ -81,7 +86,7 @@ class GameController extends Controller
                 'templateJavascripts' => static::$templateJavascripts,
                 'pageTitle' => $pageTitle,
                 'orderByOptions' => $orderByOptions,
-                'pageHasAds' => true
+                'pageHasAds' => $pageHasAds
             ],
             $responseCode
         );
@@ -183,6 +188,11 @@ class GameController extends Controller
         }
 
         $pageTitle = $game->title;
+        $pageHasAds = true;
+
+        if ($game->description == '') {
+            $pageHasAds = false;
+        }
 
         return view('games.show', [
             'game' => $game,
@@ -195,7 +205,7 @@ class GameController extends Controller
             'templateJavascripts' => static::$templateJavascripts,
             'pageTitle' => $pageTitle,
             'numberOfVotes' => $numberOfVotes,
-            'pageHasAds' => true
+            'pageHasAds' => $pageHasAds
         ]);
     }
 

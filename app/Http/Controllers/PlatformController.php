@@ -40,6 +40,11 @@ class PlatformController extends Controller
         self::$templateStylesheets[] = '/css/forms.css';
         self::$templateStylesheets[] = '/css/platforms.css';
 
+        $pageHasAds = true;
+        if ($platforms->isEmpty()) {
+            $pageHasAds = false;
+        }
+
         return response()->view(
             'platforms.index',
             [
@@ -50,7 +55,7 @@ class PlatformController extends Controller
                 'templateJavascripts' => static::$templateJavascripts,
                 'pageTitle' => $pageTitle,
                 'orderByOptions' => $orderByOptions,
-                'pageHasAds' => true
+                'pageHasAds' => $pageHasAds
             ],
             $responseCode
         );
@@ -109,6 +114,11 @@ class PlatformController extends Controller
             $image = \Image::make(\Storage::disk('public')->get($platform->image));
         }
 
+        $pageHasAds = true;
+        if ($platform->description == '') {
+            $pageHasAds = false;
+        }
+
         return view('platforms.show', [
             'templateStylesheets' => static::$templateStylesheets,
             'templateJavascripts' => static::$templateJavascripts,
@@ -116,7 +126,7 @@ class PlatformController extends Controller
             'platform' => $platform,
             'numberOfGames' => $numberOfGames,
             'image' => $image,
-            'pageHasAds' => true
+            'pageHasAds' => $pageHasAds
         ]);
     }
 

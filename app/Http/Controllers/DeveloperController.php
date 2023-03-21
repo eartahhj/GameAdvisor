@@ -49,6 +49,11 @@ class DeveloperController extends Controller
             }
         }
 
+        $pageHasAds = true;
+        if ($developers->isEmpty()) {
+            $pageHasAds = false;
+        }
+
         return response()->view(
             'developers.index',
             [
@@ -60,7 +65,7 @@ class DeveloperController extends Controller
                 'templateJavascripts' => static::$templateJavascripts,
                 'pageTitle' => $pageTitle,
                 'orderByOptions' => $orderByOptions,
-                'pageHasAds' => true
+                'pageHasAds' => $pageHasAds
             ],
             $responseCode
         );
@@ -120,6 +125,11 @@ class DeveloperController extends Controller
         
         if (!empty($developer->logo)) {
             $logo = \Image::make(\Storage::disk('public')->get($developer->logo));
+        }
+
+        $pageHasAds = true;
+        if ($developer->description == '') {
+            $pageHasAds = false;
         }
 
         return view('developers.show', [

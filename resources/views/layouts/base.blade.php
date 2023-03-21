@@ -285,7 +285,6 @@ try {
         </div>
         @endif
         </main>
-
         @if (env('APP_ENV') == 'production' and $adsEnabled and $pageHasAds)
         <div id="gads-bottom" class="gads">
             <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6766935573967740" data-ad-slot="8905929447" data-ad-format="auto" data-full-width-responsive="true"></ins>
