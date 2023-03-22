@@ -18,11 +18,11 @@ try {
         @if (env('APP_ENV') == 'production' and $adsEnabled and $pageHasAds)
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
         @endif
-        <link rel="dns-prefetch" href="https://matomo.gaminghouse.community/">
+        <link rel="dns-prefetch" href="https://matomo.gameadvisor.net/">
         <link rel="preload" href="{{ asset('css/bulma/bulma.min.css') }}" as="style">
         <link rel="preload" href="{{ asset('css/style.css') }}" as="style">
         <link rel="preload" href="/vendor/fontawesome/css/all.min.css" as="style">
-        <link rel="preload" href="https://matomo.gaminghouse.community/matomo.js" as="script">
+        <link rel="preload" href="https://matomo.gameadvisor.net/matomo.js" as="script">
 
         <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
 
@@ -88,9 +88,9 @@ try {
         _paq.push(['enableLinkTracking']);
         _paq.push(['enableHeartBeatTimer', 15]);
         (function() {
-        var u="https://matomo.gaminghouse.community/";
+        var u="https://matomo.gameadvisor.net/";
         _paq.push(['setTrackerUrl', u+'matomo.php']);
-        _paq.push(['setSiteId', '6']);
+        _paq.push(['setSiteId', '1']);
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
         })();
