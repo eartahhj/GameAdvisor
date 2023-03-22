@@ -8,9 +8,18 @@ fieldset.improved { border:1px solid #444;  margin-bottom:2rem; padding:1rem; }
 fieldset.improved:last-child  { margin-bottom:0; }
 fieldset.improved > legend { background-color:#222; color:#eee;  padding:0.3rem 1rem; border-radius:0.2rem; margin-left:-0.5rem; }
 
-.form-inline { display:flex; gap:1rem; }
 .form-inline .buttons { padding-top:0; border-top:0; }
+.form-inline .checkbox { margin-right:1rem; }
 
 .chosen-required { border:1px solid darkred; }
+
+@media only screen and (max-width:767px) {
+    .form-inline .grid-col { margin-bottom:1rem; }
+    .form-inline .buttons { margin-top:0; }
+}
+
+@media only screen and (min-width:768px) {
+    .form-inline { display:flex; gap:1rem; }
+}
 
 

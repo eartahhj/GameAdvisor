@@ -227,9 +227,8 @@ footer .title { color:#fff; }
     #nav-main .navbar-start { margin-top:1rem; margin-bottom:1rem; align-items:center; text-align:center; }
     #nav-main .navbar-start li { min-width:min-content; }
     #nav-main .switch { padding-right:1rem; }
+    #navbar-main-handler:checked ~ label { top:0; left:0; }
     label[for="navbar-main-handler"] { justify-content:center; margin-top:1rem; margin-bottom:1rem; }
-    #navbar-main-handler:checked ~ ul { top:14rem; }
-    #navbar-main-handler:checked ~ #nav-main-shadow { top:14rem; }
 
     .grid-mobile { display:grid; grid-template-columns:auto; }
 
@@ -278,8 +277,11 @@ footer .title { color:#fff; }
     #nav-main .navbar-start li a { color:#333; }
     #nav-main .navbar-start  li:hover a { color:#111; background-color:var(--orange); }
     #nav-main .navbar-start li.selected a { text-decoration:underline; }
-    #navbar-main-handler:checked ~ #nav-main-shadow { position:fixed; z-index:1; bottom:0; left:0; right:0; background-color:#000a; width:100%; height:100%; }
+    #navbar-main-handler:checked ~ label { position:fixed; right:0; z-index:2; }
+    #navbar-main-handler:checked ~ ul { top:4rem; }
+    #navbar-main-handler:checked ~ #nav-main-shadow { position:fixed; z-index:1; top:0; bottom:0; left:0; right:0; background-color:#000a; width:100%; height:100%; }
     #nav-main-shadow:hover { cursor:crosshair; }
+
 
     #navbar-auth { text-align:center; padding-top:0.5rem; padding-bottom:0.5rem; z-index:auto; }
     #navbar-auth-user-menu label { justify-content:center; }
@@ -288,9 +290,7 @@ footer .title { color:#fff; }
 @media only screen and (min-width:768px) and (max-width:1023px) {
     #nav-main { display:grid; grid-template-columns:6fr 4fr; align-items:center; column-gap:2rem; }
     #nav-main .navbar-start .navbar-item { padding:0.3rem; }
-
-    #navbar-main-handler:checked ~ ul { top:9rem; }
-    #navbar-main-handler:checked ~ #nav-main-shadow { top:9rem; }
+    #navbar-main-handler:checked ~ label { top:1rem; left:1rem; }
 }
 
 @media only screen and (min-width:1024px) {
@@ -305,7 +305,7 @@ footer .title { color:#fff; }
     #navbar-main-handler { display:none; }
     label[for="navbar-main-handler"] { display:none; }
 
-    #nav-main { align-items:center; }
+    #nav-main { align-items:center; gap:1rem; }
     #nav-main .navbar-start, #nav-main .navbar-end { display:flex; justify-content:center; }
     #nav-main .navbar-start a { font-size:1.05rem; }
     #nav-main .navbar-item:hover { background-color:var(--color-green); color:#111; border-radius:0.25rem; }

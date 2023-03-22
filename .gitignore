@@ -19,3 +19,4 @@ yarn-error.log
 /lang/locale/it
 /TODO.md
 .editorconfig
+/public/.htaccess

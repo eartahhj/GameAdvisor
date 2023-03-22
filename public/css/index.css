@@ -19,7 +19,7 @@
 #home-latest-games .button.is-info:hover { background-color:var(--gray-dark); }
 
 @media only screen and (max-width:767px) {
-    #home-intro .button { margin-bottom:1rem; margin-left:auto; margin-right:auto; display:inline-block; }
+    #home-intro .button { margin-bottom:1rem; margin-left:auto; margin-right:auto; display:inline-block; font-size:1rem; }
 }
 
 @media only screen and (min-width:1024px) {
